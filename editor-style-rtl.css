@@ -1,0 +1,27 @@
+/*
+Theme Name: RRZE-Basis
+Description: Used to style the TinyMCE editor.
+*/
+
+html .mceContentBody {
+	direction: rtl;
+	unicode-bidi: embed;
+	float: right;
+	width: 584px;
+}
+
+* {
+	font-family: "Droid Serif", Georgia, "Times New Roman", Times, serif;
+}
+
+ul, ol {
+	margin: 0 2.5em 1.625em 0;
+}
+
+blockquote {
+	font-style: normal;
+}
+
+table {
+	text-align: right;
+}

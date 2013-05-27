@@ -1,0 +1,1 @@
+<?php echo Theme_Tags::search_form( 'rrze-searchform', 'rrze-searchfield', 'rrze-searchbutton' );?>
