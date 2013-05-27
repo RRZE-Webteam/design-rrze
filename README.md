@@ -1,4 +1,4 @@
-RRZE Design
+Design RRZE
 ===========
 
 Wordpress Theme
