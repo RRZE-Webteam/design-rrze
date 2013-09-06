@@ -21,7 +21,8 @@ echo <<<EOL
     .rrze-hlist ul li:hover,
     .rrze-hlist ul li:active { background-color: [hover]; }
     .rrze-hlist ul li.current-menu-item > a,
-    .rrze-hlist ul li.current_page_item > a { background-color: [menu]; }
+    .rrze-hlist ul li.current_page_item > a,
+    .rrze-hlist ul li.current-cat > a { background-color: [menu]; }
     aside .widget-title { border-bottom-color: [widget-title]; color: [widget-title]; }
     aside .widget-title a { color: [widget-title] !important; }
     aside .widget-title a:hover, aside .widget-title a:focus, aside .widget-title a:active { background-color: [widget-hover]; color: #fff !important; }
@@ -109,19 +110,25 @@ echo <<<EOL
     footer .ym-vlist li a:focus,
     footer .ym-vlist li a:hover,
     footer .ym-vlist li a:active { background-color: [footer-hover]; }
+    footer .ym-vlist li.current-menu-item > a,
+    footer .ym-vlist li.current_page_item > a,
+    footer .ym-vlist li.current-cat > a { background-color: [footer-hover]; }
     footer .ym-vlist li ul li a:focus,
     footer .ym-vlist li ul li a:hover,
     footer .ym-vlist li ul li a:active { background-color: [footer-hover]; }
     footer .ym-vlist li ul li.current-menu-item > a,
-    footer .ym-vlist li ul li.current_page_item > a { background-color: [footer-hover]; }
+    footer .ym-vlist li ul li.current_page_item > a,
+    footer .ym-vlist li ul li.current-cat > a { background-color: [footer-hover]; }
     footer .ym-vlist li ul li ul li a:focus,
     footer .ym-vlist li ul li ul li a:hover,
     footer .ym-vlist li ul li ul li a:active { background-color: [footer-hover]; }
     footer .ym-vlist li ul li ul li.current-menu-item  > a,
-    footer .ym-vlist li ul li ul li.current_page_item  > a { background-color: [footer-hover]; }
+    footer .ym-vlist li ul li ul li.current_page_item  > a,
+    footer .ym-vlist li ul li ul li.current-cat  > a { background-color: [footer-hover]; }
     footer .ym-vlist li ul li ul li ul li a:focus,
     footer .ym-vlist li ul li ul li ul li a:hover,
     footer .ym-vlist li ul li ul li ul li a:active { background-color: [footer-hover]; }
     footer .ym-vlist li ul li ul li ul li.current-menu-item > a,
-    footer .ym-vlist li ul li ul li ul li.current_page_item > a { background-color: [footer-hover]; }
+    footer .ym-vlist li ul li ul li ul li.current_page_item > a,
+    footer .ym-vlist li ul li ul li ul li.current-cat > a { background-color: [footer-hover]; }
 EOL;

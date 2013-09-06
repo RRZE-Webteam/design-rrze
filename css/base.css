@@ -364,8 +364,10 @@
     /* Horizontal menu Active list element */   
     .rrze-hlist ul li.current-menu-item > a,
     .rrze-hlist ul li.current_page_item > a,
+    .rrze-hlist ul li.current-cat > a,
     .rrze-hlist ul li.current-menu-parent > a,
     .rrze-hlist ul li.current_page_parent > a,
+    .rrze-hlist ul li.current-cat-parent > a,
     .rrze-hlist ul li.current-menu-ancestor > a,
     .rrze-hlist ul li.current_page_ancestor > a {
         color: #FFFFFF;
@@ -454,7 +456,8 @@
     } /* LTR */
 
     .ym-vlist li.current-menu-item > a,
-    .ym-vlist li.current_page_item > a {
+    .ym-vlist li.current_page_item > a,
+    .ym-vlist li.current-cat > a {
         font-weight: bold;
         outline: 0 none;
     }
@@ -468,7 +471,8 @@
     }
     
     .ym-vlist li ul li.current-menu-item > a,
-    .ym-vlist li ul li.current_page_item > a {
+    .ym-vlist li ul li.current_page_item > a,
+    .ym-vlist li ul li.current-cat > a {
         font-weight: bold;
         outline: 0 none;
     }
@@ -487,7 +491,8 @@
     }
 
     .ym-vlist li ul li ul li.current-menu-item  > a,
-    .ym-vlist li ul li ul li.current_page_item  > a {
+    .ym-vlist li ul li ul li.current_page_item  > a,
+    .ym-vlist li ul li ul li.current-cat  > a {
         font-weight: bold;
         outline: 0 none;
     }
@@ -506,7 +511,8 @@
     }
 
     .ym-vlist li ul li ul li ul li.current-menu-item > a,
-    .ym-vlist li ul li ul li ul li.current_page_item > a {
+    .ym-vlist li ul li ul li ul li.current_page_item > a,
+    .ym-vlist li ul li ul li ul li.current-cat > a {
         font-weight: bold;
         outline: 0 none;
     }
@@ -781,7 +787,8 @@
     }
 
     footer .ym-vlist li.current-menu-item > a,
-    footer .ym-vlist li.current_page_item > a {
+    footer .ym-vlist li.current_page_item > a,
+    footer .ym-vlist li.current-cat > a {
         background-color: #555;
         color: #FFF;
         font-weight: normal;
@@ -790,6 +797,7 @@
 
     footer .ym-vlist li.current-menu-parent > a,
     footer .ym-vlist li.current_page_parent > a,
+    footer .ym-vlist li.current-cat-parent > a,
     footer .ym-vlist li.current-menu-ancestor > a,
     footer .ym-vlist li.current_page_ancestor > a {
         background-color: transparent;
@@ -812,7 +820,8 @@
     }
 
     footer .ym-vlist li ul li.current-menu-item > a,
-    footer .ym-vlist li ul li.current_page_item > a {
+    footer .ym-vlist li ul li.current_page_item > a,
+    footer .ym-vlist li ul li.current-cat > a {
         color: #FFF;
         font-weight: normal;
         outline: 0 none;
@@ -820,6 +829,7 @@
 
     footer .ym-vlist li ul li.current-menu-parent > a,
     footer .ym-vlist li ul li.current_page_parent > a,
+    footer .ym-vlist li ul li.current-cat-parent > a,
     footer .ym-vlist li ul li.current-menu-ancestor > a,
     footer .ym-vlist li ul li.current_page_ancestor > a {
         background-color: transparent;
@@ -842,7 +852,8 @@
     }
 
     footer .ym-vlist li ul li ul li.current-menu-item  > a,
-    footer .ym-vlist li ul li ul li.current_page_item  > a {
+    footer .ym-vlist li ul li ul li.current_page_item  > a,
+    footer .ym-vlist li ul li ul li.current-cat  > a {
         color: #FFF;
         font-weight: normal;
         outline: 0 none;
@@ -850,6 +861,7 @@
 
     footer .ym-vlist li ul li ul li.current-menu-parent > a,
     footer .ym-vlist li ul li ul li.current_page_parent > a,
+    footer .ym-vlist li ul li ul li.current-cat-parent > a,
     footer .ym-vlist li ul li ul li.current-menu-ancestor > a,
     footer .ym-vlist li ul li ul li.current_page_ancestor > a {
         background-color: transparent;
@@ -872,7 +884,8 @@
     }
 
     footer .ym-vlist li ul li ul li ul li.current-menu-item > a,
-    footer .ym-vlist li ul li ul li ul li.current_page_item > a {
+    footer .ym-vlist li ul li ul li ul li.current_page_item > a,
+    footer .ym-vlist li ul li ul li ul li.current-cat > a {
         color: #FFF;
         font-weight: normal;
         outline: 0 none;
@@ -880,6 +893,7 @@
 
     footer .ym-vlist li ul li ul li ul li.current-menu-parent > a,
     footer .ym-vlist li ul li ul li ul li.current_page_parent > a,
+    footer .ym-vlist li ul li ul li ul li.current-cat-parent > a,
     footer .ym-vlist li ul li ul li ul li.current-menu-ancestor > a,
     footer .ym-vlist li ul li ul li ul li.current_page_ancestor > a {
         background-color: transparent;
@@ -939,13 +953,15 @@
     
     .rrze-hlist ul li.current-menu-parent > a,
     .rrze-hlist ul li.current_page_parent > a,
+    .rrze-hlist ul li.current-cat-parent > a,
     .rrze-hlist ul li.current-menu-ancestor > a,
     .rrze-hlist ul li.current_page_ancestor > a {
         color: #AAAAAA;
     }
   
     .rrze-hlist ul li.current-menu-item > a,
-    .rrze-hlist ul li.current_page_item > a {
+    .rrze-hlist ul li.current_page_item > a,
+    .rrze-hlist ul li.current-cat > a {
         color: #FFFFFF;
 
     }
