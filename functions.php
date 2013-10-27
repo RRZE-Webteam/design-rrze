@@ -199,18 +199,21 @@ add_action( 'widgets_init', function() {
 } );
 
 add_action( 'wp_head', function() {
+    $options = _rrze_theme_options();
+    
+    printf( '<style type="text/css">%1$sbody {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['body.typography'] );
+    printf( '<style type="text/css">%1$sh1, h2, h3, h4, h5, h6 {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['heading.typography'] );
+    printf( '<style type="text/css">%1$s.rrze-hlist, .ym-searchform input {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['menu.typography'] );
+    printf( '<style type="text/css">%1$s.widget-title {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['widget.title.typography'] );
+    printf( '<style type="text/css">%1$s.ym-vlist, .widget-wrapper input, .widget-wrapper select, .widget-wrapper option {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['widget.content.typography'] );
+
     $header_image = get_header_image();
+    
     if ( $header_image )
         printf( '<style type="text/css">%1$sbody div#kopf div#title {background: url("%2$s") no-repeat scroll center top transparent;}%1$s</style>%1$s', PHP_EOL, $header_image );
-} );
 
-add_action( 'wp_head', function() {
-    $options = _rrze_theme_options();
     Template_Parser::print_template( $options, 'css/layout', '<style type="text/css">', '</style>' . PHP_EOL );
-} );
 
-add_action( 'wp_head', function() {
-    $options = _rrze_theme_options();
     Template_Parser::print_template( $options['color.style'], 'css/color', '<style type="text/css">', '</style>' . PHP_EOL );
 } );
 
@@ -281,7 +284,11 @@ function _rrze_bereichsmenu( $args ) {
     return $output;
 }
 
-function _rrze_tecmenu( $args ) {
+function _rrze_tecmenu_fallback( $args ) {
+    $http_host = filter_input(INPUT_SERVER, 'HTTP_HOST');
+    if( $http_host != 'blogs.fau.de')
+        return '';
+    
     global $current_blog, $post;
     
     if( is_page() )
