@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Design RRZE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-28 16:03+0100\n"
+"POT-Creation-Date: 2013-10-27 21:34+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: RRZE-Webteam\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../404.php:6 ../content-index.php:2 ../content-page.php:2
@@ -197,11 +197,11 @@ msgstr ""
 msgid "Zusatzinformationen"
 msgstr ""
 
-#: ../functions.php:45 ../inc/theme-options.php:214
+#: ../functions.php:45 ../inc/theme-options.php:239
 msgid "Grau"
 msgstr ""
 
-#: ../functions.php:50 ../header.php:44 ../inc/theme-options.php:102
+#: ../functions.php:50 ../header.php:44 ../inc/theme-options.php:127
 msgid "Bereichsmenü"
 msgstr ""
 
@@ -267,36 +267,36 @@ msgid ""
 "werden bei der Ausgabe auf dem Drucker nicht mit ausgegeben!"
 msgstr ""
 
-#: ../functions.php:263 ../inc/theme-tags.php:19 ../inc/theme-tags.php:56
+#: ../functions.php:266 ../inc/theme-tags.php:19 ../inc/theme-tags.php:56
 msgid "Startseite"
 msgstr ""
 
-#: ../functions.php:294
+#: ../functions.php:301
 msgid "Blogs@FAU"
 msgstr ""
 
-#: ../functions.php:295
+#: ../functions.php:302
 msgid "Forum"
 msgstr ""
 
-#: ../functions.php:296
+#: ../functions.php:303
 msgid "Hilfe"
 msgstr ""
 
-#: ../functions.php:297
+#: ../functions.php:304
 msgid "Kontakt"
 msgstr ""
 
-#: ../functions.php:298
+#: ../functions.php:305
 msgid "Nutzungsbedingungen"
 msgstr ""
 
-#: ../functions.php:330 ../inc/theme-options.php:25
-#: ../inc/theme-options.php:377
+#: ../functions.php:337 ../inc/theme-options.php:30
+#: ../inc/theme-options.php:441
 msgid "Einstellungen"
 msgstr ""
 
-#: ../functions.php:336
+#: ../functions.php:343
 msgid "Titel ausblenden"
 msgstr ""
 
@@ -324,136 +324,168 @@ msgstr ""
 msgid "Meta"
 msgstr ""
 
-#: ../inc/theme-options.php:7 ../inc/theme-options.php:473
+#: ../inc/theme-options.php:7 ../inc/theme-options.php:587
 #: ../inc/acf/core/fields/flexible_content.php:382
 #: ../inc/acf/core/fields/radio.php:160
 #: ../inc/acf/core/fields/repeater.php:527
 msgid "Layout"
 msgstr ""
 
-#: ../inc/theme-options.php:12
+#: ../inc/theme-options.php:12 ../inc/theme-options.php:95
+msgid "Schriftart"
+msgstr ""
+
+#: ../inc/theme-options.php:17
 msgid "Farben"
 msgstr ""
 
-#: ../inc/theme-options.php:74
+#: ../inc/theme-options.php:84
 msgid "Layouteinstellungen"
 msgstr ""
 
-#: ../inc/theme-options.php:76
+#: ../inc/theme-options.php:86
 msgid "Seitenlayout"
 msgstr ""
 
-#: ../inc/theme-options.php:78
+#: ../inc/theme-options.php:88
 msgid "Footer-Layout"
 msgstr ""
 
-#: ../inc/theme-options.php:80
+#: ../inc/theme-options.php:90
 msgid "Position des Suchformulars"
 msgstr ""
 
-#: ../inc/theme-options.php:85
+#: ../inc/theme-options.php:97
+msgid "Allgemein"
+msgstr ""
+
+#: ../inc/theme-options.php:99
+msgid "Überschrift"
+msgstr ""
+
+#: ../inc/theme-options.php:101
+msgid "Menü"
+msgstr ""
+
+#: ../inc/theme-options.php:103
+msgid "Widget-Titel"
+msgstr ""
+
+#: ../inc/theme-options.php:105
+#, fuzzy
+msgid "Widget-Inhalt"
+msgstr "Content"
+
+#: ../inc/theme-options.php:110
 msgid "Farbeinstellungen"
 msgstr ""
 
-#: ../inc/theme-options.php:89
+#: ../inc/theme-options.php:114
 msgid "Farbschemas"
 msgstr ""
 
-#: ../inc/theme-options.php:97
+#: ../inc/theme-options.php:122
 msgid "keiner"
 msgstr ""
 
-#: ../inc/theme-options.php:113
+#: ../inc/theme-options.php:138
 msgid "2 Spalten - linke Sidebar"
 msgstr ""
 
-#: ../inc/theme-options.php:118
+#: ../inc/theme-options.php:143
 msgid "2 Spalten - rechte Sidebar"
 msgstr ""
 
-#: ../inc/theme-options.php:123
+#: ../inc/theme-options.php:148
 msgid "3 Spalten - linke und rechte Sidebar"
 msgstr ""
 
-#: ../inc/theme-options.php:162
+#: ../inc/theme-options.php:187
 msgid "Menüfarbe"
 msgstr ""
 
-#: ../inc/theme-options.php:166
+#: ../inc/theme-options.php:191
 msgid "Titelfarbe"
 msgstr ""
 
-#: ../inc/theme-options.php:170
+#: ../inc/theme-options.php:195
 msgid "Linkfarbe"
 msgstr ""
 
-#: ../inc/theme-options.php:174
+#: ../inc/theme-options.php:199
 msgid "Hover-Farbe"
 msgstr ""
 
-#: ../inc/theme-options.php:178
+#: ../inc/theme-options.php:203
 msgid "Widget-Titel in Spalten"
 msgstr ""
 
-#: ../inc/theme-options.php:182
+#: ../inc/theme-options.php:207
 msgid "Widget-Linien in Spalten"
 msgstr ""
 
-#: ../inc/theme-options.php:186
+#: ../inc/theme-options.php:211
 msgid "Widget-Hover-Farbe in Spalten"
 msgstr ""
 
-#: ../inc/theme-options.php:190
+#: ../inc/theme-options.php:215
 msgid "Widget-Titel im Footer"
 msgstr ""
 
-#: ../inc/theme-options.php:194
+#: ../inc/theme-options.php:219
 msgid "Widget-Linien im Footer"
 msgstr ""
 
-#: ../inc/theme-options.php:198
+#: ../inc/theme-options.php:223
 msgid "Hover-Farbe im Footer"
 msgstr ""
 
-#: ../inc/theme-options.php:202
+#: ../inc/theme-options.php:227
 msgid "Hintergrundfarbe"
 msgstr ""
 
-#: ../inc/theme-options.php:220
+#: ../inc/theme-options.php:245
 msgid "Blau"
 msgstr ""
 
-#: ../inc/theme-options.php:226
+#: ../inc/theme-options.php:251
 msgid "Grün"
 msgstr ""
 
-#: ../inc/theme-options.php:232
+#: ../inc/theme-options.php:257
 msgid "Rot"
 msgstr ""
 
-#: ../inc/theme-options.php:242
+#: ../inc/theme-options.php:267
 msgid "Wählen Sie, welche Optionen aktivieren möchten."
 msgstr ""
 
-#: ../inc/theme-options.php:246
+#: ../inc/theme-options.php:271
+msgid ""
+"Geben Sie eine beliebige Schriftart ein um der Ihres Websites zu ändern. "
+"Andererseits, geben Sie einen Leerwert ein um den Standardschriftart wieder "
+"einzustellen."
+msgstr ""
+
+#: ../inc/theme-options.php:275
 msgid "Wählen Sie, welche Farbschema aktivieren möchten."
 msgstr ""
 
-#: ../inc/theme-options.php:295
+#: ../inc/theme-options.php:324
 msgid "Spalte"
 msgid_plural "Spalten"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../inc/theme-options.php:338
+#: ../inc/theme-options.php:402
 msgid "Benutzerdefiniertes"
 msgstr ""
 
-#: ../inc/theme-options.php:490
+#: ../inc/theme-options.php:604
 msgid "Spalten"
 msgstr ""
 
-#: ../inc/theme-options.php:512
+#: ../inc/theme-options.php:626
 msgid "Footer (Widgets)"
 msgstr ""
 
