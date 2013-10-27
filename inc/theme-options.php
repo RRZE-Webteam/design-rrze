@@ -7,6 +7,11 @@ function _rrze_options_pages() {
             'label' => __('Layout', '_rrze' )
         ),
         
+        'typography.options' => array( 
+            'value' => 'typography.options', 
+            'label' => __('Schriftart', '_rrze' )
+        ),
+        
         'color.options' => array( 
             'value' => 'color.options', 
             'label' => __('Farben', '_rrze' )
@@ -45,6 +50,11 @@ function _rrze_theme_default_options() {
 		'column.layout' => '1-3',
         'footer.layout' => '33-33-33',
 		'search.form.position' => 'bereichsmenu',
+        'body.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
+        'heading.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
+        'menu.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
+        'widget.title.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
+        'widget.content.typography' => '"Droid Sans", Arial, Helvetica, sans-serif'
 	);
 
     return apply_filters( '_rrze_default_theme_options', $options );
@@ -78,6 +88,21 @@ add_action( 'admin_init', function() {
     add_settings_field( 'footer.layout', __( 'Footer-Layout', '_rrze' ), '_rrze_field_footer_layout_callback', 'layout.options', 'layout.section' );
     
     add_settings_field( 'search.form', __( 'Position des Suchformulars', '_rrze' ), '_rrze_field_searchform_callback', 'layout.options', 'layout.section' );
+    
+    /* Typography options */
+    register_setting( 'typography.options', '_rrze_theme_options', '_rrze_theme_options_validate' );
+
+    add_settings_section( 'typography.section', __('Schriftart', '_rrze' ), '_rrze_section_typography_callback', 'typography.options' );
+
+    add_settings_field( 'body.typography', __('Allgemein', '_rrze' ), '_rrze_field_body_typography_callback', 'typography.options', 'typography.section' );
+
+    add_settings_field( 'heading.typography', __('Überschrift', '_rrze' ), '_rrze_field_heading_typography_callback', 'typography.options', 'typography.section' );
+
+    add_settings_field( 'menu.typography', __('Menü', '_rrze' ), '_rrze_field_menu_typography_callback', 'typography.options', 'typography.section' );
+
+    add_settings_field( 'widget.title.typography', __('Widget-Titel', '_rrze' ), '_rrze_field_widget_title_typography_callback', 'typography.options', 'typography.section' );
+
+    add_settings_field( 'widget.content.typography', __('Widget-Inhalt', '_rrze' ), '_rrze_field_widget_content_typography_callback', 'typography.options', 'typography.section' );
     
     /* Color options */
     register_setting( 'color.options', '_rrze_theme_options', '_rrze_theme_options_validate' );
@@ -242,6 +267,10 @@ function _rrze_section_layout_callback() {
     printf( '<p>%s</p>', __( 'Wählen Sie, welche Optionen aktivieren möchten.', '_rrze' ) );
 }
 
+function _rrze_section_typography_callback() {
+    printf( '<p>%s</p>', __( 'Geben Sie eine beliebige Schriftart ein um der Ihres Websites zu ändern. Andererseits, geben Sie einen Leerwert ein um den Standardschriftart wieder einzustellen.', '_rrze' ) );
+}
+
 function _rrze_section_color_style_callback() {
     printf( '<p>%s</p>', __( 'Wählen Sie, welche Farbschema aktivieren möchten.', '_rrze' ) );
 }
@@ -305,6 +334,41 @@ function _rrze_field_footer_layout_callback() {
 	</select>
 	<?php
 
+}
+
+function _rrze_field_body_typography_callback() {
+	$options = _rrze_theme_options();
+	?>
+    <input type="text" class="regular-text" name="_rrze_theme_options[body.typography]" value="<?php echo esc_attr($options['body.typography']); ?>" />
+	<?php
+}
+
+function _rrze_field_heading_typography_callback() {
+	$options = _rrze_theme_options();
+	?>
+    <input type="text" class="regular-text" name="_rrze_theme_options[heading.typography]" value="<?php echo esc_attr($options['heading.typography']); ?>" />
+	<?php
+}
+
+function _rrze_field_menu_typography_callback() {
+	$options = _rrze_theme_options();
+	?>
+    <input type="text" class="regular-text" name="_rrze_theme_options[menu.typography]" value="<?php echo esc_attr($options['menu.typography']); ?>" />
+	<?php
+}
+
+function _rrze_field_widget_title_typography_callback() {
+	$options = _rrze_theme_options();
+	?>
+    <input type="text" class="regular-text" name="_rrze_theme_options[widget.title.typography]" value="<?php echo esc_attr($options['widget.title.typography']); ?>" />
+	<?php
+}
+
+function _rrze_field_widget_content_typography_callback() {
+	$options = _rrze_theme_options();
+	?>
+    <input type="text" class="regular-text" name="_rrze_theme_options[widget.content.typography]" value="<?php echo esc_attr($options['widget.content.typography']); ?>" />
+	<?php
 }
 
 function _rrze_field_color_style_callback() {
@@ -396,10 +460,13 @@ function _rrze_theme_options_menu_page() {
 }
 
 function _rrze_theme_options_validate( $input ) {
+    $default_options = _rrze_theme_default_options();
     $options = _rrze_theme_options();
+    
     $custom_schema = '_custom';
     $custom_colors = array_map( 'strtoupper', $options['color.style'] );
     $color_schema_options = _rrze_color_schema_options();
+    
     foreach( $color_schema_options as $option ) {
         $colors = array_map( 'strtoupper', $option['colors'] );
         if( $options['color.schema'] == $option['value'] && array_diff_assoc( $custom_colors, $colors ) )
@@ -415,6 +482,41 @@ function _rrze_theme_options_validate( $input ) {
 	if ( isset( $input['footer.layout'] ) && array_key_exists( $input['footer.layout'], _rrze_footer_layout_options() ) )
 		$options['footer.layout'] = $input['footer.layout'];
     
+	if ( !empty( $input['body.typography'] ) ) {
+        if( _rrze_validate_font_family( $input['body.typography'] ) )
+            $options['body.typography'] = _rrze_replace_whitespaces( $input['body.typography'] );
+    } else {
+        $options['body.typography'] = $default_options['body.typography'];
+    }
+    
+	if ( !empty( $input['heading.typography'] ) ) {
+        if( _rrze_validate_font_family( $input['heading.typography'] ) )
+            $options['heading.typography'] = _rrze_replace_whitespaces( $input['heading.typography']);
+    } else {
+        $options['heading.typography'] = $default_options['heading.typography'];
+    }
+
+	if ( !empty( $input['menu.typography'] ) ) {
+        if( _rrze_validate_font_family( $input['menu.typography'] ) )
+            $options['menu.typography'] = _rrze_replace_whitespaces( $input['menu.typography']);
+    } else {
+        $options['menu.typography'] = $default_options['menu.typography'];
+    }
+
+	if ( !empty( $input['widget.title.typography'] ) ) {
+        if( _rrze_validate_font_family( $input['widget.title.typography'] ) )
+            $options['widget.title.typography'] = _rrze_replace_whitespaces( $input['widget.title.typography']);
+    } else {
+        $options['widget.title.typography'] = $default_options['widget.title.typography'];
+    }
+
+	if ( !empty( $input['widget.content.typography'] ) ) {
+        if( _rrze_validate_font_family( $input['widget.content.typography'] ) )
+            $options['widget.content.typography'] = _rrze_replace_whitespaces( $input['widget.content.typography']);
+    } else {
+        $options['widget.content.typography'] = $default_options['widget.content.typography'];
+    }
+    
 	if ( isset( $input['color.schema'] ) && array_key_exists( $input['color.schema'], $color_schema_options ) ) {
         if( $input['color.schema'] == $custom_schema ) {
             $options['color.style'] = $custom_colors;
@@ -428,6 +530,18 @@ function _rrze_theme_options_validate( $input ) {
 		$options['color.style'] = $input['color.style'];
         
     return apply_filters( '_rrze_theme_options_validate', $options, $input );
+}
+
+function _rrze_validate_font_family( $str ) {
+    if( preg_match( '/^([a-z0-9,_-\s"])+$/i', $str ) )
+        return true;
+    
+    return false;
+}
+
+function _rrze_replace_whitespaces( $str ) {
+    $str = preg_replace( '/\s+/', ' ', $str );
+    return implode( ', ', array_map( 'trim', explode( ',', $str ) ) );
 }
 
 function _rrze_validate_hex_color( $str ) {
