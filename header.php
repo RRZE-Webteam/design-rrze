@@ -42,12 +42,24 @@
             <nav id="bereichsmenu">
                 <div class="ym-wrapper">
                     <h2 class="ym-skip"><a name="bereichsmenumarke" id="bereichsmenumarke"><?php _e( 'Bereichsmenü', '_rrze' ); ?></a></h2>
-                    <div id="bereichsmenu-list" class="rrze-hlist">
-                        <?php wp_nav_menu( array( 'theme_location' => 'bereichsmenu', 'container' => '', 'menu_id' => 'menu-menubereichsmenu', 'fallback_cb' => '_rrze_bereichsmenu' ) ); ?>
-                        <?php if( _rrze_theme_options( 'search.form.position' ) == 'bereichsmenu' ) : ?>
-                        <?php echo Theme_Tags::search_form(); ?>
-                        <?php endif; ?>
-                    </div>
+                    <?php 
+                        $searchform = '';
+                        if( _rrze_theme_options( 'search.form.position' ) == 'bereichsmenu' ) :
+                            $searchform = sprintf('<div class="searchform">%s</div>', Theme_Tags::search_form());
+                        endif; 
+                    ?>                    
+                    <?php wp_nav_menu( 
+                            array( 
+                                'theme_location' => 'bereichsmenu',
+                                'container_class' => 'navmenu bereichsmenu',
+                                'menu_id' => 'menu-menubereichsmenu', 
+                                'menu_class' => 'dropdown',
+                                'fallback_cb' => '_rrze_bereichsmenu_fallback',
+                                'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>' . $searchform,
+                                'walker' => new Dropdown_Walker_Nav_Menu
+                            ) 
+                          ); 
+                    ?>
                 </div>
             </nav>
             <?php if( ! is_404() ): ?>

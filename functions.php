@@ -48,6 +48,7 @@ add_action( 'after_setup_theme', function() {
 	) );    
     
     register_nav_menu( 'bereichsmenu', __( 'Bereichsmenü', '_rrze' ) );
+    register_nav_menu( 'tecmenu', __( 'Technisches Menü', '_rrze' ) );
     
 } );
 
@@ -109,18 +110,17 @@ function _rrze_admin_header_style() {
         margin: 0;
 	}
 	#headimg h1 {
-        display: inline-block;
         background-color: rgba(255, 255, 255, 0.75);
-        font-size: 405%;
-        line-height: 56px;
+        font-size: 342.85714%;
+        line-height: 1.1em;
         margin-top: 36px;
+        overflow: hidden;
+        white-space:nowrap;
 	}
 	#headimg h3 {
         background-color: rgba(255, 255, 255, 0.55);
-        font-size: 200%;
-        line-height: 1em;
-        margin-top: 9px;
-
+        font-size: 171.42857%;
+        margin-top: 3px;
 	}
 	</style>
 <?php
@@ -203,7 +203,7 @@ add_action( 'wp_head', function() {
     
     printf( '<style type="text/css">%1$sbody {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['body.typography'] );
     printf( '<style type="text/css">%1$sh1, h2, h3, h4, h5, h6 {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['heading.typography'] );
-    printf( '<style type="text/css">%1$s.rrze-hlist, .ym-searchform input {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['menu.typography'] );
+    printf( '<style type="text/css">%1$s.dropdown {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['menu.typography'] );
     printf( '<style type="text/css">%1$s.widget-title {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['widget.title.typography'] );
     printf( '<style type="text/css">%1$s.ym-vlist, .widget-wrapper input, .widget-wrapper select, .widget-wrapper option {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['widget.content.typography'] );
 
@@ -216,16 +216,6 @@ add_action( 'wp_head', function() {
 
     Template_Parser::print_template( $options['color.style'], 'css/color', '<style type="text/css">', '</style>' . PHP_EOL );
 } );
-
-/**
-add_action( 'admin_enqueue_scripts', function() {
-    wp_enqueue_style( 'rrze-admin', sprintf('%s/css/admin.css', get_template_directory_uri() ) );
-    
-    wp_enqueue_style( 'wp-color-picker' );
-    wp_enqueue_script( 'rrze-admin', sprintf( '%s/js/admin.js', get_template_directory_uri() ), array( 'wp-color-picker' ), false, true );    
-} );
- * 
- */
 
 add_action( 'wp_enqueue_scripts', function() {
     $options = _rrze_theme_options();
@@ -258,7 +248,7 @@ add_filter( 'get_archives_link', function( $links ) {
     return $links;    
 } );
 
-function _rrze_bereichsmenu( $args ) {
+function _rrze_bereichsmenu_fallback( $args ) {
     // Siehe wp-includes/nav-menu-template.php
     extract( $args );
 
@@ -321,6 +311,23 @@ function _rrze_tecmenu_fallback( $args ) {
         echo $output;
 
     return $output;
+}
+
+add_filter('nav_menu_css_class', function($classes) {
+    if(in_array('menu-item-has-children', $classes))
+        $classes[] = 'sub';
+    
+    return $classes;
+});
+
+class Dropdown_Walker_Nav_Menu extends Walker_Nav_Menu {
+
+	function end_el( &$output, $item, $depth = 0, $args = array() ) {
+        if(!$depth)
+            $output .= "</li>\n<li class=\"divider\"></li>\n";
+        else
+            $output .= "</li>\n";
+	}
 }
 
 /**

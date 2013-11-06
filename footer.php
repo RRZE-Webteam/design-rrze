@@ -5,9 +5,16 @@
         <nav id="tecmenu">
             <div class="ym-wrapper">
                 <h2 class="ym-skip"><a name="hilfemarke" id="hilfemarke"><?php _e( 'Technisches Menü', '_rrze' ); ?></a></h2>
-                <div id="tecmenu-list" class="rrze-hlist">
-                    <?php wp_nav_menu( array( 'theme_location' => 'tecmenu', 'container' => '', 'menu_id' => 'menu-techmenu', 'fallback_cb' => '_rrze_tecmenu_fallback' ) ); ?>
-                </div>
+                <?php wp_nav_menu( 
+                        array( 
+                            'theme_location' => 'tecmenu',
+                            'container_class' => 'navmenu tecmenu',
+                            'menu_id' => 'menu-techmenu', 
+                            'menu_class' => 'dropdown clear',
+                            'fallback_cb' => '_rrze_tecmenu_fallback'
+                        ) 
+                      ); 
+                ?>                    
             </div>
         </nav>
         

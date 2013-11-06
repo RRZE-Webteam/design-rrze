@@ -102,18 +102,18 @@ class Theme_Tags {
         $req = get_option( 'require_name_email' );
         $aria_req = ( $req ? " aria-required='true'" : '' );
         $fields =  array(
-            'author' => '<div class="comment-form-author ym-fbox-text">' . '<label for="author">' . __( 'Name', '_rrze' ) . ( $req ? '<span class="required-item">*</span>' : '' ) . '</label> ' .
+            'author' => '<div class="comment-form-author ym-fbox ym-fbox-text">' . '<label for="author">' . __( 'Name', '_rrze' ) . ( $req ? '<span class="required-item">*</span>' : '' ) . '</label> ' .
                         '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" ' . $aria_req . ' /></div>',
-            'email'  => '<div class="comment-form-email ym-fbox-text"><label for="email">' . __( 'E-Mail', '_rrze' ) . ( $req ? '<span class="required-item">*</span>' : '' ) . '</label> ' . 
+            'email'  => '<div class="comment-form-email ym-fbox ym-fbox-text"><label for="email">' . __( 'E-Mail', '_rrze' ) . ( $req ? '<span class="required-item">*</span>' : '' ) . '</label> ' . 
                         '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" ' . $aria_req . ' /></div>',
-            'url'    => '<div class="comment-form-url ym-fbox-text"><label for="url">' . __( 'Webauftritt', '_rrze' ) . '</label>' .
+            'url'    => '<div class="comment-form-url ym-fbox ym-fbox-text"><label for="url">' . __( 'Webauftritt', '_rrze' ) . '</label>' .
                         '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" /></div>',
         );
 
         $required_text = sprintf( ' ' . __( 'Erforderliche Felder sind %s markiert', '_rrze' ), '<span class="required">*</span>' );
         $defaults = array(
             'fields'               => apply_filters( 'comment_form_default_fields', $fields ),
-            'comment_field'        => '<div class="comment-form-comment ym-fbox-text"><label for="comment">' . __( 'Kommentar', '_rrze' ) . '</label><textarea id="comment" name="comment" rows="8" aria-required="true"></textarea></div>',
+            'comment_field'        => '<div class="comment-form-comment ym-fbox ym-fbox-text"><label for="comment">' . __( 'Kommentar', '_rrze' ) . '</label><textarea id="comment" name="comment" rows="8" aria-required="true"></textarea></div>',
             'must_log_in'          => '<p class="must-log-in">' . sprintf( __( 'Sie müssen <a href="%s">angemeldet sein</a>, um einen Kommentar abzugeben.', '_rrze' ), wp_login_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
             'logged_in_as'         => '<p class="logged-in-as">' . sprintf( __( 'Angemeldet als <a href="%1$s">%2$s</a>. <a href="%3$s" title="Aus diesem account abmelden">Abmelden?</a>', '_rrze' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
             'comment_notes_before' => '<p class="comment-notes">' . __( 'Ihre Email-Adresse wird nicht veröffentlicht.', '_rrze' ) . ( $req ? $required_text : '' ) . '</p>',
@@ -153,7 +153,7 @@ class Theme_Tags {
                         <?php endif; ?>
                         <?php echo apply_filters( 'comment_form_field_comment', $args['comment_field'] ); ?>
                         <?php echo $args['comment_notes_after']; ?>
-                        <div class="form-submit ym-fbox-button">
+                        <div class="ym-fbox-footer ym-fbox-button">
                             <input name="submit" type="submit" id="<?php echo esc_attr( $args['id_submit'] ); ?>" value="<?php echo esc_attr( $args['label_submit'] ); ?>" />
                             <?php comment_id_fields( $post_id ); ?>
                         </div>

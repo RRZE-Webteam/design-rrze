@@ -14,15 +14,31 @@ echo <<<EOL
     nav#breadcrumb div.ym-hlist ul li a:focus,
     nav#breadcrumb div.ym-hlist ul li a:hover,
     nav#breadcrumb div.ym-hlist ul li a:active { background-color: [hover]; }
-    .ym-searchform .ym-searchbutton { background-color: [hover]; }
-    .rrze-hlist { background-color: [menu]; }
-    .rrze-hlist ul li { background-color: [menu]; }
-    .rrze-hlist ul li:focus,
-    .rrze-hlist ul li:hover,
-    .rrze-hlist ul li:active { background-color: [hover]; }
-    .rrze-hlist ul li.current-menu-item > a,
-    .rrze-hlist ul li.current_page_item > a,
-    .rrze-hlist ul li.current-cat > a { background-color: [menu]; }
+    ul.dropdown a:hover,
+    ul.dropdown a:focus { background-color: [hover]; }
+    .navmenu, 
+    .navmenu ul.dropdown { background: [menu]; }
+    .navmenu ul.dropdown ul { background: [menu]; }
+    .navmenu ul.dropdown a,
+    .navmenu ul.dropdown a:visited,	
+    .navmenu ul.dropdown a:hover, 		
+    .navmenu ul.dropdown a:active, 
+    .navmenu ul.dropdown li { color: #fff; }
+    .navmenu ul.dropdown li:hover, 
+    .navmenu ul.dropdown li.hover { background-color: [hover]; color: #fff; }
+    .navmenu ul.dropdown ul li { border-bottom:1px solid [background]; }
+    .navmenu ul.dropdown ul li.hover, 
+    .navmenu ul.dropdown ul li:hover { background-color: [hover];  color: #fff; }
+    .navmenu ul.dropdown ul li a:hover { color: #fff; }
+    .navmenu ul.dropdown li.divider{ background-color: [background];  }
+    nav#tecmenu .navmenu ul.dropdown ul { background: [footer-widget-linien]; }
+    nav#tecmenu ul.dropdown a:hover,
+    nav#tecmenu ul.dropdown a:focus { background-color: [footer-hover]; }
+    nav#tecmenu .navmenu ul.dropdown li:hover, 
+    nav#tecmenu .navmenu ul.dropdown li.hover { background-color: [footer-hover]; color: #fff; }
+    nav#tecmenu .navmenu ul.dropdown ul li { border-bottom:1px solid [background]; }
+    nav#tecmenu .navmenu ul.dropdown ul li.hover, 
+    nav#tecmenu .navmenu ul.dropdown ul li:hover { background-color: [footer-hover];  color: #fff; }
     aside .widget-title { border-bottom-color: [widget-title]; color: [widget-title]; }
     aside .widget-title a { color: [widget-title] !important; }
     aside .widget-title a:hover, aside .widget-title a:focus, aside .widget-title a:active { background-color: [widget-hover]; color: #fff !important; }
@@ -49,7 +65,7 @@ echo <<<EOL
     aside .textwidget { border-bottom-color: [widget-linien]; }
     aside .tagcloud a:hover, 
     aside .tagcloud a:focus { background-color: [widget-hover]; color: #fff }
-    .rrze-searchform .rrze-searchbutton { background-color: [widget-title]; }
+    .searchbutton { background-color: [widget-title]; }
     .ym-vlist ul { border-bottom-color: [widget-linien]; }
 	.ym-vlist a { border-bottom-color: [widget-linien]; }
 	.ym-vlist li a:focus,
@@ -82,7 +98,7 @@ echo <<<EOL
     footer .widget-title { border-bottom-color: [footer-widget-title]; color: [footer-widget-title]; }
     footer .widget-title a { color: [footer-widget-title] !important; }
     footer .widget-title a:hover, footer .widget-title a:focus, footer .widget-title a:active { background-color: [footer-hover]; color: #fff !important; }
-    footer .rrze-searchform .rrze-searchbutton { background-color: [footer-widget-linien]; }
+    footer .searchbutton { background-color: [footer-widget-linien]; }
     footer table#wp-calendar { border-top-color: [footer-widget-title]; border-bottom-color: [footer-widget-linien]; }
     footer table#wp-calendar a, 
     footer table#wp-calendar a:visited { background-color: [footer-widget-linien]; }
@@ -132,3 +148,28 @@ echo <<<EOL
     footer .ym-vlist li ul li ul li ul li.current_page_item > a,
     footer .ym-vlist li ul li ul li ul li.current-cat > a { background-color: [footer-hover]; }
 EOL;
+echo PHP_EOL;
+echo <<<EOL
+}
+EOL;
+echo PHP_EOL;
+echo <<<EOL
+@media screen and (max-width: 760px) {
+EOL;
+echo PHP_EOL;
+echo <<<EOL
+    .menu-icon span { background-color: [hover]; }
+    ul.dropdown{ border-top:1px solid [background]; }
+    ul.dropdown  li { border-bottom: 1px solid [background];}
+    ul.dropdown  ul a:hover  { background-color: [hover];}
+    ul.dropdown li.sub > a.current{ background: [hover];  }
+    ul.dropdown li.sub > ul a.current{ background: [hover];  }
+    ul.dropdown li.sub > a:after { color: [background]; }	
+    ul.dropdown li.sub > a.current:after { color: [background]; }
+    .searchform { background-color: [hover];
+EOL;
+echo PHP_EOL;
+echo <<<EOL
+}
+EOL;
+echo PHP_EOL;

@@ -15,42 +15,43 @@ jQuery(document).ready(function($)
             $(this).parent().find('ul:first').show();
         });   
     }
-    
-    $(window).resize(function()
-    {
-        if ($(document).width() > '760')
-        {
-            $('.rrze-hlist').find('ul ul').hide();
-            
-            $('.rrze-hlist').keyDropDown();
-        }
-        else
-        {
-            $('.rrze-hlist').find('ul ul').show();
-            
-            $('.rrze-hlist li').hover(function()
-            {
-                $('ul:first',this).stop().show();
-
-            }, function(){
-                $('ul:first',this).stop().show();
-
-            });
-
-            $('.rrze-hlist li a').focus(function()
-            {
-                $(this).parent().parent().find('ul').show();
-                $(this).parent().find('ul:first').show();
-            });   
-            
-        }
-
-    });
-    
+        
     if ($(document).width() > '760')
     {
-        $('.rrze-hlist').keyDropDown();  
+        $('.dropdown').keyDropDown();  
 
     }
+
+    $(function(){		   	
+        $('ul.dropdown li').hover(function(){			
+            $(this).addClass('hover');
+            $('ul:first',this).css('display', 'block');
+        }, function(){
+            $(this).removeClass('hover');
+            $('ul:first',this).css('display', 'none');
+        });	
+    });
+
+    $(function() {
+        $('.navmenu.bereichsmenu').prepend('<div class="menu-icon bereichsmenu"><span>Menu</span></div>');
+        $('.menu-icon.bereichsmenu').click(function(){						
+            $('.bereichsmenu ul.dropdown').slideToggle();
+            $(this).toggleClass("active");	
+        });	
+
+        $('.navmenu.tecmenu').prepend('<div class="menu-icon tecmenu"><span>Menu</span></div>');
+        $('.menu-icon.tecmenu').click(function(){						
+            $('.tecmenu ul.dropdown').slideToggle();
+            $(this).toggleClass("active");	
+        });	
+
+        var $toggleMenu = $('.sub > a');
+        $toggleMenu.click(function(e) {
+            e.preventDefault();
+            var $this = $(this);
+            $this.toggleClass('current').next('ul').toggleClass('current');
+        });	
+
+    });
 
 });
