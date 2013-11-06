@@ -48,7 +48,9 @@ add_action( 'after_setup_theme', function() {
 	) );    
     
     register_nav_menu( 'bereichsmenu', __( 'Bereichsmenü', '_rrze' ) );
-    register_nav_menu( 'tecmenu', __( 'Technisches Menü', '_rrze' ) );
+    
+    if( ! is_blogs_fau_de() )
+        register_nav_menu( 'tecmenu', __( 'Technisches Menü', '_rrze' ) );
     
 } );
 
@@ -275,8 +277,7 @@ function _rrze_bereichsmenu_fallback( $args ) {
 }
 
 function _rrze_tecmenu_fallback( $args ) {
-    $http_host = filter_input(INPUT_SERVER, 'HTTP_HOST');
-    if( $http_host != 'blogs.fau.de')
+    if( ! is_blogs_fau_de() )
         return '';
     
     global $current_blog, $post;
@@ -328,6 +329,14 @@ class Dropdown_Walker_Nav_Menu extends Walker_Nav_Menu {
         else
             $output .= "</li>\n";
 	}
+}
+
+function is_blogs_fau_de() {
+    $http_host = filter_input(INPUT_SERVER, 'HTTP_HOST');
+    if( $http_host == 'blogs.fau.de')
+        return true;
+    else
+        return false;
 }
 
 /**
