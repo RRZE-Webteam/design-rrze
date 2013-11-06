@@ -1014,7 +1014,7 @@
     /* Aside columns */
     div#main aside.ym-col1,
     div#main aside.ym-col2 {
-        display: none !important;
+        /* display: none !important; */
     }
     
     /* Breadcrumb */
