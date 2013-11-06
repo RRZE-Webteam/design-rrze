@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Design RRZE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-27 21:34+0100\n"
+"POT-Creation-Date: 2013-11-06 21:21+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: RRZE-Webteam\n"
@@ -186,11 +186,11 @@ msgstr ""
 msgid "Statusmitteilung"
 msgstr ""
 
-#: ../footer.php:7
+#: ../footer.php:7 ../functions.php:51
 msgid "Technisches Menü"
 msgstr ""
 
-#: ../footer.php:19
+#: ../footer.php:26
 msgid "Zusatzinformationen"
 msgstr ""
 
@@ -202,14 +202,14 @@ msgstr ""
 msgid "Bereichsmenü"
 msgstr ""
 
-#: ../functions.php:70
+#: ../functions.php:71
 #, php-format
 msgid ""
 "Ihre PHP-Version %s ist veraltet. Bitte aktualisieren Sie mindestens auf die "
 "PHP-Version %s"
 msgstr ""
 
-#: ../functions.php:74
+#: ../functions.php:75
 #, php-format
 msgid ""
 "Ihre Wordpress-Version %s ist veraltet. Bitte aktualisieren Sie mindestens "
@@ -264,36 +264,36 @@ msgid ""
 "werden bei der Ausgabe auf dem Drucker nicht mit ausgegeben!"
 msgstr ""
 
-#: ../functions.php:266 ../inc/theme-tags.php:19 ../inc/theme-tags.php:56
+#: ../functions.php:256 ../inc/theme-tags.php:19 ../inc/theme-tags.php:56
 msgid "Startseite"
 msgstr ""
 
-#: ../functions.php:301
+#: ../functions.php:291
 msgid "Blogs@FAU"
 msgstr ""
 
-#: ../functions.php:302
+#: ../functions.php:292
 msgid "Forum"
 msgstr ""
 
-#: ../functions.php:303
+#: ../functions.php:293
 msgid "Hilfe"
 msgstr ""
 
-#: ../functions.php:304
+#: ../functions.php:294
 msgid "Kontakt"
 msgstr ""
 
-#: ../functions.php:305
+#: ../functions.php:295
 msgid "Nutzungsbedingungen"
 msgstr ""
 
-#: ../functions.php:337 ../inc/theme-options.php:30
+#: ../functions.php:344 ../inc/theme-options.php:30
 #: ../inc/theme-options.php:441
 msgid "Einstellungen"
 msgstr ""
 
-#: ../functions.php:343
+#: ../functions.php:350
 msgid "Titel ausblenden"
 msgstr ""
 
@@ -313,7 +313,7 @@ msgstr ""
 msgid "Zu den Zusatzinformationen springen"
 msgstr ""
 
-#: ../header.php:56
+#: ../header.php:68
 msgid "Breadcrumb"
 msgstr ""
 
