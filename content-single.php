@@ -17,7 +17,7 @@
                 <?php wp_link_pages( array( 'before' => '<nav id="nav-pages"><div class="ym-wbox"><span>' . __( 'Seiten:', '_rrze' ) . '</span>', 'after' => '</div></nav>' ) ); ?>
             </div>
 
-            <footer class="entry-footer">
+            <footer class="entry-footer clear">
                 <div class="ym-wbox">
                     <?php
                     $categories_list = get_the_category_list(', ');

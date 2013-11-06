@@ -15,7 +15,7 @@
                 <?php wp_link_pages( array( 'before' => '<nav id="nav-pages"><div class="ym-wbox"><span>' . __( 'Seiten:', '_rrze' ) . '</span>', 'after' => '</div></nav>' ) ); ?>
             </div>
 
-            <footer class="entry-meta">
+            <footer class="entry-meta clear">
                 <?php edit_post_link( __( '(Bearbeiten)', '_rrze' ), '<div class="ym-wbox"><span class="edit-link">', '</span></div>' ); ?>
             </footer>
         </article>

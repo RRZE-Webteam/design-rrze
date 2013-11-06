@@ -19,7 +19,7 @@
             <?php wp_link_pages( array( 'before' => '<nav id="nav-pages"><div class="ym-wbox"><span>' . __( 'Seiten:', '_rrze' ) . '</span>', 'after' => '</div></nav>' ) ); ?>
         </div>
     <?php endif; ?>
-    <footer class="entry-footer">
+    <footer class="entry-footer clear">
         <?php if( comments_open() ) : ?>
         <div class="ym-wbox">
             <span class="comments-link"><?php comments_popup_link( '<span class="leave-reply">' . __( 'Kommentar hinterlassen', '_rrze' ) . '</span>', __( '<b>1</b> Kommentar', '_rrze' ), __( '<b>%</b> Kommentare', '_rrze' ) ); ?></span>
