@@ -12,8 +12,12 @@
         </aside>
         
         <div class="ym-col3">
-            <?php get_template_part( 'content', 'index' ); ?>
+            <div class="ym-cbox ym-clearfix">
+                <?php get_template_part( 'content', 'index' ); ?>
+            </div>
         </div>
+        <!-- .ym-ie-clearing only needed for IE6 & 7 support -->
+        <div class="ym-ie-clearing">&nbsp;</div>        
         
     <?php elseif( _rrze_theme_options( 'column.layout' ) == '1-3' ) : ?>
         <aside class="ym-col1 ym-noprint">
@@ -21,7 +25,9 @@
         </aside>
         
         <div class="ym-col3">
-            <?php get_template_part( 'content', 'index' ); ?>
+            <div class="ym-cbox">
+                <?php get_template_part( 'content', 'index' ); ?>
+            </div>
         </div>
         
     <?php elseif( _rrze_theme_options( 'column.layout' ) == '2-3' ) : ?>
@@ -30,7 +36,9 @@
         </aside>
         
         <div class="ym-col3">
-            <?php get_template_part( 'content', 'index' ); ?>
+            <div class="ym-cbox">
+                <?php get_template_part( 'content', 'index' ); ?>
+            </div>
         </div>
    
     <?php endif; ?>
