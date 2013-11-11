@@ -10,12 +10,13 @@
                             'theme_location' => 'tecmenu',
                             'container_class' => 'navmenu tecmenu',
                             'menu_id' => 'menu-techmenu', 
-                            'menu_class' => 'dropdown clear',
+                            'menu_class' => 'dropdown',
                             'fallback_cb' => '_rrze_tecmenu_fallback'
                         ) 
                       ); 
                 ?>                    
             </div>
+            <div class="ym-clearfix"></div>
         </nav>
         
         <footer>

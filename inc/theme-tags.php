@@ -6,7 +6,7 @@ class Theme_Tags {
             '<form class="%s" role="search" method="get" id="searchform" action="%s" >
                 <input class="%s" type="search" placeholder="%s" value="%s" name="s" id="s" />
                 <input class="%s" type="submit" value="%s" />
-            </form>', $formclass, esc_url( home_url( '/' ) ), $fieldclass, esc_attr__( 'Suchen...', '_rrze' ), get_search_query(), $buttonclass, esc_attr__( 'Suchen', '_rrze' ) );
+            </form><div class="ym-clearfix"></div>', $formclass, esc_url( home_url( '/' ) ), $fieldclass, esc_attr__( 'Suchen...', '_rrze' ), get_search_query(), $buttonclass, esc_attr__( 'Suchen', '_rrze' ) );
         return $form;
     }
 
