@@ -56,7 +56,7 @@
                                 'menu_class' => 'dropdown',
                                 'fallback_cb' => '_rrze_bereichsmenu_fallback',
                                 'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>' . $searchform,
-                                'walker' => new Dropdown_Walker_Nav_Menu
+                                //'walker' => new Dropdown_Walker_Nav_Menu
                             ) 
                           ); 
                     ?>
