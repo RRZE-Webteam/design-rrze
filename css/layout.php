@@ -8,7 +8,7 @@ if( $data['column.layout'] == '1-2-3' ) :
 echo <<<EOL
     #main-column > .ym-col1 { width: 25%; } /* left column */
     #main-column > .ym-col2 { width: 25%; } /* right column */
-    #main-column > .ym-col3 { width: 50%; margin-left: 25%; margin-right: 25%; } /* center column */
+    #main-column > .ym-col3 { margin: 0 25%; } /* center column */
 EOL;
 elseif( $data['column.layout'] == '1-3' ) :
 echo <<<EOL

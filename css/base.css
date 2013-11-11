@@ -190,7 +190,6 @@
         margin-left: 1.625em;
     }
     .aligncenter {
-        clear: both;
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -471,7 +470,7 @@
         border-top: 4px solid #888;
     }
 
-    .widget_search {
+    #searchform {
         background: none repeat scroll 0 0 transparent;
         white-space: nowrap;
     }
@@ -499,10 +498,6 @@
         border-radius: 0;
         text-shadow: none;
         width: 24%;
-    }
-    
-    .clear {
-        clear: both;
     }
     
     footer {

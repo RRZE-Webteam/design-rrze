@@ -10,35 +10,31 @@ echo <<<EOL
     h1, h2, h3, h4, h5, h6 { color: [title]; }
     .entry-content a, .entry-summary a, .commentlist a { color: [link]; }
     .entry-content a:hover, .entry-content a:focus { background-color: [link]; color: #fff }
-    nav#tecmenu { background: none repeat scroll 0 0 [menu]; }
     nav#breadcrumb div.ym-hlist ul li a:focus,
     nav#breadcrumb div.ym-hlist ul li a:hover,
     nav#breadcrumb div.ym-hlist ul li a:active { background-color: [hover]; }
-    ul.dropdown a:hover,
-    ul.dropdown a:focus { background-color: [hover]; }
     .navmenu, 
     .navmenu ul.dropdown { background: [menu]; }
     .navmenu ul.dropdown ul { background: [menu]; }
     .navmenu ul.dropdown a,
     .navmenu ul.dropdown a:visited,	
     .navmenu ul.dropdown a:hover, 		
-    .navmenu ul.dropdown a:active, 
-    .navmenu ul.dropdown li { color: #fff; }
-    .navmenu ul.dropdown li:hover, 
-    .navmenu ul.dropdown li.hover { background-color: [hover]; color: #fff; }
+    .navmenu ul.dropdown a:active { color: #fff; }
+    .navmenu ul.dropdown li:hover { background-color: [hover]; color: #fff; }
     .navmenu ul.dropdown ul li { border-bottom:1px solid [background]; }
-    .navmenu ul.dropdown ul li.hover, 
     .navmenu ul.dropdown ul li:hover { background-color: [hover];  color: #fff; }
     .navmenu ul.dropdown ul li a:hover { color: #fff; }
-    .navmenu ul.dropdown li.divider{ background-color: [background];  }
-    nav#tecmenu .navmenu ul.dropdown ul { background: [footer-widget-linien]; }
-    nav#tecmenu ul.dropdown a:hover,
-    nav#tecmenu ul.dropdown a:focus { background-color: [footer-hover]; }
-    nav#tecmenu .navmenu ul.dropdown li:hover, 
-    nav#tecmenu .navmenu ul.dropdown li.hover { background-color: [footer-hover]; color: #fff; }
-    nav#tecmenu .navmenu ul.dropdown ul li { border-bottom:1px solid [background]; }
-    nav#tecmenu .navmenu ul.dropdown ul li.hover, 
-    nav#tecmenu .navmenu ul.dropdown ul li:hover { background-color: [footer-hover];  color: #fff; }
+    .navmenu ul.dropdown li.divider { background-color: [background]; }
+    nav#tecmenu,
+    nav#tecmenu ul.dropdown { background: none repeat scroll 0 0 [menu]; }
+    nav#tecmenu ul.dropdown ul { background: [menu]; }
+    nav#tecmenu ul.dropdown a,
+    nav#tecmenu ul.dropdown a:visited,	
+    nav#tecmenu ul.dropdown a:hover, 		
+    nav#tecmenu ul.dropdown a:active { color: [footer-widget-title]; }
+    nav#tecmenu ul.dropdown li:hover { background-color: [footer-hover]; color: #fff; }
+    nav#tecmenu ul.dropdown ul li { border-bottom:1px solid [background]; }
+    nav#tecmenu ul.dropdown li a:hover { color: #fff; }
     aside .widget-title { border-bottom-color: [widget-title]; color: [widget-title]; }
     aside .widget-title a { color: [widget-title] !important; }
     aside .widget-title a:hover, aside .widget-title a:focus, aside .widget-title a:active { background-color: [widget-hover]; color: #fff !important; }
