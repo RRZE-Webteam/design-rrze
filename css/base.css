@@ -890,8 +890,7 @@
         position: absolute;
         z-index: 598;
         width: 220px; 
-        top: 100%; 
-        left: 0; 
+        top: 100%;        
     }
 
     ul.dropdown li:hover > ul{ 

@@ -1,32 +1,29 @@
-jQuery(document).ready(function($)
-{
-    $.fn.keyDropDown = function()
-    {           
-        $('li',this).hover(function(){
-            $('ul:first',this).stop().show();
+jQuery(document).ready(function($) {
+    $.fn.keyDropDown = function() {           
+        $('li', this).hover(function() {
+            $('ul:first', this).stop().show();
 
-        }, function(){
-            $('ul:first',this).stop().hide();
+        }, function() {
+            $('ul:first', this).stop().hide();
 
         });
 
-        $('li a',this).focus(function(){
+        $('li a', this).focus(function() {
             $(this).parent().parent().find('ul').hide();
             $(this).parent().find('ul:first').show();
         });   
     }
         
-    if ($(document).width() > '760')
-    {
-        $('.dropdown').keyDropDown();  
+    if ($(document).width() > '760') {
+        $('ul.dropdown').keyDropDown();  
 
     }
 
-    $(function(){		   	
-        $('ul.dropdown li').hover(function(){			
+    $(function() {		   	
+        $('ul.dropdown li').hover(function() {			
             $(this).addClass('hover');
             $('ul:first',this).css('display', 'block');
-        }, function(){
+        }, function() {
             $(this).removeClass('hover');
             $('ul:first',this).css('display', 'none');
         });	
@@ -34,18 +31,18 @@ jQuery(document).ready(function($)
 
     $(function() {
         $('.navmenu.bereichsmenu').prepend('<div class="menu-icon bereichsmenu"><span>Menu</span></div>');
-        $('.menu-icon.bereichsmenu').click(function(){						
+        $('.menu-icon.bereichsmenu').click(function() {						
             $('.bereichsmenu ul.dropdown').slideToggle();
             $(this).toggleClass("active");	
         });	
 
         $('.navmenu.tecmenu').prepend('<div class="menu-icon tecmenu"><span>Menu</span></div>');
-        $('.menu-icon.tecmenu').click(function(){						
+        $('.menu-icon.tecmenu').click(function() {						
             $('.tecmenu ul.dropdown').slideToggle();
             $(this).toggleClass("active");	
         });	
 
-        var $toggleMenu = $('.sub > a');
+        var $toggleMenu = $('ul.dropdown .sub > a');
         $toggleMenu.click(function(e) {
             e.preventDefault();
             var $this = $(this);
