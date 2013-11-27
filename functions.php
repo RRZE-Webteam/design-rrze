@@ -7,7 +7,7 @@
 
 define('_RRZE_PHP_VERSION', '5.3' );
 
-define('_RRZE_WP_VERSION', '3.5' );
+define('_RRZE_WP_VERSION', '3.7' );
 
 define('_RRZE_THEME_OPTIONS_NAME', '_rrze_theme_options' );
 
@@ -331,6 +331,28 @@ class Dropdown_Walker_Nav_Menu extends Walker_Nav_Menu {
 	}
 }
 
+add_filter('wp_list_categories', function($output, $args) {
+    $current_term = get_queried_object();
+
+    if(!isset($current_term->taxonomy))
+        return $output;
+    
+    $ancestors = get_ancestors($current_term->term_id, $current_term->taxonomy);
+    
+    $cats = get_categories('hide_empty=0');
+
+    foreach($cats as $cat) {
+        // count == 0 current; count == 1 parent; count >= 2 all ancestors
+        if(in_array($cat->term_id, $ancestors) && count($ancestors) >= 2) {
+            $find = 'cat-item-' . $cat->term_id . '"';
+            $replace = 'cat-item-' . $cat->term_id . ' current-cat-ancestor"';
+            $output = str_replace( $find, $replace, $output );           
+        }      
+    }
+    
+    return $output;
+}, 10, 2);
+
 function is_blogs_fau_de() {
     $http_host = filter_input(INPUT_SERVER, 'HTTP_HOST');
     if( $http_host == 'blogs.fau.de')
@@ -346,7 +368,10 @@ function is_blogs_fau_de() {
  *  @Author URI: http://www.elliotcondon.com/
  *  @Copyright: Elliot Condon
  */
-require_once('inc/acf/acf-lite.php');
+if( ! class_exists('Acf') ) {
+	define( 'ACF_LITE' , true );
+	include_once('inc/advanced-custom-fields/acf.php' );
+}
 
 register_field_group(array (
     'id' => '5125153077283',
