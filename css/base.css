@@ -345,7 +345,8 @@
 
     /* Vertical menu */
     .ym-vlist ul li.menu-item ul,
-    .ym-vlist ul li.page_item ul {
+    .ym-vlist ul li.page_item ul,
+    .ym-vlist ul li.cat-item ul {
         display: none;
     }
     
@@ -354,7 +355,10 @@
     .ym-vlist li.current-menu-item > ul,
     .ym-vlist li.current_page_ancestor > ul,
     .ym-vlist li.current_page_parent > ul,
-    .ym-vlist li.current_page_item > ul { 
+    .ym-vlist li.current_page_item > ul,
+    .ym-vlist li.current-cat-ancestor > ul,
+    .ym-vlist li.current-cat-parent > ul,
+    .ym-vlist li.current-cat > ul { 
         display: block !important;
     }
     
