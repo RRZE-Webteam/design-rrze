@@ -44,7 +44,6 @@ jQuery(document).ready(function($) {
 
         var $toggleMenu = $('ul.dropdown .sub > a');
         $toggleMenu.click(function(e) {
-            e.preventDefault();
             var $this = $(this);
             $this.toggleClass('current').next('ul').toggleClass('current');
         });	
