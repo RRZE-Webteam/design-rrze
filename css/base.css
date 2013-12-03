@@ -96,6 +96,11 @@
         color: #444;
     }
 
+    .entry-content {
+        overflow: hidden;
+        width: 100%;
+    }
+    
     .entry-footer {       
         margin-top: 1em;
     }
