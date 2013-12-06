@@ -13,6 +13,10 @@
         color: #FFFFFF;
     }
         
+    ol {
+        margin-left: 0.25em;
+    }
+
     section.box { 
         padding: 1.4286em; 
     }
@@ -97,7 +101,7 @@
     }
 
     .entry-content {
-        overflow: hidden;
+        overflow: auto;
         width: 100%;
     }
     
@@ -185,19 +189,19 @@
             
     /* Alignment */
     .alignleft {
-        display: inline;
-        float: left;
-        margin-right: 1.625em;
+        float:left;
+        display:inline;
+        margin: 1.5em 1em 0 0;
     }
     .alignright {
-        display: inline;
-        float: right;
-        margin-left: 1.625em;
+        float:right;
+        display:inline;
+        margin: 1.5em 0 0 1em;
     }
     .aligncenter {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
+        display:block;
+        text-align:center;
+        margin: 1.5em auto 0 auto;
     }
     
     /* Images */
