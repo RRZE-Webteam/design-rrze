@@ -19,38 +19,34 @@ jQuery(document).ready(function($) {
 
     }
 
-    $(function() {		   	
-        $('ul.dropdown li').hover(function() {			
-            $(this).addClass('hover');
-            $('ul:first',this).css('display', 'block');
-        }, function() {
-            $(this).removeClass('hover');
-            $('ul:first',this).css('display', 'none');
-        });	
-    });
+    $('ul.dropdown li').hover(function() {			
+        $(this).addClass('hover');
+        $('ul:first',this).css('display', 'block');
+    }, function() {
+        $(this).removeClass('hover');
+        $('ul:first',this).css('display', 'none');
+    });	
 
-    $(function() {
-        $('.navmenu.bereichsmenu').prepend('<div class="menu-icon bereichsmenu"><span>Menu</span></div>');
-        $('.menu-icon.bereichsmenu').click(function() {						
-            $('.bereichsmenu ul.dropdown').slideToggle();
-            $(this).toggleClass("active");	
-        });	
+    $('.navmenu.bereichsmenu').prepend('<div class="menu-icon bereichsmenu"><span>Menu</span></div>');
+    $('.menu-icon.bereichsmenu').click(function() {						
+        $('.bereichsmenu ul.dropdown').slideToggle();
+        $(this).toggleClass("active");	
+    });	
 
-        $('.navmenu.tecmenu').prepend('<div class="menu-icon tecmenu"><span>Menu</span></div>');
-        $('.menu-icon.tecmenu').click(function() {						
-            $('.tecmenu ul.dropdown').slideToggle();
-            $(this).toggleClass("active");	
-        });	
+    $('.navmenu.tecmenu').prepend('<div class="menu-icon tecmenu"><span>Menu</span></div>');
+    $('.menu-icon.tecmenu').click(function() {						
+        $('.tecmenu ul.dropdown').slideToggle();
+        $(this).toggleClass("active");	
+    });	
 
-        var $toggleMenu = $('ul.dropdown .sub > a');
-        $toggleMenu.click(function(e) {
-            if ($(document).width() <= '760') {
-                e.preventDefault();
-            }
-            var $this = $(this);
-            $this.toggleClass('current').next('ul').toggleClass('current');
-        });	
+    var $toggleMenu = $('ul.dropdown .sub > a');
+    $toggleMenu.click(function(e) {
+        if ($(document).width() <= '760') {
+            e.preventDefault();
+        }
+        var $this = $(this);
+        $this.toggleClass('current').next('ul').toggleClass('current');
+    });	
 
-    });
-
+    $('table').wrap('<div class="overflow-x">');
 });
