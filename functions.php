@@ -17,6 +17,8 @@ require( get_template_directory() . '/inc/theme-tags.php' );
 
 require( get_template_directory() . '/inc/theme-options.php' );
 
+require( get_template_directory() . '/inc/shortcodes.php' );
+
 add_action( 'after_setup_theme', function() {
 	if ( version_compare( PHP_VERSION, _RRZE_PHP_VERSION, '<' ) ) {
 		add_action( 'admin_notices', '_rrze_php_version_error' );
