@@ -5,7 +5,7 @@ Author: RRZE-Webteam
 Author URI: http://blogs.fau.de/webworking
 Description: Zwei- und dreispaltige Ansicht im Desktop-Browser. CSS3 Media Queries, vorbereitet für die Ansicht auf Tablets und Smartphones. Theme-Einstellungen im Adminbereich (personalisierte Hintergrund-Farbe, Linkfarben und Textfarbe angeben und Bild als Logo einfügen).
 Tags: rrze, webbaukasten, vorlagenkatalog
-Version: 1.2
+Version: 1.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: _rrze
@@ -25,5 +25,11 @@ Text Domain: _rrze
 /* import print layout | Druck-Layout einbinden */
 @import url(css/yaml/print/print.css);
 
-/* import theme core styles | Theme-Stylesheets einbinden */
+/* import theme core styles | Basis-Theme-Stylesheets einbinden */
 @import url(css/base.css);
+
+/* import theme screen layout | Screen-Theme-Layout einbinden */
+@import url(css/screen.css);
+
+/* import theme print layout | Theme-Druck-Layout einbinden */
+@import url(css/print.css);
