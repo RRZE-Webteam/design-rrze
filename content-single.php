@@ -23,14 +23,17 @@
 
                 $tag_list = get_the_tag_list('', ', ');
                 if( '' != $tag_list ) {
-                    $utility_text = __('Dieser Eintrag wurde veröffentlicht in %1$s und verschlagwortet mit %2$s von <a href="%6$s">%5$s</a>. <a href="%3$s" title="Permalink zu %4$s" rel="bookmark">Permanenter Link zum Eintrag</a>.', '_rrze' );
+                    $utility_text = __('Dieser Eintrag wurde veröffentlicht in %1$s und verschlagwortet mit %2$s von <a href="%4$s">%3$s</a>.', '_rrze' );
                 } elseif( '' != $categories_list ) {
-                    $utility_text = __( 'Dieser Eintrag wurde veröffentlicht in %1$s von <a href="%6$s">%5$s</a>. <a href="%3$s" title="Permalink zu %4$s" rel="bookmark">Permanenter Link des Eintrags</a>.', '_rrze' );
+                    $utility_text = __( 'Dieser Eintrag wurde veröffentlicht in %1$s von <a href="%4$s">%3$s</a>.', '_rrze' );
                 } else {
-                    $utility_text = __( 'Dieser Eintrag wurde von <a href="%6$s">%5$s</a> veröffentlicht. Lesezeichen zum <a href="%3$s" title="Permalink zu %4$s" rel="bookmark">Artikel setzen</a>.', '_rrze' );
+                    $utility_text = __( 'Dieser Eintrag wurde von <a href="%4$s">%3$s</a> veröffentlicht.', '_rrze' );
                 }
 
-                printf($utility_text, $categories_list, $tag_list, esc_url( get_permalink()), the_title_attribute( 'echo=0' ), get_the_author(), esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) );
+                printf($utility_text, $categories_list, $tag_list, get_the_author(), esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) );
+                
+                $permalink = sprintf(__('<a href="%1$s" title="Permalink zu %2$s" rel="bookmark">Permanenter Link zum Eintrag</a>', 'rrze'), esc_url( get_permalink()), the_title_attribute( 'echo=0' ));
+                printf('<span class="permalink">%s</span>', $permalink);
                 ?>
                 <?php edit_post_link( __( '(Bearbeiten)', '_rrze' ), '<span class="edit-link">', '</span>' ); ?>
             </div>
