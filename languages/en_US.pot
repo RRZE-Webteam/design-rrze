@@ -350,7 +350,7 @@ msgstr "Layout"
 
 #: ../inc/theme-options.php:12 ../inc/theme-options.php:95
 msgid "Schriftart"
-msgstr "Typeface"
+msgstr "Font"
 
 #: ../inc/theme-options.php:17
 msgid "Farben"
