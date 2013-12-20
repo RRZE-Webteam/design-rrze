@@ -72,11 +72,11 @@ add_action( 'after_setup_theme', function() {
 } );
 
 function _rrze_php_version_error() {
-	printf( '<div class="error fade"><p><b>%s</b></p></div>', sprintf( __( 'Ihre PHP-Version %s ist veraltet. Bitte aktualisieren Sie mindestens auf die PHP-Version %s', '_rrze'), PHP_VERSION, _RRZE_PHP_VERSION ) );
+	printf( '<div class="error fade"><p><b>%s</b></p></div>', sprintf( __( 'Ihre PHP-Version %s ist veraltet. Bitte aktualisieren Sie mindestens auf die PHP-Version %s.', '_rrze'), PHP_VERSION, _RRZE_PHP_VERSION ) );
 }
 
 function _rrze_wp_version_error() {
-	printf( '<div class="error fade"><p><b>%s</b></p></div>', sprintf( __( 'Ihre Wordpress-Version %s ist veraltet. Bitte aktualisieren Sie mindestens auf die Wordpress-Version %s', '_rrze'), $GLOBALS['wp_version'], _RRZE_WP_VERSION ) );
+	printf( '<div class="error fade"><p><b>%s</b></p></div>', sprintf( __( 'Ihre Wordpress-Version %s ist veraltet. Bitte aktualisieren Sie mindestens auf die Wordpress-Version %s.', '_rrze'), $GLOBALS['wp_version'], _RRZE_WP_VERSION ) );
 }
 
 function _rrze_header_style() {
