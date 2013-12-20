@@ -79,7 +79,7 @@ class Theme_Tags {
     }
 
     public static function posted_on() {
-        return sprintf(__( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a>', '_rrze' ), 
+        return sprintf('<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a>', 
                 esc_url( get_permalink() ), 
                 esc_attr( get_the_time() ), 
                 esc_attr( get_the_date('c') ), 

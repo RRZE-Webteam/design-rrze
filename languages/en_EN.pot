@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Design RRZE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-06 21:21+0100\n"
+"POT-Creation-Date: 2013-12-20 12:29+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: RRZE-Webteam\n"
@@ -17,8 +17,8 @@ msgstr ""
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../404.php:6 ../content-index.php:2 ../content-page.php:2
-#: ../content-search.php:2 ../content-single.php:2
+#: ../404.php:6 ../content-index.php:1 ../content-page.php:1
+#: ../content-search.php:2 ../content-single.php:1
 msgid "Inhalt"
 msgstr "Content"
 
@@ -53,323 +53,340 @@ msgstr ""
 #, php-format
 msgid "Ein Kommentar zu &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s Kommentare zu &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "One Response to %2$s"
+msgstr[1] "%1$s Responses to %2$s"
 
 #: ../comments.php:22
 msgid "Kommentare-Navigation"
-msgstr ""
+msgstr "Comment navigation"
 
 #: ../comments.php:23
 msgid "&larr; Ältere Kommentare"
-msgstr ""
+msgstr "&larr; Older Comments"
 
 #: ../comments.php:24
 msgid "Neuere Kommentare &rarr;"
-msgstr ""
+msgstr "Newer Comments &rarr;"
 
 #: ../comments.php:30
 msgid "Die Kommentarfunktion ist geschlossen."
-msgstr ""
+msgstr "Comments are closed."
 
 #: ../content-aside.php:5
 msgid "Kurzmitteilung"
-msgstr ""
+msgstr "Post format"
 
 #: ../content-aside.php:10 ../content-image.php:10 ../content-link.php:10
 #: ../inc/theme-tags.php:116
 msgid "Kommentar"
-msgstr ""
+msgstr "Comment"
 
 #: ../content-aside.php:21 ../content-gallery.php:17 ../content-image.php:16
-#: ../content-link.php:21 ../content-page.php:14 ../content-quote.php:15
-#: ../content-single.php:16 ../content-status.php:17 ../content.php:18
+#: ../content-link.php:21 ../content-page.php:13 ../content-quote.php:15
+#: ../content-single.php:15 ../content-status.php:17 ../content.php:18
 msgid "Weiterlesen <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
+msgstr "Continue reading <span class=\"meta-nav\">&rarr;</span>"
 
 #: ../content-aside.php:22 ../content-gallery.php:41 ../content-image.php:17
-#: ../content-link.php:22 ../content-page.php:15 ../content-quote.php:16
-#: ../content-single.php:17 ../content-status.php:18 ../content.php:19
+#: ../content-link.php:22 ../content-page.php:14 ../content-quote.php:16
+#: ../content-single.php:16 ../content-status.php:18 ../content.php:19
 msgid "Seiten:"
-msgstr ""
+msgstr "Pages:"
 
 #: ../content-aside.php:29 ../content-gallery.php:47 ../content-image.php:23
 #: ../content-link.php:29 ../content-quote.php:23 ../content-status.php:25
 #: ../content.php:25 ../inc/theme-tags.php:123
 msgid "Kommentar hinterlassen"
-msgstr ""
+msgstr "Leave a comment"
 
 #: ../content-aside.php:29 ../content-gallery.php:47 ../content-image.php:23
 #: ../content-link.php:29 ../content-quote.php:23 ../content-status.php:25
 #: ../content.php:25
 msgid "<b>1</b> Kommentar"
-msgstr ""
+msgstr "One comment so far"
 
 #: ../content-aside.php:29 ../content-gallery.php:47 ../content-image.php:23
 #: ../content-link.php:29 ../content-quote.php:23 ../content-status.php:25
 #: ../content.php:25
 msgid "<b>%</b> Kommentare"
-msgstr ""
+msgstr "View all % comments"
 
 #: ../content-gallery.php:33
 #, php-format
 msgid "Diese Galerie enthält <a %1$s>%2$s Bild</a>."
 msgid_plural "Diese Galerie enthält <a %1$s>%2$s Bilder</a>."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "This gallery contains <a %1$s>%2$s image</a>."
+msgstr[1] "This gallery contains <a %1$s>%2$s images</a>."
 
 #: ../content-image.php:5
 msgid "Bild"
-msgstr ""
+msgstr "Image"
 
 #: ../content-link.php:5
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
-#: ../content-page.php:19 ../content-single.php:36
+#: ../content-page.php:18 ../content-single.php:38
 msgid "(Bearbeiten)"
-msgstr ""
+msgstr "(Edit)"
 
 #: ../content-quote.php:5
 msgid "Zitat"
-msgstr ""
+msgstr "Quote"
 
 #: ../content-search.php:6 ../inc/theme-tags.php:53
 #, php-format
 msgid "Suchergebnisse für: %s"
-msgstr ""
+msgstr "Search Results for: %s"
 
 #: ../content-search.php:21
 msgid "Es konnte nichts gefunden werden."
-msgstr ""
+msgstr "Nothing Found."
 
 #: ../content-search.php:25
 msgid ""
 "Entschuldigen Sie, aber es konnte nichts gefunden werden. Versuchen Sie es "
 "mit anderen Schlüsselwörtern erneut."
 msgstr ""
+"Sorry, but nothing matched your search criteria. Please try again with some "
+"different keywords."
 
-#: ../content-single.php:27
+#: ../content-single.php:26
 #, php-format
 msgid ""
 "Dieser Eintrag wurde veröffentlicht in %1$s und verschlagwortet mit %2$s von "
-"<a href=\"%6$s\">%5$s</a>. <a href=\"%3$s\" title=\"Permalink zu %4$s\" rel="
-"\"bookmark\">Permanenter Link zum Eintrag</a>."
+"<a href=\"%4$s\">%3$s</a>."
 msgstr ""
+"This entry was posted in %1$s and tagged %2$s by <a href=\"%4$s\">%3$s</a>."
 
-#: ../content-single.php:29
+#: ../content-single.php:28
 #, php-format
 msgid ""
-"Dieser Eintrag wurde veröffentlicht in %1$s von <a href=\"%6$s\">%5$s</a>. "
-"<a href=\"%3$s\" title=\"Permalink zu %4$s\" rel=\"bookmark\">Permanenter "
-"Link des Eintrags</a>."
-msgstr ""
+"Dieser Eintrag wurde veröffentlicht in %1$s von <a href=\"%4$s\">%3$s</a>."
+msgstr "This entry was posted in %1$s by <a href=\"%4$s\">%3$s</a>."
 
-#: ../content-single.php:31
+#: ../content-single.php:30
+#, php-format
+msgid "Dieser Eintrag wurde von <a href=\"%4$s\">%3$s</a> veröffentlicht."
+msgstr "This entry was posted by <a href=\"%4$s\">%3$s</a>."
+
+#: ../content-single.php:35
 #, php-format
 msgid ""
-"Dieser Eintrag wurde von <a href=\"%6$s\">%5$s</a> veröffentlicht. "
-"Lesezeichen zum <a href=\"%3$s\" title=\"Permalink zu %4$s\" rel=\"bookmark"
-"\">Artikel setzen</a>."
+"<a href=\"%1$s\" title=\"Permalink zu %2$s\" rel=\"bookmark\">Permanenter "
+"Link zum Eintrag</a>"
 msgstr ""
+"<a href=\"%1$s\" title=\"Permalink to %2$s\" rel=\"bookmark\">Permalink</a>"
 
-#: ../content-single.php:44
+#: ../content-single.php:46
 msgid "Artikelnavigation"
-msgstr ""
+msgstr "Post navigation"
 
-#: ../content-single.php:45 ../inc/theme-tags.php:72
+#: ../content-single.php:47 ../inc/theme-tags.php:72
 msgid "<span class=\"meta-nav\">&larr;</span> Vorherige"
-msgstr ""
+msgstr "<span class=\"meta-nav\">&larr;</span> Previous post link"
 
-#: ../content-single.php:46 ../inc/theme-tags.php:73
+#: ../content-single.php:48 ../inc/theme-tags.php:73
 msgid "Nächste <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
+msgstr "Next post link <span class=\"meta-nav\">&rarr;</span>"
 
 #: ../content-status.php:5
 msgid "Statusmitteilung"
-msgstr ""
+msgstr "Status"
 
-#: ../footer.php:7 ../functions.php:51
+#: ../footer.php:7 ../functions.php:55
 msgid "Technisches Menü"
-msgstr ""
+msgstr "Technical menu"
 
-#: ../footer.php:26
+#: ../footer.php:27
 msgid "Zusatzinformationen"
-msgstr ""
+msgstr "Additional information"
 
-#: ../functions.php:45 ../inc/theme-options.php:239
+#: ../functions.php:47 ../inc/theme-options.php:239
 msgid "Grau"
-msgstr ""
+msgstr "Gray"
 
-#: ../functions.php:50 ../header.php:44 ../inc/theme-options.php:127
+#: ../functions.php:52 ../header.php:44 ../inc/theme-options.php:127
 msgid "Bereichsmenü"
-msgstr ""
-
-#: ../functions.php:71
-#, php-format
-msgid ""
-"Ihre PHP-Version %s ist veraltet. Bitte aktualisieren Sie mindestens auf die "
-"PHP-Version %s"
-msgstr ""
+msgstr "Area menu"
 
 #: ../functions.php:75
 #, php-format
 msgid ""
+"Ihre PHP-Version %s ist veraltet. Bitte aktualisieren Sie mindestens auf die "
+"PHP-Version %s."
+msgstr ""
+"Your server is running PHP version %s. Please upgrade at least to PHP "
+"version %s."
+
+#: ../functions.php:79
+#, php-format
+msgid ""
 "Ihre Wordpress-Version %s ist veraltet. Bitte aktualisieren Sie mindestens "
-"auf die Wordpress-Version %s"
+"auf die Wordpress-Version %s."
 msgstr ""
+"Your Wordpress version is %s. Please upgrade at least to Wordpress version "
+"%s."
 
-#: ../functions.php:150
+#: ../functions.php:154
 msgid "Sidebar links"
-msgstr ""
+msgstr "Sidebar left"
 
-#: ../functions.php:152 ../functions.php:162
+#: ../functions.php:156 ../functions.php:166
 msgid "Dieser Bereich ist für die Menüs und die Widgets vorgesehen."
-msgstr ""
+msgstr "This area is intended for the menus and widgets."
 
-#: ../functions.php:160
+#: ../functions.php:164
 msgid "Sidebar rechts"
-msgstr ""
+msgstr "Sidebar right"
 
-#: ../functions.php:170
+#: ../functions.php:174
 msgid "Footer-Sidebar links"
-msgstr ""
+msgstr "Footer Sidebar left"
 
-#: ../functions.php:172
+#: ../functions.php:176
 msgid ""
 "Dieser Bereich ist für die Zusatzinformationen (im Footer links) vorgesehen. "
 "Hier könnten hilfreiche Links oder sonstige Informationen stehen, welche auf "
 "jeder Seite eingeblendet werden sollen. Diese Angaben werden bei der Ausgabe "
 "auf dem Drucker nicht mit ausgegeben!"
 msgstr ""
+"This area is intended for additional information (in the footer on the "
+"left). Here could be useful links and other information is available, which "
+"should be displayed on each page. This information will not be sent to the "
+"printer!"
 
-#: ../functions.php:180
+#: ../functions.php:184
 msgid "Footer-Sidebar mitte"
-msgstr ""
+msgstr "Footer Sidebar center"
 
-#: ../functions.php:182
+#: ../functions.php:186
 msgid ""
 "Dieser Bereich ist für die Zusatzinformationen (im Footer mitte) vorgesehen. "
 "Hier könnten hilfreiche Links oder sonstige Informationen stehen, welche auf "
 "jeder Seite eingeblendet werden sollen. Diese Angaben werden bei der Ausgabe "
 "auf dem Drucker nicht mit ausgegeben!"
 msgstr ""
+"This area is intended for additional information (in the footer center). "
+"Here could be useful links and other information is available, which should "
+"be displayed on each page. This information will not be sent to the printer!"
 
-#: ../functions.php:190
+#: ../functions.php:194
 msgid "Footer-Sidebar rechts"
-msgstr ""
+msgstr "Footer Sidebar right"
 
-#: ../functions.php:192
+#: ../functions.php:196
 msgid ""
 "Dieser Bereich ist für die Zusatzinformationen (im Footer rechts) "
 "vorgesehen. Hier könnten hilfreiche Links oder sonstige Informationen "
 "stehen, welche auf jeder Seite eingeblendet werden sollen. Diese Angaben "
 "werden bei der Ausgabe auf dem Drucker nicht mit ausgegeben!"
 msgstr ""
+"This area is intended for additional information (in the footer on the "
+"right). Here could be useful links and other information is available, which "
+"should be displayed on each page. This information will not be sent to the "
+"printer!"
 
-#: ../functions.php:256 ../inc/theme-tags.php:19 ../inc/theme-tags.php:56
+#: ../functions.php:260 ../inc/theme-tags.php:19 ../inc/theme-tags.php:56
 msgid "Startseite"
-msgstr ""
-
-#: ../functions.php:291
-msgid "Blogs@FAU"
-msgstr ""
-
-#: ../functions.php:292
-msgid "Forum"
-msgstr ""
-
-#: ../functions.php:293
-msgid "Hilfe"
-msgstr ""
+msgstr "Home"
 
 #: ../functions.php:294
-msgid "Kontakt"
-msgstr ""
+msgid "Blogs@FAU"
+msgstr "Blogs@FAU"
 
 #: ../functions.php:295
-msgid "Nutzungsbedingungen"
-msgstr ""
+msgid "Forum"
+msgstr "Forum"
 
-#: ../functions.php:344 ../inc/theme-options.php:30
+#: ../functions.php:296
+msgid "Hilfe"
+msgstr "Help"
+
+#: ../functions.php:297
+msgid "Kontakt"
+msgstr "Contact"
+
+#: ../functions.php:298
+msgid "Nutzungsbedingungen"
+msgstr "Terms of Use"
+
+#: ../functions.php:380 ../inc/theme-options.php:30
 #: ../inc/theme-options.php:441
 msgid "Einstellungen"
-msgstr ""
+msgstr "Settings"
 
-#: ../functions.php:350
+#: ../functions.php:386
 msgid "Titel ausblenden"
-msgstr ""
+msgstr "Hide title"
 
 #: ../header.php:23
 msgid "Zum Inhalt springen"
-msgstr ""
+msgstr "Skip to Content"
 
 #: ../header.php:24
 msgid "Zum Bereichsmenü springen"
-msgstr ""
+msgstr "Go to area menu"
 
 #: ../header.php:25
 msgid "Zu den allgemeinen Informationen springen"
-msgstr ""
+msgstr "Jump to the general information area"
 
 #: ../header.php:27
 msgid "Zu den Zusatzinformationen springen"
-msgstr ""
+msgstr "Jump to the additional information area"
 
 #: ../header.php:68
 msgid "Breadcrumb"
-msgstr ""
+msgstr "Breadcrumb"
 
 #: ../sidebar-left.php:5 ../sidebar-right.php:4
 msgid "Meta"
-msgstr ""
+msgstr "Meta"
 
 #: ../inc/theme-options.php:7 ../inc/theme-options.php:587
-#: ../inc/acf/core/fields/flexible_content.php:382
-#: ../inc/acf/core/fields/radio.php:160
-#: ../inc/acf/core/fields/repeater.php:527
 msgid "Layout"
-msgstr ""
+msgstr "Layout"
 
 #: ../inc/theme-options.php:12 ../inc/theme-options.php:95
 msgid "Schriftart"
-msgstr ""
+msgstr "Typeface"
 
 #: ../inc/theme-options.php:17
 msgid "Farben"
-msgstr ""
+msgstr "Colors"
 
 #: ../inc/theme-options.php:84
 msgid "Layouteinstellungen"
-msgstr ""
+msgstr "Layout Settings"
 
 #: ../inc/theme-options.php:86
 msgid "Seitenlayout"
-msgstr ""
+msgstr "Page Layout"
 
 #: ../inc/theme-options.php:88
 msgid "Footer-Layout"
-msgstr ""
+msgstr "Footer Layout"
 
 #: ../inc/theme-options.php:90
 msgid "Position des Suchformulars"
-msgstr ""
+msgstr "Position of the search form"
 
 #: ../inc/theme-options.php:97
 msgid "Allgemein"
-msgstr ""
+msgstr "General"
 
 #: ../inc/theme-options.php:99
 msgid "Überschrift"
-msgstr ""
+msgstr "Heading"
 
 #: ../inc/theme-options.php:101
 msgid "Menü"
-msgstr ""
+msgstr "Menu"
 
 #: ../inc/theme-options.php:103
 msgid "Widget-Titel"
-msgstr ""
+msgstr "Widget Title"
 
 #: ../inc/theme-options.php:105
 msgid "Widget-Inhalt"
@@ -377,87 +394,87 @@ msgstr "Content"
 
 #: ../inc/theme-options.php:110
 msgid "Farbeinstellungen"
-msgstr ""
+msgstr "Color Settings"
 
 #: ../inc/theme-options.php:114
 msgid "Farbschemas"
-msgstr ""
+msgstr "Color Schemes"
 
 #: ../inc/theme-options.php:122
 msgid "keiner"
-msgstr ""
+msgstr "none"
 
 #: ../inc/theme-options.php:138
 msgid "2 Spalten - linke Sidebar"
-msgstr ""
+msgstr "2 columns - Left Sidebar"
 
 #: ../inc/theme-options.php:143
 msgid "2 Spalten - rechte Sidebar"
-msgstr ""
+msgstr "2 columns - Right sidebar"
 
 #: ../inc/theme-options.php:148
 msgid "3 Spalten - linke und rechte Sidebar"
-msgstr ""
+msgstr "3 Columns - Left and Right Sidebar"
 
 #: ../inc/theme-options.php:187
 msgid "Menüfarbe"
-msgstr ""
+msgstr "Menu Color"
 
 #: ../inc/theme-options.php:191
 msgid "Titelfarbe"
-msgstr ""
+msgstr "Title Color"
 
 #: ../inc/theme-options.php:195
 msgid "Linkfarbe"
-msgstr ""
+msgstr "Link Color"
 
 #: ../inc/theme-options.php:199
 msgid "Hover-Farbe"
-msgstr ""
+msgstr "Hover Color"
 
 #: ../inc/theme-options.php:203
 msgid "Widget-Titel in Spalten"
-msgstr ""
+msgstr "Widget Title in columns"
 
 #: ../inc/theme-options.php:207
 msgid "Widget-Linien in Spalten"
-msgstr ""
+msgstr "Widget Lines in columns"
 
 #: ../inc/theme-options.php:211
 msgid "Widget-Hover-Farbe in Spalten"
-msgstr ""
+msgstr "Widget Hover Color in columns"
 
 #: ../inc/theme-options.php:215
 msgid "Widget-Titel im Footer"
-msgstr ""
+msgstr "Widget Title in footer"
 
 #: ../inc/theme-options.php:219
 msgid "Widget-Linien im Footer"
-msgstr ""
+msgstr "Widget Lines in footer"
 
 #: ../inc/theme-options.php:223
 msgid "Hover-Farbe im Footer"
-msgstr ""
+msgstr "Hover Color in footer"
 
 #: ../inc/theme-options.php:227
 msgid "Hintergrundfarbe"
-msgstr ""
+msgstr "Background Color"
 
 #: ../inc/theme-options.php:245
 msgid "Blau"
-msgstr ""
+msgstr "Blue"
 
 #: ../inc/theme-options.php:251
 msgid "Grün"
-msgstr ""
+msgstr "Green"
 
 #: ../inc/theme-options.php:257
 msgid "Rot"
-msgstr ""
+msgstr "Red"
 
 #: ../inc/theme-options.php:267
 msgid "Wählen Sie, welche Optionen aktivieren möchten."
-msgstr ""
+msgstr "Select the options that you want to enable."
 
 #: ../inc/theme-options.php:271
 msgid ""
@@ -465,82 +482,77 @@ msgid ""
 "Andererseits, geben Sie einen Leerwert ein um den Standardschriftart wieder "
 "einzustellen."
 msgstr ""
+"Enter any font to change your site. On the other hand, enter an empty value "
+"to set the default font again."
 
 #: ../inc/theme-options.php:275
 msgid "Wählen Sie, welche Farbschema aktivieren möchten."
-msgstr ""
+msgstr "Choose which color scheme you wish to enable."
 
 #: ../inc/theme-options.php:324
 msgid "Spalte"
 msgid_plural "Spalten"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Column"
+msgstr[1] "Columns"
 
 #: ../inc/theme-options.php:402
 msgid "Benutzerdefiniertes"
-msgstr ""
+msgstr "Custom"
 
 #: ../inc/theme-options.php:604
 msgid "Spalten"
-msgstr ""
+msgstr "Columns"
 
 #: ../inc/theme-options.php:626
 msgid "Footer (Widgets)"
-msgstr ""
+msgstr "Footer (Widgets)"
 
 #: ../inc/theme-tags.php:16
 msgid "Sie befinden sich hier:"
-msgstr ""
+msgstr "You are here:"
 
 #: ../inc/theme-tags.php:22
 msgid "Kategorie"
-msgstr ""
+msgstr "Category"
 
 #: ../inc/theme-tags.php:25
 msgid "Tag"
-msgstr ""
+msgstr "Tag"
 
 #: ../inc/theme-tags.php:28
 msgid "Archive"
-msgstr ""
+msgstr "Archive"
 
 #: ../inc/theme-tags.php:31
 msgid "Autor"
-msgstr ""
+msgstr "Author"
 
 #: ../inc/theme-tags.php:71
 msgid "Suchergebnissenavigation"
-msgstr ""
+msgstr "Search navigation"
 
-#: ../inc/theme-tags.php:82
-#, php-format
-msgid ""
-"<a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time class=\"entry-date\" "
-"datetime=\"%3$s\" pubdate>%4$s</time></a>"
-msgstr ""
-
-#: ../inc/theme-tags.php:105 ../inc/acf/core/fields/flexible_content.php:410
+#: ../inc/theme-tags.php:105
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #: ../inc/theme-tags.php:107
 msgid "E-Mail"
-msgstr ""
+msgstr "E-mail"
 
 #: ../inc/theme-tags.php:109
 msgid "Webauftritt"
-msgstr ""
+msgstr "Website"
 
 #: ../inc/theme-tags.php:113
 #, php-format
 msgid "Erforderliche Felder sind %s markiert"
-msgstr ""
+msgstr "Required fields are marked %s"
 
 #: ../inc/theme-tags.php:117
 #, php-format
 msgid ""
 "Sie müssen <a href=\"%s\">angemeldet sein</a>, um einen Kommentar abzugeben."
-msgstr ""
+msgstr "You must be <a href=\"%s\">logged in</a> to post a comment."
 
 #: ../inc/theme-tags.php:118
 #, php-format
@@ -548,10 +560,12 @@ msgid ""
 "Angemeldet als <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Aus "
 "diesem account abmelden\">Abmelden?</a>"
 msgstr ""
+"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
+"this account\">Log out &raquo;</a>"
 
 #: ../inc/theme-tags.php:119
 msgid "Ihre Email-Adresse wird nicht veröffentlicht."
-msgstr ""
+msgstr "Your email address will not be published"
 
 #: ../inc/theme-tags.php:120
 #, php-format
@@ -559,728 +573,25 @@ msgid ""
 "Sie können die folgenden <abbr title=\"HyperText-Markup-Language\">HTML</"
 "abbr>-Tags benutzen: %s"
 msgstr ""
+"You can use the following <abbr title=\"HyperText Markup Language\">HTML</"
+"abbr> tags: %s"
 
 #: ../inc/theme-tags.php:124
 #, php-format
 msgid "Kommentar an %s hinterlassen"
-msgstr ""
+msgstr "Leave a comment to %s"
 
 #: ../inc/theme-tags.php:125
 msgid "Abbrechen"
-msgstr ""
+msgstr "Cancel"
 
 #: ../inc/theme-tags.php:126
 msgid "Kommentar verfassen"
-msgstr ""
-
-#: ../inc/acf/acf-lite.php:56
-msgid "Options"
-msgstr ""
-
-#: ../inc/acf/acf-lite.php:550
-msgid "Error: Field Type does not exist!"
-msgstr ""
-
-#: ../inc/acf/acf-lite.php:1113
-msgid "Thumbnail"
-msgstr ""
-
-#: ../inc/acf/acf-lite.php:1114
-msgid "Medium"
-msgstr ""
-
-#: ../inc/acf/acf-lite.php:1115
-msgid "Large"
-msgstr ""
-
-#: ../inc/acf/acf-lite.php:1116
-msgid "Full"
-msgstr ""
-
-#: ../inc/acf/core/controllers/input.php:563
-msgid "Validation Failed. One or more fields below are required."
-msgstr ""
-
-#: ../inc/acf/core/controllers/input.php:565
-msgid "Maximum values reached ( {max} values )"
-msgstr ""
-
-#: ../inc/acf/core/controllers/input.php:575
-msgid "Add Image to Gallery"
-msgstr ""
-
-#: ../inc/acf/core/controllers/input.php:576
-msgid "Edit Image"
-msgstr ""
-
-#: ../inc/acf/core/controllers/options_page.php:130
-msgid "Options Updated"
-msgstr ""
-
-#: ../inc/acf/core/controllers/options_page.php:268
-msgid "No Custom Field Group found for the options page"
-msgstr ""
-
-#: ../inc/acf/core/controllers/options_page.php:268
-msgid "Create a Custom Field Group"
-msgstr ""
-
-#: ../inc/acf/core/controllers/options_page.php:279
-msgid "Publish"
-msgstr ""
-
-#: ../inc/acf/core/controllers/options_page.php:283
-msgid "Save Options"
-msgstr ""
-
-#: ../inc/acf/core/fields/checkbox.php:21
-msgid "Checkbox"
-msgstr ""
-
-#: ../inc/acf/core/fields/checkbox.php:55 ../inc/acf/core/fields/radio.php:50
-#: ../inc/acf/core/fields/select.php:59
-msgid "No choices to choose from"
-msgstr ""
-
-#: ../inc/acf/core/fields/checkbox.php:113
-#: ../inc/acf/core/fields/radio.php:119 ../inc/acf/core/fields/select.php:185
-msgid "Choices"
-msgstr ""
-
-#: ../inc/acf/core/fields/checkbox.php:114
-#: ../inc/acf/core/fields/radio.php:120 ../inc/acf/core/fields/select.php:186
-msgid "Enter your choices one per line"
-msgstr ""
-
-#: ../inc/acf/core/fields/checkbox.php:116
-#: ../inc/acf/core/fields/radio.php:122 ../inc/acf/core/fields/select.php:188
-msgid "Red"
-msgstr ""
-
-#: ../inc/acf/core/fields/checkbox.php:117
-#: ../inc/acf/core/fields/radio.php:123 ../inc/acf/core/fields/select.php:189
-msgid "Blue"
-msgstr ""
-
-#: ../inc/acf/core/fields/checkbox.php:119
-#: ../inc/acf/core/fields/radio.php:125 ../inc/acf/core/fields/select.php:191
-msgid "red : Red"
-msgstr ""
-
-#: ../inc/acf/core/fields/checkbox.php:120
-#: ../inc/acf/core/fields/radio.php:126 ../inc/acf/core/fields/select.php:192
-msgid "blue : Blue"
-msgstr ""
-
-#: ../inc/acf/core/fields/color_picker.php:21
-msgid "Color Picker"
-msgstr ""
-
-#: ../inc/acf/core/fields/color_picker.php:67
-#: ../inc/acf/core/fields/number.php:65 ../inc/acf/core/fields/radio.php:144
-#: ../inc/acf/core/fields/select.php:208 ../inc/acf/core/fields/text.php:65
-#: ../inc/acf/core/fields/textarea.php:64
-#: ../inc/acf/core/fields/wysiwyg.php:114
-msgid "Default Value"
-msgstr ""
-
-#: ../inc/acf/core/fields/color_picker.php:68
-msgid "eg: #ffffff"
-msgstr ""
-
-#: ../inc/acf/core/fields/file.php:21
-msgid "File"
-msgstr ""
-
-#: ../inc/acf/core/fields/file.php:50
-msgid "File Updated."
-msgstr ""
-
-#: ../inc/acf/core/fields/file.php:169
-#: ../inc/acf/core/fields/flexible_content.php:466
-#: ../inc/acf/core/fields/gallery.php:223
-#: ../inc/acf/core/fields/gallery.php:274 ../inc/acf/core/fields/image.php:166
-#: ../inc/acf/core/fields/repeater.php:357
-msgid "Edit"
-msgstr ""
-
-#: ../inc/acf/core/fields/file.php:170 ../inc/acf/core/fields/gallery.php:222
-#: ../inc/acf/core/fields/gallery.php:273 ../inc/acf/core/fields/image.php:165
-msgid "Remove"
-msgstr ""
-
-#: ../inc/acf/core/fields/file.php:177
-msgid "No File Selected"
-msgstr ""
-
-#: ../inc/acf/core/fields/file.php:177
-msgid "Add File"
-msgstr ""
-
-#: ../inc/acf/core/fields/file.php:210 ../inc/acf/core/fields/image.php:202
-msgid "Return Value"
-msgstr ""
-
-#: ../inc/acf/core/fields/file.php:221
-msgid "File Object"
-msgstr ""
-
-#: ../inc/acf/core/fields/file.php:222
-msgid "File URL"
-msgstr ""
-
-#: ../inc/acf/core/fields/file.php:223
-msgid "File ID"
-msgstr ""
-
-#: ../inc/acf/core/fields/file.php:263 ../inc/acf/core/fields/image.php:274
-msgid "Media attachment updated."
-msgstr ""
-
-#: ../inc/acf/core/fields/file.php:421
-msgid "No files selected"
-msgstr ""
-
-#: ../inc/acf/core/fields/file.php:562
-msgid "Add Selected Files"
-msgstr ""
-
-#: ../inc/acf/core/fields/file.php:595
-msgid "Select File"
-msgstr ""
-
-#: ../inc/acf/core/fields/file.php:598
-msgid "Update File"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:21
-msgid "Flexible Content"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:41
-msgid "+ Add Row"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:337
-#: ../inc/acf/core/fields/repeater.php:48
-#: ../inc/acf/core/fields/repeater.php:289
-msgid "Add Row"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:372
-#: ../inc/acf/core/fields/repeater.php:303
-msgid "New Field"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:373
-#: ../inc/acf/core/fields/repeater.php:304
-msgid "new_field"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:384
-msgid "Reorder Layout"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:384
-msgid "Reorder"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:385
-msgid "Delete Layout"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:385
-#: ../inc/acf/core/fields/flexible_content.php:469
-#: ../inc/acf/core/fields/repeater.php:360
-msgid "Delete"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:389
-msgid "Add New Layout"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:389
-msgid "Add New"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:390
-msgid "Duplicate Layout"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:390
-#: ../inc/acf/core/fields/flexible_content.php:468
-#: ../inc/acf/core/fields/repeater.php:359
-msgid "Duplicate"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:400
-msgid "Label"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:420
-msgid "Display"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:427
-#: ../inc/acf/core/fields/repeater.php:538
-msgid "Row"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:428
-msgid "Table"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:441
-#: ../inc/acf/core/fields/repeater.php:332
-msgid "Field Order"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:442
-#: ../inc/acf/core/fields/flexible_content.php:484
-#: ../inc/acf/core/fields/repeater.php:333
-#: ../inc/acf/core/fields/repeater.php:376
-msgid "Field Label"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:443
-#: ../inc/acf/core/fields/flexible_content.php:500
-#: ../inc/acf/core/fields/repeater.php:334
-#: ../inc/acf/core/fields/repeater.php:392
-msgid "Field Name"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:444
-#: ../inc/acf/core/fields/flexible_content.php:515
-#: ../inc/acf/core/fields/repeater.php:335
-#: ../inc/acf/core/fields/repeater.php:407
-msgid "Field Type"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:452
-#: ../inc/acf/core/fields/repeater.php:343
-msgid ""
-"No fields. Click the \"+ Add Sub Field button\" to create your first field."
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:463
-#: ../inc/acf/core/fields/flexible_content.php:466
-#: ../inc/acf/core/fields/repeater.php:354
-#: ../inc/acf/core/fields/repeater.php:357
-msgid "Edit this Field"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:467
-#: ../inc/acf/core/fields/repeater.php:358
-msgid "Read documentation for this field"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:467
-#: ../inc/acf/core/fields/repeater.php:358
-msgid "Docs"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:468
-#: ../inc/acf/core/fields/repeater.php:359
-msgid "Duplicate this Field"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:469
-#: ../inc/acf/core/fields/repeater.php:360
-msgid "Delete this Field"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:485
-#: ../inc/acf/core/fields/repeater.php:377
-msgid "This is the name which will appear on the EDIT page"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:501
-#: ../inc/acf/core/fields/repeater.php:393
-msgid "Single word, no spaces. Underscores and dashes allowed"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:529
-#: ../inc/acf/core/fields/repeater.php:421
-msgid "Field Instructions"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:549
-#: ../inc/acf/core/fields/repeater.php:441
-msgid "Column Width"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:550
-#: ../inc/acf/core/fields/repeater.php:442
-msgid "Leave blank for auto"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:579
-#: ../inc/acf/core/fields/repeater.php:471
-msgid "Save Field"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:584
-#: ../inc/acf/core/fields/repeater.php:476
-msgid "Close Field"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:584
-#: ../inc/acf/core/fields/repeater.php:476
-msgid "Close Sub Field"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:598
-#: ../inc/acf/core/fields/repeater.php:491
-msgid "Drag and drop to reorder"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:599
-#: ../inc/acf/core/fields/repeater.php:492
-msgid "+ Add Sub Field"
-msgstr ""
-
-#: ../inc/acf/core/fields/flexible_content.php:606
-#: ../inc/acf/core/fields/repeater.php:546
-msgid "Button Label"
-msgstr ""
-
-#: ../inc/acf/core/fields/gallery.php:25
-msgid "Gallery"
-msgstr ""
-
-#: ../inc/acf/core/fields/gallery.php:113 ../inc/acf/core/fields/image.php:222
-msgid "Preview Size"
-msgstr ""
-
-#: ../inc/acf/core/fields/gallery.php:114
-msgid "Thumbnail is advised"
-msgstr ""
-
-#: ../inc/acf/core/fields/gallery.php:151
-msgid "Image Updated"
-msgstr ""
-
-#: ../inc/acf/core/fields/gallery.php:201
-#: ../inc/acf/core/fields/gallery.php:252
-msgid "Title"
-msgstr ""
-
-#: ../inc/acf/core/fields/gallery.php:205
-#: ../inc/acf/core/fields/gallery.php:256
-msgid "Alternate Text"
-msgstr ""
-
-#: ../inc/acf/core/fields/gallery.php:209
-#: ../inc/acf/core/fields/gallery.php:260
-msgid "Caption"
-msgstr ""
-
-#: ../inc/acf/core/fields/gallery.php:213
-#: ../inc/acf/core/fields/gallery.php:264
-msgid "Description"
-msgstr ""
-
-#: ../inc/acf/core/fields/gallery.php:234
-#: ../inc/acf/core/fields/gallery.php:667 ../inc/acf/core/fields/image.php:172
-msgid "Add Image"
-msgstr ""
-
-#: ../inc/acf/core/fields/gallery.php:235
-msgid "Grid"
-msgstr ""
-
-#: ../inc/acf/core/fields/gallery.php:236
-msgid "List"
-msgstr ""
-
-#: ../inc/acf/core/fields/gallery.php:238 ../inc/acf/core/fields/image.php:425
-msgid "No images selected"
-msgstr ""
-
-#: ../inc/acf/core/fields/gallery.php:238
-msgid "1 image selected"
-msgstr ""
-
-#: ../inc/acf/core/fields/gallery.php:238
-msgid "{count} images selected"
-msgstr ""
-
-#: ../inc/acf/core/fields/gallery.php:590
-msgid "Added"
-msgstr ""
-
-#: ../inc/acf/core/fields/gallery.php:610
-msgid "Image already exists in gallery"
-msgstr ""
-
-#: ../inc/acf/core/fields/gallery.php:670 ../inc/acf/core/fields/image.php:599
-msgid "Update Image"
-msgstr ""
-
-#: ../inc/acf/core/fields/image.php:21
-msgid "Image"
-msgstr ""
-
-#: ../inc/acf/core/fields/image.php:53
-msgid "Image Updated."
-msgstr ""
-
-#: ../inc/acf/core/fields/image.php:172
-msgid "No image selected"
-msgstr ""
-
-#: ../inc/acf/core/fields/image.php:212
-msgid "Image Object"
-msgstr ""
-
-#: ../inc/acf/core/fields/image.php:213
-msgid "Image URL"
-msgstr ""
-
-#: ../inc/acf/core/fields/image.php:214
-msgid "Image ID"
-msgstr ""
-
-#: ../inc/acf/core/fields/image.php:567
-msgid "Add Selected Images"
-msgstr ""
-
-#: ../inc/acf/core/fields/image.php:596
-msgid "Select Image"
-msgstr ""
-
-#: ../inc/acf/core/fields/number.php:21
-msgid "Number"
-msgstr ""
-
-#: ../inc/acf/core/fields/page_link.php:21
-msgid "Page Link"
-msgstr ""
-
-#: ../inc/acf/core/fields/page_link.php:70
-#: ../inc/acf/core/fields/post_object.php:223
-#: ../inc/acf/core/fields/relationship.php:400
-msgid "Post Type"
-msgstr ""
-
-#: ../inc/acf/core/fields/page_link.php:76
-#: ../inc/acf/core/fields/post_object.php:229
-#: ../inc/acf/core/fields/post_object.php:253
-#: ../inc/acf/core/fields/relationship.php:406
-#: ../inc/acf/core/fields/relationship.php:435
-msgid "All"
-msgstr ""
-
-#: ../inc/acf/core/fields/page_link.php:94
-#: ../inc/acf/core/fields/post_object.php:272
-#: ../inc/acf/core/fields/select.php:222
-msgid "Allow Null?"
-msgstr ""
-
-#: ../inc/acf/core/fields/page_link.php:104
-#: ../inc/acf/core/fields/page_link.php:125
-#: ../inc/acf/core/fields/post_object.php:282
-#: ../inc/acf/core/fields/post_object.php:303
-#: ../inc/acf/core/fields/select.php:231 ../inc/acf/core/fields/select.php:250
-#: ../inc/acf/core/fields/wysiwyg.php:170
-#: ../inc/acf/core/fields/wysiwyg.php:191
-msgid "Yes"
-msgstr ""
-
-#: ../inc/acf/core/fields/page_link.php:105
-#: ../inc/acf/core/fields/page_link.php:126
-#: ../inc/acf/core/fields/post_object.php:283
-#: ../inc/acf/core/fields/post_object.php:304
-#: ../inc/acf/core/fields/select.php:232 ../inc/acf/core/fields/select.php:251
-#: ../inc/acf/core/fields/wysiwyg.php:171
-#: ../inc/acf/core/fields/wysiwyg.php:192
-msgid "No"
-msgstr ""
-
-#: ../inc/acf/core/fields/page_link.php:115
-#: ../inc/acf/core/fields/post_object.php:293
-#: ../inc/acf/core/fields/select.php:241
-msgid "Select multiple values?"
-msgstr ""
-
-#: ../inc/acf/core/fields/post_object.php:21
-msgid "Post Object"
-msgstr ""
-
-#: ../inc/acf/core/fields/post_object.php:247
-#: ../inc/acf/core/fields/relationship.php:429
-msgid "Filter from Taxonomy"
-msgstr ""
-
-#: ../inc/acf/core/fields/radio.php:21
-msgid "Radio Button"
-msgstr ""
-
-#: ../inc/acf/core/fields/radio.php:171
-msgid "Vertical"
-msgstr ""
-
-#: ../inc/acf/core/fields/radio.php:172
-msgid "Horizontal"
-msgstr ""
-
-#: ../inc/acf/core/fields/relationship.php:21
-msgid "Relationship"
-msgstr ""
-
-#: ../inc/acf/core/fields/relationship.php:294
-msgid "Search"
-msgstr ""
-
-#: ../inc/acf/core/fields/relationship.php:452
-msgid "Maximum posts"
-msgstr ""
-
-#: ../inc/acf/core/fields/repeater.php:21
-msgid "Repeater"
-msgstr ""
-
-#: ../inc/acf/core/fields/repeater.php:324
-msgid "Repeater Fields"
-msgstr ""
-
-#: ../inc/acf/core/fields/repeater.php:499
-msgid "Minimum Rows"
-msgstr ""
-
-#: ../inc/acf/core/fields/repeater.php:513
-msgid "Maximum Rows"
-msgstr ""
-
-#: ../inc/acf/core/fields/repeater.php:537
-msgid "Table (default)"
-msgstr ""
-
-#: ../inc/acf/core/fields/select.php:21
-msgid "Select"
-msgstr ""
-
-#: ../inc/acf/core/fields/tab.php:21
-msgid "Tab"
-msgstr ""
-
-#: ../inc/acf/core/fields/tab.php:57
-msgid "Instructions"
-msgstr ""
-
-#: ../inc/acf/core/fields/tab.php:60
-msgid ""
-"All fields proceeding this \"tab field\" (or until another \"tab field\"  is "
-"defined) will appear grouped on the edit screen."
-msgstr ""
-
-#: ../inc/acf/core/fields/tab.php:61
-msgid "You can use multiple tabs to break up your fields into sections."
-msgstr ""
-
-#: ../inc/acf/core/fields/text.php:21
-msgid "Text"
-msgstr ""
-
-#: ../inc/acf/core/fields/text.php:79 ../inc/acf/core/fields/textarea.php:78
-msgid "Formatting"
-msgstr ""
-
-#: ../inc/acf/core/fields/text.php:80
-msgid "Define how to render html tags"
-msgstr ""
-
-#: ../inc/acf/core/fields/text.php:89 ../inc/acf/core/fields/textarea.php:88
-msgid "None"
-msgstr ""
-
-#: ../inc/acf/core/fields/text.php:90 ../inc/acf/core/fields/textarea.php:90
-msgid "HTML"
-msgstr ""
-
-#: ../inc/acf/core/fields/textarea.php:21
-msgid "Text Area"
-msgstr ""
-
-#: ../inc/acf/core/fields/textarea.php:79
-msgid "Define how to render html tags / new lines"
-msgstr ""
-
-#: ../inc/acf/core/fields/textarea.php:89
-msgid "auto &lt;br /&gt;"
-msgstr ""
-
-#: ../inc/acf/core/fields/true_false.php:21
-msgid "True / False"
-msgstr ""
-
-#: ../inc/acf/core/fields/true_false.php:68
-msgid "Message"
-msgstr ""
-
-#: ../inc/acf/core/fields/true_false.php:69
-msgid "eg. Show extra content"
-msgstr ""
-
-#: ../inc/acf/core/fields/wysiwyg.php:21
-msgid "Wysiwyg Editor"
-msgstr ""
-
-#: ../inc/acf/core/fields/wysiwyg.php:128
-msgid "Toolbar"
-msgstr ""
-
-#: ../inc/acf/core/fields/wysiwyg.php:160
-msgid "Show Media Upload Buttons?"
-msgstr ""
-
-#: ../inc/acf/core/fields/wysiwyg.php:179
-msgid "Run filter \"the_content\"?"
-msgstr ""
-
-#: ../inc/acf/core/fields/wysiwyg.php:180
-msgid "Enable this filter to use shortcodes within the WYSIWYG field"
-msgstr ""
-
-#: ../inc/acf/core/fields/wysiwyg.php:181
-msgid ""
-"Disable this filter if you encounter recursive template problems with "
-"plugins / themes"
-msgstr ""
-
-#: ../inc/acf/core/fields/date_picker/date_picker.php:21
-msgid "Date Picker"
-msgstr ""
-
-#: ../inc/acf/core/fields/date_picker/date_picker.php:89
-msgid "Save format"
-msgstr ""
-
-#: ../inc/acf/core/fields/date_picker/date_picker.php:90
-msgid ""
-"This format will determin the value saved to the database and returned via "
-"the API"
-msgstr ""
-
-#: ../inc/acf/core/fields/date_picker/date_picker.php:91
-msgid "\"yymmdd\" is the most versatile save format. Read more about"
-msgstr ""
-
-#: ../inc/acf/core/fields/date_picker/date_picker.php:91
-#: ../inc/acf/core/fields/date_picker/date_picker.php:101
-msgid "jQuery date formats"
-msgstr ""
-
-#: ../inc/acf/core/fields/date_picker/date_picker.php:99
-msgid "Display format"
-msgstr ""
-
-#: ../inc/acf/core/fields/date_picker/date_picker.php:100
-msgid "This format will be seen by the user when entering a value"
-msgstr ""
-
-#: ../inc/acf/core/fields/date_picker/date_picker.php:101
-msgid ""
-"\"dd/mm/yy\" or \"mm/dd/yy\" are the most used display formats. Read more "
-"about"
-msgstr ""
+msgstr "Leave a comment"
+
+#~ msgid ""
+#~ "<a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time class=\"entry-date"
+#~ "\" datetime=\"%3$s\" pubdate>%4$s</time></a>"
+#~ msgstr ""
+#~ "<a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time class=\"entry-date"
+#~ "\" datetime=\"%3$s\" pubdate>%4$s</time></a>"
