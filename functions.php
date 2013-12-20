@@ -7,7 +7,7 @@
 
 define('_RRZE_PHP_VERSION', '5.3' );
 
-define('_RRZE_WP_VERSION', '3.7' );
+define('_RRZE_WP_VERSION', '3.8' );
 
 define('_RRZE_THEME_OPTIONS_NAME', '_rrze_theme_options' );
 
@@ -85,7 +85,7 @@ function _rrze_header_style() {
 	if ( $text_color == HEADER_TEXTCOLOR )
 		return;
 	?>
-	<style type="text/css">
+	<style type="text/css" media="all">
 	<?php if ( 'blank' == $text_color ) : ?>
 		#site-title, #site-description {
 			position: absolute !important;
@@ -103,7 +103,7 @@ function _rrze_header_style() {
 
 function _rrze_admin_header_style() {
 ?>
-	<style type="text/css">
+	<style type="text/css" media="all">
 	.appearance_page_custom-header #headimg {
 		border: none;
 	}
@@ -205,20 +205,20 @@ add_action( 'widgets_init', function() {
 add_action( 'wp_head', function() {
     $options = _rrze_theme_options();
     
-    printf( '<style type="text/css">%1$sbody {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['body.typography'] );
-    printf( '<style type="text/css">%1$sh1, h2, h3, h4, h5, h6 {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['heading.typography'] );
-    printf( '<style type="text/css">%1$s.dropdown {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['menu.typography'] );
-    printf( '<style type="text/css">%1$s.widget-title {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['widget.title.typography'] );
-    printf( '<style type="text/css">%1$s.ym-vlist, .widget-wrapper input, .widget-wrapper select, .widget-wrapper option {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['widget.content.typography'] );
+    printf( '<style type="text/css" media="all">%1$sbody {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['body.typography'] );
+    printf( '<style type="text/css" media="all">%1$sh1, h2, h3, h4, h5, h6 {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['heading.typography'] );
+    printf( '<style type="text/css" media="all">%1$s.dropdown {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['menu.typography'] );
+    printf( '<style type="text/css" media="all">%1$s.widget-title {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['widget.title.typography'] );
+    printf( '<style type="text/css" media="all">%1$s.ym-vlist, .widget-wrapper input, .widget-wrapper select, .widget-wrapper option {font-family: %2$s}%1$s</style>%1$s', PHP_EOL, $options['widget.content.typography'] );
 
     $header_image = get_header_image();
     
     if ( $header_image )
-        printf( '<style type="text/css">%1$sbody div#kopf div#title {background: url("%2$s") no-repeat scroll center top transparent;}%1$s</style>%1$s', PHP_EOL, $header_image );
+        printf( '<style type="text/css" media="all">%1$sbody div#kopf div#title {background: url("%2$s") no-repeat scroll center top transparent;}%1$s</style>%1$s', PHP_EOL, $header_image );
 
-    Template_Parser::print_template( $options, 'css/layout', '<style type="text/css">', '</style>' . PHP_EOL );
+    Template_Parser::print_template( $options, 'css/layout', '<style type="text/css">' . PHP_EOL, '</style>' . PHP_EOL );
 
-    Template_Parser::print_template( $options['color.style'], 'css/color', '<style type="text/css">', '</style>' . PHP_EOL );
+    Template_Parser::print_template( $options['color.style'], 'css/color', '<style type="text/css">' . PHP_EOL, '</style>' . PHP_EOL );
 } );
 
 add_action( 'wp_enqueue_scripts', function() {
