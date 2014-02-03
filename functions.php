@@ -295,6 +295,7 @@ function _rrze_tecmenu_fallback( $args ) {
         '<li><a href="http://www.portal.uni-erlangen.de/forums/viewforum/94">' . $before . __( 'Forum', '_rrze' ) . $after . '</a></li>',
         sprintf( is_front_page() && $current_blog->path == '/hilfe/' ? '<li class="current-menu-item">%s</li>' : '<li>%s</li>', '<a href="' . network_site_url( '/hilfe/', 'http' ) . '">' . $before . __( 'Hilfe', '_rrze' ) . '</a>' ),
         sprintf( ! empty( $page ) && $page->post_name == 'kontakt' ? '<li class="current-menu-item">%s</li>' : '<li>%s</li>', '<a href="' . home_url( '/kontakt/', 'http' ) . '">' . $before . __( 'Kontakt', '_rrze' ) . $after . '</a>' ),
+        '<li><a href="' . network_site_url( '/impressum/', 'http' ) . '">' . $before . __( 'Impressum', '_rrze' ) . $after . '</a></li>',
         '<li><a href="' . network_site_url( '/nutzungsbedingungen/', 'http' ) . '">' . $before . __( 'Nutzungsbedingungen', '_rrze' ) . $after . '</a></li>'
         );
     
