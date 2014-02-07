@@ -632,7 +632,6 @@
     
     /* Horizontal menu */
     .navmenu { 
-        height: 50px; 
         position: relative; 
         z-index: 999;
     }
@@ -642,6 +641,10 @@
     .navmenu dl, 
     .navmenu li { 
         list-style: none; 
+    }
+    
+    .navmenu ul.dropdown {
+        float: none;
     }
 
     .menu-icon { 
