@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Design RRZE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-14 14:30+0100\n"
+"POT-Creation-Date: 2014-02-14 15:27+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: RRZE-Webteam\n"
@@ -610,8 +610,8 @@ msgid "Inhalt mittig ausrichten"
 msgstr "Center content"
 
 #: ../inc/widgets.php:63
-msgid "Fußlinie anzeigen"
-msgstr "Show bottom border"
+msgid "Fußlinie nicht anzeigen"
+msgstr "Don't show bottom border"
 
 #: ../inc/widgets.php:67
 msgid "Automatically add paragraphs"

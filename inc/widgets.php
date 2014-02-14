@@ -14,7 +14,7 @@ class rrze_Widget_Text extends WP_Widget {
 	function widget( $args, $instance ) {
 		extract($args);
                 $align = ! empty( $instance['align'] ) ? ' aligncenter' : '';
-		$bottom = ! empty( $instance['bottom'] ) ? 'textwidget' : 'rrze_textwidget';
+		$bottom = ! empty( $instance['bottom'] ) ? 'rrze_textwidget' : 'textwidget';
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 		$text = apply_filters( 'widget_text', empty( $instance['text'] ) ? '' : $instance['text'], $instance );
 		echo $before_widget;
@@ -60,7 +60,7 @@ class rrze_Widget_Text extends WP_Widget {
                 <p>
 			<input class="checkbox" type="checkbox" <?php echo $align; ?> id="<?php echo $this->get_field_id('align'); ?>" name="<?php echo $this->get_field_name('align'); ?>" /> <label for="<?php echo $this->get_field_id('align'); ?>"><?php _e('Inhalt mittig ausrichten', '_rrze'); ?></label>
                 <br/>
-			<input class="checkbox" type="checkbox" <?php echo $bottom; ?> id="<?php echo $this->get_field_id('bottom'); ?>" name="<?php echo $this->get_field_name('bottom'); ?>" /> <label for="<?php echo $this->get_field_id('bottom'); ?>"><?php _e('Fußlinie anzeigen', '_rrze'); ?></label>
+			<input class="checkbox" type="checkbox" <?php echo $bottom; ?> id="<?php echo $this->get_field_id('bottom'); ?>" name="<?php echo $this->get_field_name('bottom'); ?>" /> <label for="<?php echo $this->get_field_id('bottom'); ?>"><?php _e('Fußlinie nicht anzeigen', '_rrze'); ?></label>
 		
                 </p>
 
