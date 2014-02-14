@@ -19,6 +19,8 @@ require( get_template_directory() . '/inc/theme-options.php' );
 
 require( get_template_directory() . '/inc/shortcodes.php' );
 
+require( get_template_directory() . '/inc/widgets.php');
+
 add_action( 'after_setup_theme', function() {
 	if ( version_compare( PHP_VERSION, _RRZE_PHP_VERSION, '<' ) ) {
 		add_action( 'admin_notices', '_rrze_php_version_error' );
@@ -148,6 +150,8 @@ function _rrze_admin_header_image() { ?>
 		<h3 id="desc" style="<?php echo $style; ?>"><span style="padding: 4px 4px 4px 20px; background-color: rgba(255, 255, 255, 0.55);"><?php bloginfo( 'description' ); ?></span></h3>
 	</div>
 <?php }
+
+
  
 add_action( 'widgets_init', function() {    
     register_sidebar( array(
@@ -199,8 +203,13 @@ add_action( 'widgets_init', function() {
         'before_title' => '<h6 class="widget-title">',
         'after_title' => '</h6>',      
     ));
+
+    unregister_widget('WP_Widget_Text');
+    
+    register_widget('rrze_Widget_Text');
     
 } );
+
 
 add_action( 'wp_head', function() {
     $options = _rrze_theme_options();

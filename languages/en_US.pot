@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Design RRZE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 12:29+0100\n"
+"POT-Creation-Date: 2014-02-14 14:30+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: RRZE-Webteam\n"
@@ -194,7 +194,7 @@ msgstr "Next post link <span class=\"meta-nav\">&rarr;</span>"
 msgid "Statusmitteilung"
 msgstr "Status"
 
-#: ../footer.php:7 ../functions.php:55
+#: ../footer.php:7 ../functions.php:57
 msgid "Technisches Menü"
 msgstr "Technical menu"
 
@@ -202,15 +202,15 @@ msgstr "Technical menu"
 msgid "Zusatzinformationen"
 msgstr "Additional information"
 
-#: ../functions.php:47 ../inc/theme-options.php:239
+#: ../functions.php:49 ../inc/theme-options.php:239
 msgid "Grau"
 msgstr "Gray"
 
-#: ../functions.php:52 ../header.php:44 ../inc/theme-options.php:127
+#: ../functions.php:54 ../header.php:44 ../inc/theme-options.php:127
 msgid "Bereichsmenü"
 msgstr "Area menu"
 
-#: ../functions.php:75
+#: ../functions.php:77
 #, php-format
 msgid ""
 "Ihre PHP-Version %s ist veraltet. Bitte aktualisieren Sie mindestens auf die "
@@ -219,7 +219,7 @@ msgstr ""
 "Your server is running PHP version %s. Please upgrade at least to PHP "
 "version %s."
 
-#: ../functions.php:79
+#: ../functions.php:81
 #, php-format
 msgid ""
 "Ihre Wordpress-Version %s ist veraltet. Bitte aktualisieren Sie mindestens "
@@ -228,23 +228,23 @@ msgstr ""
 "Your Wordpress version is %s. Please upgrade at least to Wordpress version "
 "%s."
 
-#: ../functions.php:154
+#: ../functions.php:158
 msgid "Sidebar links"
 msgstr "Sidebar left"
 
-#: ../functions.php:156 ../functions.php:166
+#: ../functions.php:160 ../functions.php:170
 msgid "Dieser Bereich ist für die Menüs und die Widgets vorgesehen."
 msgstr "This area is intended for the menus and widgets."
 
-#: ../functions.php:164
+#: ../functions.php:168
 msgid "Sidebar rechts"
 msgstr "Sidebar right"
 
-#: ../functions.php:174
+#: ../functions.php:178
 msgid "Footer-Sidebar links"
 msgstr "Footer Sidebar left"
 
-#: ../functions.php:176
+#: ../functions.php:180
 msgid ""
 "Dieser Bereich ist für die Zusatzinformationen (im Footer links) vorgesehen. "
 "Hier könnten hilfreiche Links oder sonstige Informationen stehen, welche auf "
@@ -256,11 +256,11 @@ msgstr ""
 "should be displayed on each page. This information will not be sent to the "
 "printer!"
 
-#: ../functions.php:184
+#: ../functions.php:188
 msgid "Footer-Sidebar mitte"
 msgstr "Footer Sidebar center"
 
-#: ../functions.php:186
+#: ../functions.php:190
 msgid ""
 "Dieser Bereich ist für die Zusatzinformationen (im Footer mitte) vorgesehen. "
 "Hier könnten hilfreiche Links oder sonstige Informationen stehen, welche auf "
@@ -271,11 +271,11 @@ msgstr ""
 "Here could be useful links and other information is available, which should "
 "be displayed on each page. This information will not be sent to the printer!"
 
-#: ../functions.php:194
+#: ../functions.php:198
 msgid "Footer-Sidebar rechts"
 msgstr "Footer Sidebar right"
 
-#: ../functions.php:196
+#: ../functions.php:200
 msgid ""
 "Dieser Bereich ist für die Zusatzinformationen (im Footer rechts) "
 "vorgesehen. Hier könnten hilfreiche Links oder sonstige Informationen "
@@ -287,36 +287,40 @@ msgstr ""
 "should be displayed on each page. This information will not be sent to the "
 "printer!"
 
-#: ../functions.php:260 ../inc/theme-tags.php:19 ../inc/theme-tags.php:56
+#: ../functions.php:269 ../inc/theme-tags.php:19 ../inc/theme-tags.php:56
 msgid "Startseite"
 msgstr "Home"
 
-#: ../functions.php:294
+#: ../functions.php:303
 msgid "Blogs@FAU"
 msgstr "Blogs@FAU"
 
-#: ../functions.php:295
+#: ../functions.php:304
 msgid "Forum"
 msgstr "Forum"
 
-#: ../functions.php:296
+#: ../functions.php:305
 msgid "Hilfe"
 msgstr "Help"
 
-#: ../functions.php:297
+#: ../functions.php:306
 msgid "Kontakt"
 msgstr "Contact"
 
-#: ../functions.php:298
+#: ../functions.php:307
+msgid "Impressum"
+msgstr "Imprint"
+
+#: ../functions.php:308
 msgid "Nutzungsbedingungen"
 msgstr "Terms of Use"
 
-#: ../functions.php:380 ../inc/theme-options.php:30
+#: ../functions.php:390 ../inc/theme-options.php:30
 #: ../inc/theme-options.php:441
 msgid "Einstellungen"
 msgstr "Settings"
 
-#: ../functions.php:386
+#: ../functions.php:396
 msgid "Titel ausblenden"
 msgstr "Hide title"
 
@@ -588,6 +592,30 @@ msgstr "Cancel"
 #: ../inc/theme-tags.php:126
 msgid "Kommentar verfassen"
 msgstr "Leave a comment"
+
+#: ../inc/widgets.php:9
+msgid "Arbitrary text or HTML."
+msgstr "Arbitrary text or HTML."
+
+#: ../inc/widgets.php:11
+msgid "Text"
+msgstr "Text"
+
+#: ../inc/widgets.php:56
+msgid "Title:"
+msgstr "Title:"
+
+#: ../inc/widgets.php:61
+msgid "Inhalt mittig ausrichten"
+msgstr "Center content"
+
+#: ../inc/widgets.php:63
+msgid "Fußlinie anzeigen"
+msgstr "Show bottom border"
+
+#: ../inc/widgets.php:67
+msgid "Automatically add paragraphs"
+msgstr "Automatically add paragraphs"
 
 #~ msgid ""
 #~ "<a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time class=\"entry-date"

@@ -338,19 +338,19 @@
         padding: 0;
     }
     
-    .textwidget {
+    .textwidget, .rrze_textwidget {
         line-height: 1.5;
     }
 
-    .textwidget p {
+    .textwidget p, .rrze_textwidget p {
         margin: 0.5em 0;
     }    
     
-    .textwidget p:first-child {
+    .textwidget p:first-child, .rrze_textwidget p:first-child {
         margin: 0 0 0.5em 0;
     }    
 
-    .textwidget p:last-child {
+    .textwidget p:last-child, .rrze_textwidget p:last-child {
         margin: 0.5em 0 0 0;
     }    
     
@@ -371,6 +371,10 @@
         padding-bottom: 3px;
         border-bottom-style: solid;
         border-bottom-width: 3px;
+    }
+    
+    div.textwidget {
+        padding-bottom: 3px;
     }
 
     div.tagcloud a {
@@ -433,6 +437,9 @@
         border-bottom-style: solid;
         border-bottom-width: 3px;
 
+    }
+    
+    footer .rrze_textwidget {
     }
 
     footer .tagcloud {
