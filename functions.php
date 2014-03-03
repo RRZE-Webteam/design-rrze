@@ -40,8 +40,7 @@ add_action( 'after_setup_theme', function() {
     
     add_theme_support( 'post-formats', array( 'aside', 'gallery', 'image', 'link', 'quote', 'status' ) );
     
-    add_theme_support( 'post-thumbnails' );
-        
+    add_theme_support( 'post-thumbnails' );  
 	register_default_headers( array(
 		'grau' => array(
 			'url' => '%2$s/images/headers/grau-header.jpg',
@@ -70,7 +69,7 @@ add_action( 'after_setup_theme', function() {
         'admin-preview-callback' => '_rrze_admin_header_image',
 	);    
     
-    add_theme_support( 'custom-header', $defaults );    
+    add_theme_support( 'custom-header', $defaults );   
 } );
 
 function _rrze_php_version_error() {
@@ -439,3 +438,9 @@ register_field_group(array (
     ),
     'menu_order' => 1,
 ));
+
+function _rrze_excerpt_length( $length ) {
+        $options = _rrze_theme_options();
+	return $options['words.overview'];
+}
+add_filter( 'excerpt_length', '_rrze_excerpt_length', 999 );

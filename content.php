@@ -15,7 +15,19 @@
         </div>
     <?php else : ?>
         <div class="entry-content">
-            <?php the_content( __( 'Weiterlesen <span class="meta-nav">&rarr;</span>', '_rrze' ) ); ?>
+           
+            <?php $options = _rrze_theme_options();
+            if ($options['blog.overview']=='rrze_content') :
+                the_content( __( 'Weiterlesen <span class="meta-nav">&rarr;</span>', '_rrze' ) );
+            else :
+                if ( has_post_thumbnail() ) : ?>
+                    <a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink zu %s', '_rrze' ), the_title_attribute( 'echo=0' ) ); ?>">
+                        <?php the_post_thumbnail('thumbnail', array('class' => 'alignleft rrze-margin')); ?>
+                    </a>
+                <?php endif;
+                the_excerpt(); ?>            
+                <a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink zu %s', '_rrze' ), the_title_attribute( 'echo=0' ) ); ?>" class="alignright rrze-margin"><?php printf( __( 'Vollständigen Artikel lesen <span class="meta-nav">&rarr;</span>', '_rrze' ) ); ?></a>    
+            <?php endif; ?>
             <?php wp_link_pages( array( 'before' => '<nav id="nav-pages"><div class="ym-wbox"><span>' . __( 'Seiten:', '_rrze' ) . '</span>', 'after' => '</div></nav>' ) ); ?>
         </div>
     <?php endif; ?>
