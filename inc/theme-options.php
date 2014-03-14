@@ -27,6 +27,14 @@ function _rrze_options_pages() {
     return apply_filters( '_rrze_options_pages', $pages );
 }
 
+add_filter('twitter_return_the_content', function() {
+    $options = _rrze_theme_options();
+    if ($options['blog.overview']=='rrze_content') {
+        return false;
+    }
+    return true;
+});
+
 add_filter( 'option_page_capability__rrze_options', function( $capability ) {
 	return 'edit_theme_options';
 } );
