@@ -26,7 +26,7 @@
                     </a>
                 <?php endif;
                 the_excerpt(); ?>            
-                <a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink zu %s', '_rrze' ), the_title_attribute( 'echo=0' ) ); ?>" class="alignright rrze-margin"><?php printf( __( 'Vollständigen Artikel lesen <span class="meta-nav">&rarr;</span>', '_rrze' ) ); ?></a>    
+                <a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink zu %s', '_rrze' ), the_title_attribute( 'echo=0' ) ); ?>" class="alignright permalink rrze-margin"><?php printf( __( 'Vollständigen Artikel lesen <span class="meta-nav">&rarr;</span>', '_rrze' ) ); ?></a>    
             <?php endif; ?>
             <?php wp_link_pages( array( 'before' => '<nav id="nav-pages"><div class="ym-wbox"><span>' . __( 'Seiten:', '_rrze' ) . '</span>', 'after' => '</div></nav>' ) ); ?>
         </div>
