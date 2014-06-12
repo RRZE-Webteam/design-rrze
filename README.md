@@ -38,5 +38,5 @@ Die Nutzung des Designs ist an folgende Bedingungen geknüpft:
 Entwickler und Projektbeteiligte
 
 - Rolf v.d. Forst, rolf.v.d.forst@fau.de
-- Wolfgang Wiese, webmaster@rrze.uni-erlangen.de
+- Wolfgang Wiese, wolfgang.wiese@fau.de
 - Karin Kimpan, karin.kimpan@fau.de

@@ -19,6 +19,11 @@
         </footer>
     </article>
 
-    <?php comments_template( '', true ); ?>
+    <?php 
+    $options = _rrze_theme_options();
+    if ((isset($options['comments.pages'])) && ($options['comments.pages']==true)) {
+	comments_template( '', true );
+    }
+    ?>
 
 <?php endwhile; ?>

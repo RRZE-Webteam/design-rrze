@@ -58,18 +58,19 @@ add_action( 'admin_print_scripts-appearance_page_theme_options', function() {
 
 function _rrze_theme_default_options() {
 	$options = array(
-        'color.schema' => 'blau',
-        'color.style' => _rrze_default_color_style_data(),
-		'column.layout' => '1-3',
-        'footer.layout' => '33-33-33',
-		'search.form.position' => 'bereichsmenu',
-        'body.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
-        'heading.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
-        'menu.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
-        'widget.title.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
-        'widget.content.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
-        'blog.overview' => 'rrze_content',
-        'words.overview' => '55'    
+	    'color.schema' => 'blau',
+	    'color.style' => _rrze_default_color_style_data(),
+	    'column.layout' => '1-3',
+	    'footer.layout' => '33-33-33',
+	    'search.form.position' => 'bereichsmenu',
+	    'body.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
+	    'heading.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
+	    'menu.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
+	    'widget.title.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
+	    'widget.content.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
+	    'blog.overview' => 'rrze_content',
+	    'words.overview' => '55',
+	    'comments.pages' => false	
 	);
 
     return apply_filters( '_rrze_default_theme_options', $options );
@@ -81,7 +82,7 @@ function _rrze_theme_options( $key = '' ) {
 	$options = (array) get_option( _RRZE_THEME_OPTIONS_NAME );
         
 	$options = wp_parse_args( $options, $default_options );
-    $options = array_intersect_key( $options, $default_options );   
+	$options = array_intersect_key( $options, $default_options );   
     
     if( !empty( $key ) )
         return isset($options[$key]) ? $options[$key] : NULL;
