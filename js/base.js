@@ -49,4 +49,6 @@ jQuery(document).ready(function($) {
     });	
 
     $('table').wrap('<div class="overflow-x">');
+    
+    $('.jquery_tabs').accessibleTabs();
 });

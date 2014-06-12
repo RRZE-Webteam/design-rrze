@@ -238,10 +238,16 @@ add_action( 'wp_enqueue_scripts', function() {
     $GLOBALS['wp_styles']->add_data( 'iehacks', 'conditional', 'lte IE 7' );
     wp_enqueue_style( 'iehacks' );
     
+    wp_register_style('accessible-tabs', sprintf('%s/css/yaml/add-ons/accessible-tabs/tabs.css', get_template_directory_uri() ) );
+    wp_enqueue_style( 'accessible-tabs' );
+    
     wp_enqueue_script( 'jquery' );
     
     wp_register_script( 'focusfix', sprintf( '%s/css/yaml/core/js/yaml-focusfix.js', get_template_directory_uri() ), array(), false, true );
     wp_enqueue_script( 'focusfix');
+    
+    wp_register_script( 'accessible-tabs', sprintf( '%s/css/yaml/add-ons/accessible-tabs/jquery.tabs.js', get_template_directory_uri() ), array(), false, true );
+    wp_enqueue_script( 'accessible-tabs');
     
     wp_register_script( 'base', sprintf( '%s/js/base.js', get_template_directory_uri() ), array(), false);
     wp_enqueue_script( 'base' );

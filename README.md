@@ -10,11 +10,21 @@ Wordpress Theme
 
 "ym-table"-Shortcode
 <pre>
-    [ym-table class="bordertable" delimiter=";"]
-    Id;Product Name;Value
-    1;Pencil;cheap
-    2;Car;expensive
-    [/ym-table]
+[ym-table class="bordertable" delimiter=";"]
+Artikelnummer;Artikelname Name;Preis inkl. MwSt
+1351186;Buttertoast 500g;1,50 €
+1351416;Blütenhonig 500g;3,50 €
+1351486 ;Markenzwieback 250g;1,95 €
+[/ym-table]
+</pre>
+
+"ym-tabs"-Shortcode
+<pre>
+[ym-tabs]
+    [ym-tab title="Erste Reiter"]Inhalt für den ersten Reiter geht hier.[/ym-tab]
+    [ym-tab title="Zweite Reiter"]Inhalt für den zweiten Reiter geht hier.[/ym-tab]
+    [ym-tab title="Dritte Reiter"]Inhalt für den dritten Reiter geht hier.[/ym-tab]
+[/ym-tabs]
 </pre>
 
 Nutzungsbedingungen
