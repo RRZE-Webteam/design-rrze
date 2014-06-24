@@ -31,7 +31,7 @@
                 <?php if( display_header_text() ): ?>
                 <div class="ym-wrapper">
                     <div class="ym-wbox header-block">
-                        <h1 id="site-title"><span><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></span></h1>
+                        <h1 id="site-title"><span><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a></span></h1>
                         <?php if( get_bloginfo( 'description', 'display' ) ) : ?>
                         <h3 id="site-description"><span><?php echo esc_attr( get_bloginfo( 'description', 'display' ) ); ?></span></h3>
                         <?php endif; ?>
