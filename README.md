@@ -1,7 +1,7 @@
 Design RRZE
 ===========
 
-Wordpress Theme
+Wordpress Theme Master
 
 * Zwei- und dreispaltige Ansicht im Desktop-Browser. 
 * CSS3 Media Queries, vorbereitet für die Ansicht auf Tablets und Smartphones. 
