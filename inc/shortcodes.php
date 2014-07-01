@@ -1,7 +1,7 @@
 <?php
 /*
  * ym-table Shortcode
- * Usage Example (type :br: for a line break)
+ * Usage Example
  * [ym-table class="bordertable" delimiter=";"]
  * Id;Product Name;Value
  * 1;Pencil;cheap:br:not available at the moment
@@ -19,7 +19,9 @@ add_shortcode('ym-table', function($atts, $content = '') {
 	$content = str_replace('</p>', '', $content);
 
 	$content = str_replace('&nbsp;', '', $content);
-        $content = str_replace(':br:', '<br>', $content);        
+        
+        $content = str_replace(':br:', '<br>', $content);
+        
 	$char_codes = array('&#8216;', '&#8217;', '&#8220;', '&#8221;', '&#8242;', '&#8243;');
 	$replacements = array("'", "'", '"', '"', "'", '"');
 	$content = trim(str_replace($char_codes, $replacements, $content));

@@ -1,34 +1,7 @@
 <?php
 
-function _rrze_options_pages() {
-    $pages = array( 
-        'layout.options' => array( 
-            'value' => 'layout.options', 
-            'label' => __('Layout', '_rrze' )
-        ),
-        
-        'typography.options' => array( 
-            'value' => 'typography.options', 
-            'label' => __('Schriftart', '_rrze' )
-        ),
-        
-        'color.options' => array( 
-            'value' => 'color.options', 
-            'label' => __('Farben', '_rrze' )
-        ),
-        
-        'overview.options' => array(
-            'value' => 'overview.options',
-            'label' => __('Blogdarstellung', '_rrze')
-        )
-        
-    );
-    
-    return apply_filters( '_rrze_options_pages', $pages );
-}
-
 add_filter('twitter_return_the_content', function() {
-    $options = _rrze_theme_options();
+    $options = RRZE_Theme::$theme_options;
     if ($options['blog.overview']=='rrze_content') {
         return false;
     }
@@ -40,9 +13,9 @@ add_filter( 'option_page_capability__rrze_options', function( $capability ) {
 } );
 
 add_action( 'admin_menu', function() {
-	add_theme_page( __( 'Einstellungen', '_rrze' ), __( 'Einstellungen', '_rrze' ), 'edit_theme_options', 'theme_options', '_rrze_theme_options_menu_page' );
+	add_theme_page( __( 'Einstellungen', RRZE_Theme::textdomain ), __( 'Einstellungen', RRZE_Theme::textdomain ), 'edit_theme_options', 'theme_options', '_rrze_theme_options_menu_page' );
     
-    $pages = _rrze_options_pages();
+    $pages = RRZE_Theme::$options_pages;
     foreach( $pages as $page) {
         add_submenu_page( 'theme_options', $page['label'], $page['label'], 'edit_theme_options', $page['value'], '_rrze_theme_options_menu_page' );
     }
@@ -56,87 +29,51 @@ add_action( 'admin_print_scripts-appearance_page_theme_options', function() {
     
 }, 50);
 
-function _rrze_theme_default_options() {
-	$options = array(
-	    'color.schema' => 'blau',
-	    'color.style' => _rrze_default_color_style_data(),
-	    'column.layout' => '1-3',
-	    'footer.layout' => '33-33-33',
-	    'search.form.position' => 'bereichsmenu',
-	    'body.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
-	    'heading.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
-	    'menu.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
-	    'widget.title.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
-	    'widget.content.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
-	    'blog.overview' => 'rrze_content',
-	    'words.overview' => '55',
-	    'comments.pages' => false	
-	);
-
-    return apply_filters( '_rrze_default_theme_options', $options );
-}
-
-function _rrze_theme_options( $key = '' ) {
-	$default_options = _rrze_theme_default_options();
-    
-	$options = (array) get_option( _RRZE_THEME_OPTIONS_NAME );
-        
-	$options = wp_parse_args( $options, $default_options );
-	$options = array_intersect_key( $options, $default_options );   
-    
-    if( !empty( $key ) )
-        return isset($options[$key]) ? $options[$key] : NULL;
-    
-    
-    
-    return $options;
-}
-
 add_action( 'admin_init', function() {
     
     /* Layout options */
-    register_setting( 'layout.options', '_rrze_theme_options', '_rrze_theme_options_validate' );
+    register_setting( 'layout.options', RRZE_Theme::option_name, '_rrze_theme_options_validate' );
 
-    add_settings_section( 'layout.section', __( 'Layouteinstellungen', '_rrze' ), '_rrze_section_layout_callback', 'layout.options' );
+    add_settings_section( 'layout.section', __( 'Layouteinstellungen', RRZE_Theme::textdomain ), '_rrze_section_layout_callback', 'layout.options' );
 
-    add_settings_field( 'column.layout', __( 'Seitenlayout', '_rrze' ), '_rrze_field_columnlayout_callback', 'layout.options', 'layout.section' );
+    add_settings_field( 'column.layout', __( 'Seitenlayout', RRZE_Theme::textdomain ), '_rrze_field_columnlayout_callback', 'layout.options', 'layout.section' );
     
-    add_settings_field( 'footer.layout', __( 'Footer-Layout', '_rrze' ), '_rrze_field_footer_layout_callback', 'layout.options', 'layout.section' );
+    add_settings_field( 'footer.layout', __( 'Footer-Layout', RRZE_Theme::textdomain ), '_rrze_field_footer_layout_callback', 'layout.options', 'layout.section' );
     
-    add_settings_field( 'search.form', __( 'Position des Suchformulars', '_rrze' ), '_rrze_field_searchform_callback', 'layout.options', 'layout.section' );
+    add_settings_field( 'search.form', __( 'Position des Suchformulars', RRZE_Theme::textdomain ), '_rrze_field_searchform_callback', 'layout.options', 'layout.section' );
     
     /* Typography options */
-    register_setting( 'typography.options', '_rrze_theme_options', '_rrze_theme_options_validate' );
+    register_setting( 'typography.options', RRZE_Theme::option_name, '_rrze_theme_options_validate' );
 
-    add_settings_section( 'typography.section', __('Schriftart', '_rrze' ), '_rrze_section_typography_callback', 'typography.options' );
+    add_settings_section( 'typography.section', __('Schriftart', RRZE_Theme::textdomain ), '_rrze_section_typography_callback', 'typography.options' );
 
-    add_settings_field( 'body.typography', __('Allgemein', '_rrze' ), '_rrze_field_body_typography_callback', 'typography.options', 'typography.section' );
+    add_settings_field( 'body.typography', __('Allgemein', RRZE_Theme::textdomain ), '_rrze_field_body_typography_callback', 'typography.options', 'typography.section' );
 
-    add_settings_field( 'heading.typography', __('Überschrift', '_rrze' ), '_rrze_field_heading_typography_callback', 'typography.options', 'typography.section' );
+    add_settings_field( 'heading.typography', __('Überschrift', RRZE_Theme::textdomain ), '_rrze_field_heading_typography_callback', 'typography.options', 'typography.section' );
 
-    add_settings_field( 'menu.typography', __('Menü', '_rrze' ), '_rrze_field_menu_typography_callback', 'typography.options', 'typography.section' );
+    add_settings_field( 'menu.typography', __('Menü', RRZE_Theme::textdomain ), '_rrze_field_menu_typography_callback', 'typography.options', 'typography.section' );
 
-    add_settings_field( 'widget.title.typography', __('Widget-Titel', '_rrze' ), '_rrze_field_widget_title_typography_callback', 'typography.options', 'typography.section' );
+    add_settings_field( 'widget.title.typography', __('Widget-Titel', RRZE_Theme::textdomain ), '_rrze_field_widget_title_typography_callback', 'typography.options', 'typography.section' );
 
-    add_settings_field( 'widget.content.typography', __('Widget-Inhalt', '_rrze' ), '_rrze_field_widget_content_typography_callback', 'typography.options', 'typography.section' );
+    add_settings_field( 'widget.content.typography', __('Widget-Inhalt', RRZE_Theme::textdomain ), '_rrze_field_widget_content_typography_callback', 'typography.options', 'typography.section' );
     
     /* Color options */
-    register_setting( 'color.options', '_rrze_theme_options', '_rrze_theme_options_validate' );
+    register_setting( 'color.options', RRZE_Theme::option_name, '_rrze_theme_options_validate' );
 
-    add_settings_section( 'color.schema.section', __('Farbeinstellungen', '_rrze' ), '_rrze_section_color_style_callback', 'color.options' );
+    add_settings_section( 'color.schema.section', __('Farbeinstellungen', RRZE_Theme::textdomain ), '_rrze_section_color_style_callback', 'color.options' );
 
-    //add_settings_field( 'color.style', __('Farben', '_rrze' ), '_rrze_field_color_style_callback', 'color.options', 'color.schema.section' );
+    //add_settings_field( 'color.style', __('Farben', RRZE_Theme::textdomain ), '_rrze_field_color_style_callback', 'color.options', 'color.schema.section' );
     
-    add_settings_field( 'color.schema', __('Farbschemas', '_rrze' ), '_rrze_field_color_schema_callback', 'color.options', 'color.schema.section' );
+    add_settings_field( 'color.schema', __('Farbschemas', RRZE_Theme::textdomain ), '_rrze_field_color_schema_callback', 'color.options', 'color.schema.section' );
     
     /* Overview options */
-    register_setting( 'overview.options', '_rrze_theme_options', '_rrze_theme_options_validate' );
+    register_setting( 'overview.options', RRZE_Theme::option_name, '_rrze_theme_options_validate' );
 
-    add_settings_section( 'overview.section', __( 'Darstellung der Beitragsübersicht', '_rrze' ), '_rrze_section_overview_callback', 'overview.options' );
+    add_settings_section( 'overview.section', __( 'Darstellung der Beitragsübersicht', RRZE_Theme::textdomain ), '_rrze_section_overview_callback', 'overview.options' );
 
-    add_settings_field( 'blog.overview', __( 'Beiträge auf der Übersichtsseite anzeigen', '_rrze' ), '_rrze_field_blogoverview_callback', 'overview.options', 'overview.section' );
+    add_settings_field( 'blog.overview', __( 'Beiträge auf der Übersichtsseite anzeigen', RRZE_Theme::textdomain ), '_rrze_field_blogoverview_callback', 'overview.options', 'overview.section' );
     
-    add_settings_field( 'words.overview', __( 'Anzahl der angezeigten Wörter in der Vorschau', '_rrze' ), '_rrze_field_wordsoverview_callback', 'overview.options', 'overview.section' );
+    add_settings_field( 'words.overview', __( 'Anzahl der angezeigten Wörter in der Vorschau', RRZE_Theme::textdomain ), '_rrze_field_wordsoverview_callback', 'overview.options', 'overview.section' );
     
 } );
 
@@ -144,12 +81,12 @@ function _rrze_searchform_options() {
     $options = array(
         'none' => array(
             'value' => 'none',
-            'label' => __( 'keiner', '_rrze' )
+            'label' => __( 'keiner', RRZE_Theme::textdomain )
         ),
         
         'bereichsmenu' => array(
             'value' => 'bereichsmenu',
-            'label' => __( 'Bereichsmenü', '_rrze' )
+            'label' => __( 'Bereichsmenü', RRZE_Theme::textdomain )
         )          
     );
 
@@ -160,17 +97,17 @@ function _rrze_columnlayout_options() {
     $options = array(
         '1-3' => array(
             'value' => '1-3',
-            'label' => __( '2 Spalten - linke Sidebar', '_rrze' )
+            'label' => __( '2 Spalten - linke Sidebar', RRZE_Theme::textdomain )
         ),
         
         '2-3' => array(
             'value' => '2-3',
-            'label' => __( '2 Spalten - rechte Sidebar', '_rrze' )
+            'label' => __( '2 Spalten - rechte Sidebar', RRZE_Theme::textdomain )
         ),
         
         '1-2-3' => array(
             'value' => '1-2-3',
-            'label' => __( '3 Spalten - linke und rechte Sidebar', '_rrze' )
+            'label' => __( '3 Spalten - linke und rechte Sidebar', RRZE_Theme::textdomain )
         )
         
     );
@@ -209,47 +146,47 @@ function _rrze_default_color_style() {
     
     $color_style = array( 
         'menu' => array( 
-            'label' => __( 'Menüfarbe', '_rrze' ),
+            'label' => __( 'Menüfarbe', RRZE_Theme::textdomain ),
             'color' => $colors['menu'] 
          ),
         'title' => array( 
-            'label' => __( 'Titelfarbe', '_rrze' ),
+            'label' => __( 'Titelfarbe', RRZE_Theme::textdomain ),
             'color' => $colors['title'] 
          ),
         'link' => array( 
-            'label' => __( 'Linkfarbe', '_rrze' ),
+            'label' => __( 'Linkfarbe', RRZE_Theme::textdomain ),
             'color' => $colors['link'] 
          ),        
         'hover' => array( 
-            'label' => __( 'Hover-Farbe', '_rrze' ),
+            'label' => __( 'Hover-Farbe', RRZE_Theme::textdomain ),
             'color' => $colors['hover'] 
          ),
         'widget-title' => array( 
-            'label' => __( 'Widget-Titel in Spalten', '_rrze' ),
+            'label' => __( 'Widget-Titel in Spalten', RRZE_Theme::textdomain ),
             'color' => $colors['widget-title'] 
          ),
         'widget-linien' => array( 
-            'label' => __( 'Widget-Linien in Spalten', '_rrze' ),
+            'label' => __( 'Widget-Linien in Spalten', RRZE_Theme::textdomain ),
             'color' => $colors['widget-linien'] 
          ),
         'widget-hover' => array( 
-            'label' => __( 'Widget-Hover-Farbe in Spalten', '_rrze' ),
+            'label' => __( 'Widget-Hover-Farbe in Spalten', RRZE_Theme::textdomain ),
             'color' => $colors['widget-hover'] 
          ),        
         'footer-widget-title' => array( 
-            'label' => __( 'Widget-Titel im Footer', '_rrze' ),
+            'label' => __( 'Widget-Titel im Footer', RRZE_Theme::textdomain ),
             'color' => $colors['footer-widget-title'] 
          ),
         'footer-widget-linien' => array( 
-            'label' => __( 'Widget-Linien im Footer', '_rrze' ),
+            'label' => __( 'Widget-Linien im Footer', RRZE_Theme::textdomain ),
             'color' => $colors['footer-widget-linien'] 
          ),
         'footer-hover' => array( 
-            'label' => __( 'Hover-Farbe im Footer', '_rrze' ),
+            'label' => __( 'Hover-Farbe im Footer', RRZE_Theme::textdomain ),
             'color' => $colors['footer-hover'] 
          ),        
         'background' => array( 
-            'label' => __( 'Hintergrundfarbe', '_rrze' ),
+            'label' => __( 'Hintergrundfarbe', RRZE_Theme::textdomain ),
             'color' => $colors['background'] 
          )        
     );
@@ -261,25 +198,25 @@ function _rrze_color_schema_options() {
     $options = array(
         'grau' => array(
             'value' => 'grau',
-            'label' => __( 'Grau', '_rrze' ),
+            'label' => __( 'Grau', RRZE_Theme::textdomain ),
             'colors' => array( 'menu' => '#222222', 'title' => '#444444', 'link' => '#020202', 'hover' => '#515151', 'widget-title' => '#444444', 'widget-linien' => '#DDDDDD', 'widget-hover' => '#888888', 'footer-widget-title' => '#9E9E9E', 'footer-widget-linien' => '#686868', 'footer-hover' => '#303030', 'background' => '#7A7A7A' ),
         ),
         
         'blau' => array(
             'value' => 'blau',
-            'label' => __( 'Blau', '_rrze' ),
-            'colors' => array( 'menu' => '#00425F', 'title' => '#00425F', 'link' => '#1E6296', 'hover' => '#005D85', 'widget-title' => '#00425F', 'widget-linien' => '#B3C6CE', 'widget-hover' => '#6B8EAD', 'footer-widget-title' => '#D0D0D0', 'footer-widget-linien' => '#006F9F', 'footer-hover' => '#005D85', 'background' => '#D4D7D9' ),
+            'label' => __( 'Blau', RRZE_Theme::textdomain ),
+            'colors' => array( 'menu' => '#00425F', 'title' => '#00425F', 'link' => '#00425F', 'hover' => '#005D85', 'widget-title' => '#00425F', 'widget-linien' => '#B3C6CE', 'widget-hover' => '#6B8EAD', 'footer-widget-title' => '#D0D0D0', 'footer-widget-linien' => '#006F9F', 'footer-hover' => '#005D85', 'background' => '#D4D7D9' ),
         ),
             
         'gruen' => array(
             'value' => 'gruen',
-            'label' => __( 'Grün', '_rrze' ),
+            'label' => __( 'Grün', RRZE_Theme::textdomain ),
             'colors' => array( 'menu' => '#006600', 'title' => '#006600', 'link' => '#006600', 'hover' => '#0E510E', 'widget-title' => '#366636', 'widget-linien' => '#8BB797', 'widget-hover' => '#6F9977', 'footer-widget-title' => '#829985', 'footer-widget-linien' => '#829985', 'footer-hover' => '#55754D', 'background' => '#E9E7D7' ),
         ),
         
         'rot' => array(
             'value' => 'rot',
-            'label' => __( 'Rot', '_rrze' ),
+            'label' => __( 'Rot', RRZE_Theme::textdomain ),
             'colors' => array( 'menu' => '#AF290D', 'title' => '#B35B22', 'link' => '#B35B22', 'hover' => '#B35B22', 'widget-title' => '#B35B22', 'widget-linien' => '#B29C8E', 'widget-hover' => '#B2876B', 'footer-widget-title' => '#B29C8E', 'footer-widget-linien' => '#B29C8E', 'footer-hover' => '#B27349', 'background' => '#BCA279' ),
         ),        
         
@@ -292,12 +229,12 @@ function _rrze_blogoverview_options() {
     $options = array(
         'rrze_content' => array(
             'value' => 'rrze_content',
-            'label' => __( 'als vollständigen Artikel', '_rrze' )
+            'label' => __( 'als vollständigen Artikel', RRZE_Theme::textdomain )
         ),
         
         'rrze_excerpt' => array(
             'value' => 'rrze_excerpt',
-            'label' => __( 'als kurze Vorschau', '_rrze' )
+            'label' => __( 'als kurze Vorschau', RRZE_Theme::textdomain )
         )
         
     );
@@ -306,24 +243,24 @@ function _rrze_blogoverview_options() {
 }
 
 function _rrze_section_layout_callback() {
-    printf( '<p>%s</p>', __( 'Wählen Sie, welche Optionen Sie aktivieren möchten.', '_rrze' ) );
+    printf( '<p>%s</p>', __( 'Wählen Sie, welche Optionen Sie aktivieren möchten.', RRZE_Theme::textdomain ) );
 }
 
 function _rrze_section_typography_callback() {
-    printf( '<p>%s</p>', __( 'Geben Sie eine beliebige Schriftart ein, um die Ihrer Website zu ändern. Ansonsten geben Sie einen Leerwert ein, um die Standardschriftart wieder einzustellen.', '_rrze' ) );
+    printf( '<p>%s</p>', __( 'Geben Sie eine beliebige Schriftart ein, um die Ihrer Website zu ändern. Ansonsten geben Sie einen Leerwert ein, um die Standardschriftart wieder einzustellen.', RRZE_Theme::textdomain ) );
 }
 
 function _rrze_section_color_style_callback() {
-    printf( '<p>%s</p>', __( 'Wählen Sie, welches Farbschema Sie aktivieren möchten.', '_rrze' ) );
+    printf( '<p>%s</p>', __( 'Wählen Sie, welches Farbschema Sie aktivieren möchten.', RRZE_Theme::textdomain ) );
 }
 
 function _rrze_section_overview_callback() {
-    printf( '<p>%s</p>', __( 'Wählen Sie, ob auf der Übersichtsseite die vollständigen Beiträge oder nur Auszüge angezeigt werden sollen.', '_rrze' ) );
-    printf( '<p>%s</p>', __( 'Wenn Sie eine Vorschau anzeigen lassen und der Beitrag keinen Auszug besitzt, wird der Artikel gekürzt dargestellt. Die Anzahl der angezeigten Wörter können Sie unten festlegen.', '_rrze' ) );
+    printf( '<p>%s</p>', __( 'Wählen Sie, ob auf der Übersichtsseite die vollständigen Beiträge oder nur Auszüge angezeigt werden sollen.', RRZE_Theme::textdomain ) );
+    printf( '<p>%s</p>', __( 'Wenn Sie eine Vorschau anzeigen lassen und der Beitrag keinen Auszug besitzt, wird der Artikel gekürzt dargestellt. Die Anzahl der angezeigten Wörter können Sie unten festlegen.', RRZE_Theme::textdomain ) );
 }
 
 function _rrze_field_searchform_callback() {
-	$options = _rrze_theme_options();
+	$options = RRZE_Theme::$theme_options;
 	?>
 	<select name="_rrze_theme_options[search.form.position]" id="searchform-position">
 		<?php
@@ -340,7 +277,7 @@ function _rrze_field_searchform_callback() {
 }
 
 function _rrze_field_columnlayout_callback() {
-	$options = _rrze_theme_options();
+	$options = RRZE_Theme::$theme_options;
 
 	foreach ( _rrze_columnlayout_options() as $button ):
 	?>
@@ -355,7 +292,7 @@ function _rrze_field_columnlayout_callback() {
 }
 
 function _rrze_field_footer_layout_callback() {
-	$options = _rrze_theme_options();
+	$options = RRZE_Theme::$theme_options;
 	?>
 	<select name="_rrze_theme_options[footer.layout]" id="footer-layout">
 		<?php
@@ -368,7 +305,7 @@ function _rrze_field_footer_layout_callback() {
             
             $groups = array_unique($groups);
             foreach($groups as $group) {
-                $html .= '<optgroup label="'. esc_attr($group). ' ' .esc_attr( _n( 'Spalte', 'Spalten', $group, '_rrze' ) ) . '" rel="' . esc_attr($group) . '">';
+                $html .= '<optgroup label="'. esc_attr($group). ' ' .esc_attr( _n( 'Spalte', 'Spalten', $group, RRZE_Theme::textdomain ) ) . '" rel="' . esc_attr($group) . '">';
                 foreach ( _rrze_footer_layout_options() as $option ) {
                     if($option['group'] == $group) {
                         $html .= '<option value="'.esc_attr($option['value']).'"'.($selected == $option['value'] ? ' selected="selected"' : '').'>'.esc_attr($option['label']).'</option>';
@@ -384,42 +321,43 @@ function _rrze_field_footer_layout_callback() {
 }
 
 function _rrze_field_body_typography_callback() {
-	$options = _rrze_theme_options();
+	$options = RRZE_Theme::$theme_options;
 	?>
     <input type="text" class="regular-text" name="_rrze_theme_options[body.typography]" value="<?php echo esc_attr($options['body.typography']); ?>" />
 	<?php
 }
 
 function _rrze_field_heading_typography_callback() {
-	$options = _rrze_theme_options();
+	$options = RRZE_Theme::$theme_options;
 	?>
     <input type="text" class="regular-text" name="_rrze_theme_options[heading.typography]" value="<?php echo esc_attr($options['heading.typography']); ?>" />
 	<?php
 }
 
 function _rrze_field_menu_typography_callback() {
-	$options = _rrze_theme_options();
+	$options = RRZE_Theme::$theme_options;
 	?>
     <input type="text" class="regular-text" name="_rrze_theme_options[menu.typography]" value="<?php echo esc_attr($options['menu.typography']); ?>" />
 	<?php
 }
 
 function _rrze_field_widget_title_typography_callback() {
-	$options = _rrze_theme_options();
+	$options = RRZE_Theme::$theme_options;
 	?>
     <input type="text" class="regular-text" name="_rrze_theme_options[widget.title.typography]" value="<?php echo esc_attr($options['widget.title.typography']); ?>" />
 	<?php
 }
 
 function _rrze_field_widget_content_typography_callback() {
-	$options = _rrze_theme_options();
+	$options = RRZE_Theme::$theme_options;
 	?>
     <input type="text" class="regular-text" name="_rrze_theme_options[widget.content.typography]" value="<?php echo esc_attr($options['widget.content.typography']); ?>" />
 	<?php
 }
 
 function _rrze_field_color_style_callback() {
-    $option = _rrze_theme_options( 'color.style' );
+    $options = RRZE_Theme::$theme_options;
+    $option = $options['color.style'];
     ?>
     <ul class="rrze-section-content">
 	<?php foreach ( _rrze_default_color_style() as $key => $style ): ?>
@@ -435,7 +373,7 @@ function _rrze_field_color_style_callback() {
 }
 
 function _rrze_field_color_schema_callback() {
-    $options = _rrze_theme_options();
+    $options = RRZE_Theme::$theme_options;
     $color_schema = $options['color.schema'];
     $custom_colors = array_map( 'strtoupper', $options['color.style'] );
     $color_schema_options = _rrze_color_schema_options();
@@ -446,7 +384,7 @@ function _rrze_field_color_schema_callback() {
             
             $color_schema_options[$color_schema] = array(
                 'value' => $color_schema,
-                'label' => __( 'Benutzerdefiniertes', '_rrze' ),
+                'label' => __( 'Benutzerdefiniertes', RRZE_Theme::textdomain ),
                 'colors' => $custom_colors
             );
             
@@ -479,7 +417,7 @@ function _rrze_field_color_schema_callback() {
 }
 
 function _rrze_field_blogoverview_callback() {
-	$options = _rrze_theme_options();
+	$options = RRZE_Theme::$theme_options;
 
 	foreach ( _rrze_blogoverview_options() as $button ):
 	?>
@@ -494,22 +432,22 @@ function _rrze_field_blogoverview_callback() {
 }
 
 function _rrze_field_wordsoverview_callback() {
-	$options = _rrze_theme_options();
+	$options = RRZE_Theme::$theme_options;
 	?>
     <input type="text" class="regular-text" name="_rrze_theme_options[words.overview]" value="<?php echo esc_attr($options['words.overview']); ?>" />
-    <?php printf ('<span class="description">%s</span>', __('Lassen Sie die Anzeige leer, um den Standardwert wieder herzustellen.', '_rrze')); ?>
+    <?php printf ('<span class="description">%s</span>', __('Lassen Sie die Anzeige leer, um den Standardwert wieder herzustellen.', RRZE_Theme::textdomain)); ?>
     
 	<?php
 }
 
 function _rrze_theme_options_menu_page() {
-    $pages = _rrze_options_pages();
+    $pages = RRZE_Theme::$options_pages;
     $tab = isset( $_GET['tab'] ) && array_key_exists( $_GET['tab'], $pages ) ? $_GET['tab'] : 'layout.options';
     ?>
     <div class="wrap">
 
         <?php screen_icon(); ?>
-        <h2><?php _e( 'Einstellungen', '_rrze' );?></h2>
+        <h2><?php _e( 'Einstellungen', RRZE_Theme::textdomain );?></h2>
         <?php settings_errors(); ?>
         <h2 class="nav-tab-wrapper">
             <?php foreach( $pages as $page):
@@ -531,8 +469,8 @@ function _rrze_theme_options_menu_page() {
 }
 
 function _rrze_theme_options_validate( $input ) {
-    $default_options = _rrze_theme_default_options();
-    $options = _rrze_theme_options();
+    $default_options = RRZE_Theme::$default_theme_options;
+    $options = RRZE_Theme::$theme_options;
     
     $custom_schema = '_custom';
     $custom_colors = array_map( 'strtoupper', $options['color.style'] );
@@ -647,7 +585,7 @@ function _rrze_validate_hex_color( $str ) {
  * Theme customizer
  */
 add_action( 'customize_register', function( $wp_customize ) {
-    $options = _rrze_theme_options();
+    $options = RRZE_Theme::$theme_options;
     
 	$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
@@ -676,7 +614,7 @@ add_action( 'customize_register', function( $wp_customize ) {
     
     // column.layout
 	$wp_customize->add_section( '_rrze_theme_layout', array(
-		'title'    => __( 'Layout', '_rrze' ),
+		'title'    => __( 'Layout', RRZE_Theme::textdomain ),
 		'priority' => 100,
 	) );
     
@@ -693,7 +631,7 @@ add_action( 'customize_register', function( $wp_customize ) {
 	}
 
 	$wp_customize->add_control( '_rrze_theme_options_columns_layout', array(
-        'label'      => __( 'Spalten', '_rrze' ),        
+        'label'      => __( 'Spalten', RRZE_Theme::textdomain ),        
 		'section'    => '_rrze_theme_layout',
 		'type'       => 'radio',
 		'choices'    => $choices,
@@ -715,7 +653,7 @@ add_action( 'customize_register', function( $wp_customize ) {
 	}
 
 	$wp_customize->add_control( '_rrze_theme_options_footer_layout', array(
-        'label'      => __( 'Footer (Widgets)', '_rrze' ),        
+        'label'      => __( 'Footer (Widgets)', RRZE_Theme::textdomain ),        
 		'section'    => '_rrze_theme_layout',
 		'type'       => 'select',
 		'choices'    => $choices,

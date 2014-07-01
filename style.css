@@ -11,25 +11,25 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: _rrze
 */
 
-/* import core styles | Basis-Stylesheets einbinden */
-@import url(css/yaml/core/base.css);
+/* Import core styles | Basis-Stylesheets einbinden */
+@import url(css/yaml/core/base.min.css);
 
-/* import screen layout | Screen-Layout einbinden */
+/* Import screen layout | Screen-Layout einbinden */
 @import url(css/yaml/navigation/hlist.css);
 @import url(css/yaml/navigation/vlist.css);
 @import url(css/yaml/forms/gray-theme.css);
 
-@import url(css/yaml/screen/typography.css);
-@import url(css/yaml/screen/screen-FULLPAGE-layout.css);
-
-/* import print layout | Druck-Layout einbinden */
+/* Import print layout | Druck-Layout einbinden */
 @import url(css/yaml/print/print.css);
 
-/* import theme core styles | Basis-Theme-Stylesheets einbinden */
+/* Import theme core styles | Basis-Theme-Stylesheets einbinden */
 @import url(css/base.css);
 
-/* import theme screen layout | Screen-Theme-Layout einbinden */
+/* Import global theme typography settings |  Globalen Theme-Typografieeinstellungen einbinden */
+@import url(css/typography.css);
+
+/* Import theme screen layout | Screen-Theme-Layout einbinden */
 @import url(css/screen.css);
 
-/* import theme print layout | Theme-Druck-Layout einbinden */
+/* Import theme print layout | Theme-Druck-Layout einbinden */
 @import url(css/print.css);

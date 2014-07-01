@@ -3,20 +3,20 @@
         padding-left: 0;
         padding-right: 0;
     }
-    
+
     a {
         background-color: transparent;
         text-decoration: none;
     }
-    
+
     a:active {
         outline: medium none;
     }
-    
+
     a:hover, a:focus {
         color: #FFFFFF;
     }
-        
+
     ol {
         margin-left: 0.25em;
     }
@@ -24,30 +24,34 @@
     .page-header {
         background: none;
     }
-        
+
     .entry-header {
         background: none repeat scroll 0 0 #FFFFFF;
         color: #444;
+    }
+
+    .entry-meta {
+        margin: 0 0 0.5em;
     }
     
     .entry-content a:hover, a:focus {
         text-decoration: none;
     }
-          
+
     .entry-content {
         overflow: hidden;
         width: 100%;
     }
-    
+
     .overflow-x {
-      overflow-x:scroll;
-      overflow-y:visible;
+        overflow-x:scroll;
+        overflow-y:visible;
     }
-    
+
     .entry-footer {       
-        margin-top: 1em;
+        margin: 1em 0;
     }
-        
+
     /* Alignment */
     .alignleft {
         float:left;
@@ -64,92 +68,92 @@
         text-align:center;
         margin: 1.5em auto 0 auto;
     }
-    
+
     /* Images */
     .entry-content img,
     .comment-content img,
     .widget img {
         max-width: 97.5%; /* Fluid images for posts, comments, and widgets */
     }
-    
+
     img[class*="align"],
     img[class*="wp-image-"],
     img[class*="attachment-"] {
         height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
     }
-    
+
     img.size-full,
     img.size-large {
         max-width: 97.5%;
         width: auto; /* Prevent stretching of full-size and large-size images with height and width attributes in IE8 */
         height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
     }
-    
+
     .entry-content img.wp-smiley {
         border: none;
         margin-bottom: 0;
         margin-top: 0;
         padding: 0;
     }
-    
+
     img.alignleft,
     img.alignright,
     img.aligncenter {
         margin-bottom: 1.625em;
     }
-    
+
     p img,
     .wp-caption {
         margin-top: 0.4em;
     }
-    
+
     .wp-caption {
         background: #eee;
         margin-bottom: 1.625em;
         max-width: 96%;
         padding: 9px;
     }
-    
+
     .wp-caption img {
         display: block;
         margin: 0 auto;
         max-width: 98%;
     }
-    
+
     .wp-caption .wp-caption-text,
     .gallery-caption {
         color: #666;
         font-size: 12px;
     }
-    
+
     .wp-caption .wp-caption-text {
         margin-bottom: 0.6em;
         padding: 10px 0 5px 5px;
         position: relative;
     }
-        
+
     .gallery {
         margin: 0 auto 1.625em;
     }
-    
+
     .gallery a:hover, .gallery a:focus, .gallery-thumb a:hover, .gallery-thumb a:focus {
         background-color: transparent !important;
     }
-    
+
     .gallery a img {
         border: none;
     }
-    
+
     .gallery-columns-4 .gallery-item {
         width: 23% !important;
         padding-right: 2%;
     }
-    
+
     .gallery-columns-4 .gallery-item img {
         width: 100%;
         height: auto;
     }
-    
+
     dl.gallery-item {
         margin: 0;
     }
@@ -162,7 +166,7 @@
         clear: both;
         height: 0;
     }    
-    
+
     /* Image borders */
     img[class*="align"],
     img[class*="wp-image-"],
@@ -173,7 +177,7 @@
     .wp-caption img {
         border-color: #F8F8F8;
     }
-    
+
     a:focus img[class*="align"],
     a:hover img[class*="align"],
     a:active img[class*="align"],
@@ -186,7 +190,7 @@
         background: #F8F8F8;
         border-color: #BBBBBB;
     }
-    
+
     .wp-caption a:focus img,
     .wp-caption a:active img,
     .wp-caption a:hover img {
@@ -200,10 +204,10 @@
     object {
         max-width: 100%;
     }
-    
+
     .rrze-margin {
         margin-top: 0;
     }
 
-    
+
 }

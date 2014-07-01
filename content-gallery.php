@@ -1,8 +1,6 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <header class="entry-header">
-        <h2>
-            <a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink zu %s', '_rrze' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
-        </h2>
+        <h1><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink zu %s', RRZE_Theme::textdomain ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
         <div class="entry-meta">
             <?php echo Theme_Tags::posted_on(); ?>
         </div>    
@@ -14,7 +12,7 @@
     <?php else : ?>
     <div class="entry-content">
         <?php if ( post_password_required() ) : ?>
-            <?php the_content( __( 'Weiterlesen <span class="meta-nav">&rarr;</span>', '_rrze' ) ); ?>
+            <?php the_content( __( 'Weiterlesen <span class="meta-nav">&rarr;</span>', RRZE_Theme::textdomain ) ); ?>
 
         <?php else : ?>
             <?php
@@ -30,21 +28,21 @@
             </figure>
 
             <p>
-                <em><?php printf( _n( 'Diese Galerie enthält <a %1$s>%2$s Bild</a>.', 'Diese Galerie enthält <a %1$s>%2$s Bilder</a>.', $total_images, '_rrze' ),
-                    'href="' . esc_url( get_permalink() ) . '" title="' . sprintf( esc_attr__( 'Permalink zu %s', '_rrze' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',
+                <em><?php printf( _n( 'Diese Galerie enthält <a %1$s>%2$s Bild</a>.', 'Diese Galerie enthält <a %1$s>%2$s Bilder</a>.', $total_images, RRZE_Theme::textdomain ),
+                    'href="' . esc_url( get_permalink() ) . '" title="' . sprintf( esc_attr__( 'Permalink zu %s', RRZE_Theme::textdomain ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',
                     number_format_i18n( $total_images )
                 ); ?></em>
             </p>
         <?php endif; ?>
         <?php the_excerpt(); ?>
     <?php endif; ?>
-    <?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Seiten:', '_rrze' ) . '</span>', 'after' => '</div>' ) ); ?>
+    <?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Seiten:', RRZE_Theme::textdomain ) . '</span>', 'after' => '</div>' ) ); ?>
     </div>
     <?php endif; ?>
     <footer class="entry-footer">
         <?php if( comments_open() ) : ?>
         <div class="ym-wbox">
-            <span class="comments-link"><?php comments_popup_link( '<span class="leave-reply">' . __( 'Kommentar hinterlassen', '_rrze' ) . '</span>', __( '<b>1</b> Kommentar', '_rrze' ), __( '<b>%</b> Kommentare', '_rrze' ) ); ?></span>
+            <span class="comments-link"><?php comments_popup_link( '<span class="leave-reply">' . __( 'Kommentar hinterlassen', RRZE_Theme::textdomain ) . '</span>', __( '<b>1</b> Kommentar', RRZE_Theme::textdomain ), __( '<b>%</b> Kommentare', RRZE_Theme::textdomain ) ); ?></span>
         </div>
         <?php endif; ?>
     </footer>    

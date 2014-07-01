@@ -8,11 +8,11 @@ Wordpress Theme
 * Theme-Einstellungen im Adminbereich (personalisierte Hintergrund-Farbe, Linkfarben und Textfarbe angeben und Bild als Logo einfügen).
 * Integrierte Shortcodes
 
-"ym-table"-Shortcode (Zeilenumbruch mit :br:)
+"ym-table"-Shortcode
 <pre>
 [ym-table class="bordertable" delimiter=";"]
 Artikelnummer;Artikelname Name;Preis inkl. MwSt
-1351186:br:momentan nicht verfügbar;Buttertoast 500g;1,50 €
+1351186;Buttertoast 500g;1,50 €
 1351416;Blütenhonig 500g;3,50 €
 1351486 ;Markenzwieback 250g;1,95 €
 [/ym-table]
