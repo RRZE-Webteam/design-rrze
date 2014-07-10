@@ -31,7 +31,13 @@
                 <?php if( display_header_text() ): ?>
                 <div class="ym-wrapper">
                     <div class="ym-wbox header-block">
-                        <h1 id="site-title"><span><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a></span></h1>
+                        <h1 id="site-title"><span>
+                            <?php 
+                            $blogname = esc_attr( get_bloginfo( 'name', 'display' ) );
+                            $home = esc_url( home_url( '/' ) );
+                            echo is_home() || is_front_page() ? $blogname : sprintf('<a href="%1$s" rel="home">%2$s</a>' , $home, $blogname);
+                            ?>
+                        </span></h1>
                         <?php if( get_bloginfo( 'description', 'display' ) ) : ?>
                         <h3 id="site-description"><span><?php echo esc_attr( get_bloginfo( 'description', 'display' ) ); ?></span></h3>
                         <?php endif; ?>
