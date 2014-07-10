@@ -162,6 +162,7 @@ class RRZE_Theme {
     
 
     private function default_custom_fields() {
+        /* möglich bei type: text, textarea, checkbox, select, image, title, headline (für Zwischenüberschriften) */
         $custom_fields = array(
             '_titel_ausblenden' => array(
                 'name' => '_titel_ausblenden',
@@ -169,42 +170,8 @@ class RRZE_Theme {
                 'title' => __( 'Titel ausblenden', self::textdomain ),
                 'description' => '',
                 'type' => 'checkbox',
-                'location' => 'page'),
-            '_titel_rein' => array(
-                'name' => '_titel_rein',
-                'default' => 'Titel rein',
-                'title' => __( 'Text', self::textdomain ),
-                'description' => 'Hier den Titel rein',
-                'type' => 'text',
-                'location' => 'post'),
-            '_titel_textarea' => array(
-                'name' => '_titel_textarea',
-                'default' => 'Titel rein',
-                'title' => __( 'Textarea', self::textdomain ),
-                'description' => 'Hier den Titel rein',
-                'type' => 'textarea',
-                'location' => 'page'),
-            '_titel_select' => array(
-                'name' => '_titel_select',
-                'default' => 'Titel rein',
-                'title' => __( 'Select', self::textdomain ),
-                'description' => 'Hier den Titel rein',
-                'type' => 'select',
-                'location' => 'post'),
-            '_titel_image' => array(
-                'name' => '_titel_image',
-                'default' => 'Titel rein',
-                'title' => __( 'Image', self::textdomain ),
-                'description' => 'Hier den Titel rein',
-                'type' => 'image',
-                'location' => 'page'),
-            '_titel_headline' => array(
-                'name' => '_titel_headline',
-                'default' => 'Titel rein',
-                'title' => __( 'Headline', self::textdomain ),
-                'description' => 'Hier den Titel rein',
-                'type' => 'headline',
-                'location' => 'post')
+                'location' => 'page')
+            
         );
 
         return apply_filters( '_rrze_default_custom_fields', $custom_fields );
@@ -480,7 +447,6 @@ class RRZE_Theme {
             add_meta_box(
                     'more_meta'
                     ,__('Weitere Einstellungen', self::textdomain)
-                    //,array($this, 'new_meta_boxes_post')
                     , array($this, $new_meta_boxes)
                     , $post_type
                     , 'normal'
@@ -504,10 +470,10 @@ class RRZE_Theme {
         wp_nonce_field('more_meta_box', 'more_meta_box_nonce');
         
         echo '<div class="form-wrap">';
- 
+        $i=0;
         foreach($new_meta_boxes as $meta_box) {
             if( $meta_box['location'] == $type) {
-             
+                $i++;
                 if ( $meta_box['type'] == 'title' ) {
                     echo '<p style="font-size: 18px; font-weight: bold; font-style: normal; color: #e5e5e5; text-shadow: 0 1px 0 #111; line-height: 40px; background-color: #464646; border: 1px solid #111; padding: 0 10px; -moz-border-radius: 6px;">' . $meta_box[ 'title' ] . '</p>';
                 } else {           
@@ -576,15 +542,13 @@ class RRZE_Theme {
                     }
                 }
             } 
-            /*else {
-                echo __('Auf dieser Seite stehen Ihnen keine weiteren Einstellungen zur Verfügung.', self::textdomain);
-            }*/
-        }  
+            
+        } 
+        if ($i == '0') { echo __('Auf dieser Seite stehen Ihnen keine weiteren Einstellungen zur Verfügung.', self::textdomain);}
         echo '</div>';
     }
     
     public function save_postdata( $post_id ) {
-        // Check if our nonce is set.
 	if ( ! isset( $_POST['more_meta_box_nonce'] ) ) {
 		return;
 	}
@@ -599,7 +563,7 @@ class RRZE_Theme {
         $new_meta_boxes = self::$default_custom_fields;
  
         foreach($new_meta_boxes as $meta_box) {
-            if ( $meta_box['type'] != 'title)' ) {
+            if ( $meta_box['type'] != 'title' ) {
          
                 if ( 'page' == $_POST['post_type'] ) {
                     if ( !current_user_can( 'edit_page', $post_id ))
