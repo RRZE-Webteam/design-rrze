@@ -70,6 +70,9 @@ class RRZE_Theme {
         add_action('add_meta_boxes', array($this, 'add_meta_box'));
         add_action('save_post', array($this, 'save_postdata'));
         
+        add_action('save_post', array($this, 'save_title'));
+        add_action('admin_notices', array($this, 'admin_notice'), 99);
+        
         add_action('admin_menu', array($this, 'remove_post_custom_fields'));
         
         add_filter( 'get_archives_link', array($this, 'get_archives_link'));
@@ -591,7 +594,64 @@ class RRZE_Theme {
                     delete_post_meta($post_id, $meta_box['name'], get_post_meta($post_id, $meta_box['name'], true));   
             }
         }
-    }    
+    } 
+    public function save_title($post_id) {
+        
+        // if this is a revision, get real post ID
+        if ( $parent_id = wp_is_post_revision( $post_id ) )  {
+            $post_id = $parent_id;
+        }
+
+        $post = get_post($post_id);
+
+        if(empty($post->post_title)) {
+            $error = __('Sie haben noch keinen Titel eingegeben.', self::textdomain);
+            // set transient for admin notice
+            set_transient($this->transient_hash(), $error, 15 * MINUTE_IN_SECONDS);
+
+            // OPTIONAL
+
+            // set placeholder for empty title
+            $title = __('Dokument ohne Titel', self::textdomain);
+            
+            // unhook this function so it doesn't loop infinitely
+            remove_action('save_post', array($this, 'save_title'));
+            
+            // update the post, which calls save_post again
+            wp_update_post(array('ID' => $post_id, 'post_title' => $title));
+
+            // re-hook this function
+            add_action('save_post', array($this, 'save_title'));
+        }
+
+    }
+        
+    public function admin_notice() {
+        // only valid for the post.php page
+        if (empty($GLOBALS['pagenow']) OR empty($_GET['message']) OR $GLOBALS['pagenow'] !== 'post.php') {
+            return;
+        }
+
+        // set a hash
+        $hash = $this->transient_hash();
+
+        // get the transient if exist
+        if ((!$error = get_transient($hash))) {
+            return;
+        }
+
+        // delete the transient
+        delete_transient($hash);
+
+        echo '<div class="error"><ul>';
+        echo $error;
+        echo '</ul></div>';
+    }
+
+    private function transient_hash() {
+        return md5(sprintf('RRZE_Snippet_%s_%s', get_the_ID(), get_current_user_id()));
+    }
+    
     public function remove_post_custom_fields() {
 	remove_meta_box( 'postcustom' , 'post' , 'normal' ); 
         	remove_meta_box( 'postcustom' , 'page' , 'normal' ); 
