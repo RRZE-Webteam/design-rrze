@@ -218,7 +218,13 @@ function _rrze_color_schema_options() {
             'value' => 'rot',
             'label' => __( 'Rot', RRZE_Theme::textdomain ),
             'colors' => array( 'menu' => '#AF290D', 'title' => '#B35B22', 'link' => '#B35B22', 'hover' => '#B35B22', 'widget-title' => '#B35B22', 'widget-linien' => '#B29C8E', 'widget-hover' => '#B2876B', 'footer-widget-title' => '#B29C8E', 'footer-widget-linien' => '#B29C8E', 'footer-hover' => '#B27349', 'background' => '#BCA279' ),
-        ),        
+        ),  
+        
+        'nat_fak' => array(
+            'value' => 'nat_fak',
+            'label' => __( 'Nat. Fak.', RRZE_Theme::textdomain ),
+            'colors' => array( 'menu' => '#005240', 'title' => '#006600', 'link' => '#006600', 'hover' => '#0E510E', 'widget-title' => '#366636', 'widget-linien' => '#009975', 'widget-hover' => '#e9e7d7', 'footer-widget-title' => '#829985', 'footer-widget-linien' => '#829985', 'footer-hover' => '#f4fee1', 'background' => '#fdfdf6' ),
+        ),
         
     );
 
