@@ -1,4 +1,5 @@
 <?php
+
 class Theme_Tags {
 
     public static function search_form( $formclass = 'ym-searchform', $fieldclass = 'ym-searchfield', $buttonclass = 'ym-searchbutton' ) {
@@ -6,29 +7,29 @@ class Theme_Tags {
             '<form class="%s" role="search" method="get" id="searchform" action="%s" >
                 <input class="%s" type="search" placeholder="%s" value="%s" name="s" id="s" />
                 <input class="%s" type="submit" value="%s" />
-            </form><div class="ym-clearfix"></div>', $formclass, esc_url( home_url( '/' ) ), $fieldclass, esc_attr__( 'Suchen...', '_rrze' ), get_search_query(), $buttonclass, esc_attr__( 'Suchen', '_rrze' ) );
+            </form><div class="ym-clearfix"></div>', $formclass, esc_url( home_url( '/' ) ), $fieldclass, esc_attr__( 'Suchen...', RRZE_Theme::textdomain ), get_search_query(), $buttonclass, esc_attr__( 'Suchen', RRZE_Theme::textdomain ) );
         return $form;
     }
 
     public static function breadcrumb_nav() {
         global $post;
 
-        $list = sprintf( '<ul><li><span>%s</span></li>', __( 'Sie befinden sich hier:', '_rrze' ) );
+        $list = sprintf( '<ul><li><span>%s</span></li>', __( 'Sie befinden sich hier:', RRZE_Theme::textdomain ) );;
 
         if ( ! is_front_page() ) {
-            $list .= sprintf( '<li><a href="%s">%s</a><span>»</span></li>', get_bloginfo('url'), __('Startseite', '_rrze' ) );
+            $list .= sprintf( '<li><a href="%s">%s</a><span>»</span></li>', get_bloginfo('url'), __('Startseite', RRZE_Theme::textdomain ) );
 
             if ( is_category() ) {
-                $list .= sprintf( '<li><span>%s %s</span></li>', __('Kategorie', '_rrze' ), single_cat_title( '', false) );
+                $list .= sprintf( '<li><span>%s %s</span></li>', __('Kategorie', RRZE_Theme::textdomain ), single_cat_title( '', false) );
 
             } elseif ( is_tag() ) {
-                $list .= sprintf( '<li><span>%s %s</span></li>', __('Tag', '_rrze' ), single_cat_title( '', false) );
+                $list .= sprintf( '<li><span>%s %s</span></li>', __('Tag', RRZE_Theme::textdomain ), single_cat_title( '', false) );
 
             } elseif ( is_archive() ) {
-                $list .= sprintf( '<li><span>%s %s</span></li>', __( 'Archive', '_rrze' ), single_cat_title( '', false) );
+                $list .= sprintf( '<li><span>%s %s</span></li>', __( 'Archive', RRZE_Theme::textdomain ), single_cat_title( '', false) );
 
             } elseif ( is_author() ) {
-                $list .= sprintf( '<li><span>%s %s</span></li>', __( 'Autor', '_rrze' ), single_cat_title( '', false) );
+                $list .= sprintf( '<li><span>%s %s</span></li>', __( 'Autor', RRZE_Theme::textdomain ), single_cat_title( '', false) );
 
             } elseif ( is_single() ) {
                 if ( get_option( 'page_for_posts') )
@@ -50,10 +51,11 @@ class Theme_Tags {
                 $list .= sprintf( '<li><span>%s</span></li>', get_the_title( $post->ID ) );
 
             } elseif ( is_search() ) {
-                $list .= sprintf( '<li><span>%s</span></li>', sprintf( __( 'Suchergebnisse für: %s', '_rrze' ), '<span>' . get_search_query() . '</span>') );
+                $list .= sprintf( '<li><span>%s</span></li>', sprintf( __( 'Suchergebnisse für: %s', RRZE_Theme::textdomain ), '<span>' . get_search_query() . '</span>') );
             }
         } else {
-            $list .= sprintf( '<li><span>%s</span></li>', __( 'Startseite', '_rrze' ) );
+            //$list .= '<li><span></span></li>';
+            $list .= sprintf( '<li><span>%s</span></li>', __( 'Startseite', RRZE_Theme::textdomain ) );
         }
         $list .= '</ul>';
 
@@ -68,9 +70,9 @@ class Theme_Tags {
 
             <nav id="nav-pages">
                 <div class="ym-wbox">
-                    <h3 class="ym-skip"><?php _e( 'Suchergebnissenavigation', '_rrze' ); ?></h3>
-                    <div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Vorherige', '_rrze' ) ); ?></div>
-                    <div class="nav-next"><?php previous_posts_link( __( 'Nächste <span class="meta-nav">&rarr;</span>', '_rrze' ) ); ?></div>
+                    <h3 class="ym-skip"><?php _e( 'Suchergebnissenavigation', RRZE_Theme::textdomain ); ?></h3>
+                    <div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Vorherige', RRZE_Theme::textdomain ) ); ?></div>
+                    <div class="nav-next"><?php previous_posts_link( __( 'Nächste <span class="meta-nav">&rarr;</span>', RRZE_Theme::textdomain ) ); ?></div>
                 </div>
             </nav>
 
@@ -102,28 +104,28 @@ class Theme_Tags {
         $req = get_option( 'require_name_email' );
         $aria_req = ( $req ? " aria-required='true'" : '' );
         $fields =  array(
-            'author' => '<div class="comment-form-author ym-fbox ym-fbox-text">' . '<label for="author">' . __( 'Name', '_rrze' ) . ( $req ? '<span class="required-item">*</span>' : '' ) . '</label> ' .
+            'author' => '<div class="comment-form-author ym-fbox ym-fbox-text">' . '<label for="author">' . __( 'Name', RRZE_Theme::textdomain ) . ( $req ? '<span class="required-item">*</span>' : '' ) . '</label> ' .
                         '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" ' . $aria_req . ' /></div>',
-            'email'  => '<div class="comment-form-email ym-fbox ym-fbox-text"><label for="email">' . __( 'E-Mail', '_rrze' ) . ( $req ? '<span class="required-item">*</span>' : '' ) . '</label> ' . 
+            'email'  => '<div class="comment-form-email ym-fbox ym-fbox-text"><label for="email">' . __( 'E-Mail', RRZE_Theme::textdomain ) . ( $req ? '<span class="required-item">*</span>' : '' ) . '</label> ' . 
                         '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" ' . $aria_req . ' /></div>',
-            'url'    => '<div class="comment-form-url ym-fbox ym-fbox-text"><label for="url">' . __( 'Webauftritt', '_rrze' ) . '</label>' .
+            'url'    => '<div class="comment-form-url ym-fbox ym-fbox-text"><label for="url">' . __( 'Webauftritt', RRZE_Theme::textdomain ) . '</label>' .
                         '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" /></div>',
         );
 
-        $required_text = sprintf( ' ' . __( 'Erforderliche Felder sind %s markiert', '_rrze' ), '<span class="required">*</span>' );
+        $required_text = sprintf( ' ' . __( 'Erforderliche Felder sind %s markiert', RRZE_Theme::textdomain ), '<span class="required">*</span>' );
         $defaults = array(
             'fields'               => apply_filters( 'comment_form_default_fields', $fields ),
-            'comment_field'        => '<div class="comment-form-comment ym-fbox ym-fbox-text"><label for="comment">' . __( 'Kommentar', '_rrze' ) . '</label><textarea id="comment" name="comment" rows="8" aria-required="true"></textarea></div>',
-            'must_log_in'          => '<p class="must-log-in">' . sprintf( __( 'Sie müssen <a href="%s">angemeldet sein</a>, um einen Kommentar abzugeben.', '_rrze' ), wp_login_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
-            'logged_in_as'         => '<p class="logged-in-as">' . sprintf( __( 'Angemeldet als <a href="%1$s">%2$s</a>. <a href="%3$s" title="Aus diesem account abmelden">Abmelden?</a>', '_rrze' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
-            'comment_notes_before' => '<p class="comment-notes">' . __( 'Ihre Email-Adresse wird nicht veröffentlicht.', '_rrze' ) . ( $req ? $required_text : '' ) . '</p>',
-            'comment_notes_after'  => '<p class="form-allowed-tags">' . sprintf( __( 'Sie können die folgenden <abbr title="HyperText-Markup-Language">HTML</abbr>-Tags benutzen: %s', '_rrze' ), '<code>' . allowed_tags() . '</code>' ) . '</p>',
+            'comment_field'        => '<div class="comment-form-comment ym-fbox ym-fbox-text"><label for="comment">' . __( 'Kommentar', RRZE_Theme::textdomain ) . '</label><textarea id="comment" name="comment" rows="8" aria-required="true"></textarea></div>',
+            'must_log_in'          => '<p class="must-log-in">' . sprintf( __( 'Sie müssen <a href="%s">angemeldet sein</a>, um einen Kommentar abzugeben.', RRZE_Theme::textdomain ), wp_login_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
+            'logged_in_as'         => '<p class="logged-in-as">' . sprintf( __( 'Angemeldet als <a href="%1$s">%2$s</a>. <a href="%3$s" title="Aus diesem account abmelden">Abmelden?</a>', RRZE_Theme::textdomain ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
+            'comment_notes_before' => '<p class="comment-notes">' . __( 'Ihre Email-Adresse wird nicht veröffentlicht.', RRZE_Theme::textdomain ) . ( $req ? $required_text : '' ) . '</p>',
+            'comment_notes_after'  => '<p class="form-allowed-tags">' . sprintf( __( 'Sie können die folgenden <abbr title="HyperText-Markup-Language">HTML</abbr>-Tags benutzen: %s', RRZE_Theme::textdomain ), '<code>' . allowed_tags() . '</code>' ) . '</p>',
             'id_form'              => 'commentform',
             'id_submit'            => 'submit',
-            'title_reply'          => __( 'Kommentar hinterlassen', '_rrze' ),
-            'title_reply_to'       => __( 'Kommentar an %s hinterlassen', '_rrze' ),
-            'cancel_reply_link'    => __( 'Abbrechen', '_rrze' ),
-            'label_submit'         => __( 'Kommentar verfassen', '_rrze' ),
+            'title_reply'          => __( 'Kommentar hinterlassen', RRZE_Theme::textdomain ),
+            'title_reply_to'       => __( 'Kommentar an %s hinterlassen', RRZE_Theme::textdomain ),
+            'cancel_reply_link'    => __( 'Abbrechen', RRZE_Theme::textdomain ),
+            'label_submit'         => __( 'Kommentar verfassen', RRZE_Theme::textdomain ),
         );
 
         $args = wp_parse_args( $args, apply_filters( 'comment_form_defaults', $defaults ) );
@@ -167,4 +169,99 @@ class Theme_Tags {
         endif;
     }
 
+    public static function bereichsmenu() {
+        $searchform = '';
+        $options = RRZE_Theme::$theme_options;
+        if( $options['search.form.position'] == 'bereichsmenu' ) {
+            $searchform = sprintf('<div class="searchform">%s</div>', self::search_form());
+        }         
+        wp_nav_menu( 
+            array( 
+                'theme_location' => 'bereichsmenu',
+                'container_class' => 'navmenu bereichsmenu',
+                'menu_id' => 'menu-menubereichsmenu', 
+                'menu_class' => 'dropdown',
+                'fallback_cb' => array(__CLASS__, 'bereichsmenu_fallback'),
+                'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>' . $searchform
+            ) 
+        );        
+    }
+    
+    public static function bereichsmenu_fallback( $args ) {
+        // Siehe wp-includes/nav-menu-template.php
+        extract( $args );
+
+        $links = array(
+            '<a href="' . home_url( '', 'http' ) . '">' . $before . __( 'Startseite', RRZE_Theme::textdomain ) . $after . '</a>',
+            );
+
+        $li = array();
+        foreach( $links as $link ) {
+            if ( false !== stripos( $items_wrap, '<ul' ) or false !== stripos( $items_wrap, '<ol' ) )
+                $li[] = is_front_page() ? "<li class='current-menu-item'>$link</li>" : "<li>$link</li>";
+        }
+
+        $li = implode( PHP_EOL, $li );
+
+        $output = sprintf( $items_wrap, $menu_id, $menu_class, $li );
+        if ( ! empty ( $container ) )
+            $output  = "<$container class='$container_class' id='$container_id'>$output</$container>";
+
+        if ( $echo )
+            echo $output;
+
+        return $output;
+    }
+
+    public static function tecmenu() {
+        wp_nav_menu( 
+            array( 
+                'theme_location' => 'tecmenu',
+                'container_class' => 'navmenu tecmenu',
+                'menu_id' => 'menu-techmenu', 
+                'menu_class' => 'dropdown',
+                'fallback_cb' => array(__CLASS__, 'tecmenu_fallback')
+            ) 
+        );        
+    }
+    
+    public static function tecmenu_fallback( $args ) {
+        if( ! is_blogs_fau_de() )
+            return '';
+
+        global $current_blog, $post;
+
+        if( is_page() )
+            $page = get_page( $post->ID );
+
+        // Siehe wp-includes/nav-menu-template.php
+        extract( $args );
+
+        $links = array(
+            '<li><a href="' . network_site_url( '/', 'http' ) . '">' . $before . __( 'Blogs@FAU', RRZE_Theme::textdomain ) . $after . '</a></li>',
+            '<li><a href="http://www.portal.uni-erlangen.de/forums/viewforum/94">' . $before . __( 'Forum', RRZE_Theme::textdomain ) . $after . '</a></li>',
+            sprintf( is_front_page() && $current_blog->path == '/hilfe/' ? '<li class="current-menu-item">%s</li>' : '<li>%s</li>', '<a href="' . network_site_url( '/hilfe/', 'http' ) . '">' . $before . __( 'Hilfe', RRZE_Theme::textdomain ) . '</a>' ),
+            sprintf( ! empty( $page ) && $page->post_name == 'kontakt' ? '<li class="current-menu-item">%s</li>' : '<li>%s</li>', '<a href="' . home_url( '/kontakt/', 'http' ) . '">' . $before . __( 'Kontakt', RRZE_Theme::textdomain ) . $after . '</a>' ),
+            '<li><a href="' . network_site_url( '/impressum/', 'http' ) . '">' . $before . __( 'Impressum', RRZE_Theme::textdomain ) . $after . '</a></li>',
+            '<li><a href="' . network_site_url( '/nutzungsbedingungen/', 'http' ) . '">' . $before . __( 'Nutzungsbedingungen', RRZE_Theme::textdomain ) . $after . '</a></li>'
+            );
+
+        $li = array();
+        foreach( $links as $link ) {
+            if ( false !== stripos( $items_wrap, '<ul' ) or false !== stripos( $items_wrap, '<ol' ) )
+                $li[] = $link;
+        }
+
+        $li = implode( PHP_EOL, $li );
+
+        $output = sprintf( $items_wrap, $menu_id, $menu_class, $li );
+        if ( ! empty ( $container ) )
+            $output  = "<$container class='$container_class' id='$container_id'>$output</$container>";
+
+        if ( $echo )
+            echo $output;
+
+        return $output;
+    }
+    
 }

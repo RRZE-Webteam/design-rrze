@@ -20,18 +20,24 @@
         <div id="kopf">
             <?php global $current_user; ?>
             <ul class="ym-skiplinks<?php if( _get_admin_bar_pref( 'front', $current_user->ID ) ) echo ' sprungmarken'; ?>">
-                <li><a class="ym-skip" href="#contentmarke"><?php _e( 'Zum Inhalt springen', '_rrze' ); ?></a></li>
-                <li><a class="ym-skip" href="#bereichsmenumarke"><?php _e( 'Zum Bereichsmenü springen', '_rrze' ); ?></a></li>
-                <li><a class="ym-skip" href="#hilfemarke"><?php _e( 'Zu den allgemeinen Informationen springen', '_rrze' ); ?></a></li>
+                <li><a class="ym-skip" href="#contentmarke"><?php _e( 'Zum Inhalt springen', RRZE_Theme::textdomain ); ?></a></li>
+                <li><a class="ym-skip" href="#bereichsmenumarke"><?php _e( 'Zum Bereichsmenü springen', RRZE_Theme::textdomain ); ?></a></li>
+                <li><a class="ym-skip" href="#hilfemarke"><?php _e( 'Zu den allgemeinen Informationen springen', RRZE_Theme::textdomain ); ?></a></li>
                 <?php if ( is_active_sidebar( 'sidebar-footer-left' ) || is_active_sidebar( 'sidebar-footer-center' ) || is_active_sidebar( 'sidebar-footer-right' ) ) : ?>
-                <li><a class="ym-skip" href="#zusatzinfomarke"><?php _e( 'Zu den Zusatzinformationen springen', '_rrze' ); ?></a></li>
+                <li><a class="ym-skip" href="#zusatzinfomarke"><?php _e( 'Zu den Zusatzinformationen springen', RRZE_Theme::textdomain ); ?></a></li>
                 <?php endif; ?>
             </ul>
             <div id="title">
                 <?php if( display_header_text() ): ?>
                 <div class="ym-wrapper">
                     <div class="ym-wbox header-block">
-                        <h1 id="site-title"><span><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a></span></h1>
+                        <h1 id="site-title"><span>
+                            <?php 
+                            $blogname = esc_attr( get_bloginfo( 'name', 'display' ) );
+                            $home = esc_url( home_url( '/' ) );
+                            echo is_home() || is_front_page() ? $blogname : sprintf('<a href="%1$s" rel="home">%2$s</a>' , $home, $blogname);
+                            ?>
+                        </span></h1>
                         <?php if( get_bloginfo( 'description', 'display' ) ) : ?>
                         <h3 id="site-description"><span><?php echo esc_attr( get_bloginfo( 'description', 'display' ) ); ?></span></h3>
                         <?php endif; ?>
@@ -41,31 +47,14 @@
             </div>
             <nav id="bereichsmenu">
                 <div class="ym-wrapper">
-                    <h2 class="ym-skip"><a name="bereichsmenumarke" id="bereichsmenumarke"><?php _e( 'Bereichsmenü', '_rrze' ); ?></a></h2>
-                    <?php 
-                        $searchform = '';
-                        if( _rrze_theme_options( 'search.form.position' ) == 'bereichsmenu' ) :
-                            $searchform = sprintf('<div class="searchform">%s</div>', Theme_Tags::search_form());
-                        endif; 
-                    ?>                    
-                    <?php wp_nav_menu( 
-                            array( 
-                                'theme_location' => 'bereichsmenu',
-                                'container_class' => 'navmenu bereichsmenu',
-                                'menu_id' => 'menu-menubereichsmenu', 
-                                'menu_class' => 'dropdown',
-                                'fallback_cb' => '_rrze_bereichsmenu_fallback',
-                                'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>' . $searchform,
-                                //'walker' => new Dropdown_Walker_Nav_Menu
-                            ) 
-                          ); 
-                    ?>
+                    <h2 class="ym-skip"><a name="bereichsmenumarke" id="bereichsmenumarke"><?php _e( 'Bereichsmenü', RRZE_Theme::textdomain ); ?></a></h2>
+                    <?php echo Theme_Tags::bereichsmenu(); ?>
                 </div>
             </nav>
             <?php if( ! is_404() ): ?>
             <nav id="breadcrumb">
                 <div class="ym-wrapper">
-                    <h3 class="ym-skip"><a name="breadcrumbmarke" id="breadcrumbmarke"><?php _e( 'Breadcrumb', '_rrze' ); ?></a></h2>
+                    <h3 class="ym-skip"><a name="breadcrumbmarke" id="breadcrumbmarke"><?php _e( 'Breadcrumb', RRZE_Theme::textdomain ); ?></a></h2>
                     <div class="ym-hlist">
                         <?php echo Theme_Tags::breadcrumb_nav(); ?>
                     </div>

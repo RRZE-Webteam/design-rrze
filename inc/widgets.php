@@ -58,9 +58,9 @@ class rrze_Widget_Text extends WP_Widget {
 
 		<textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea>
                 <p>
-			<input class="checkbox" type="checkbox" <?php echo $align; ?> id="<?php echo $this->get_field_id('align'); ?>" name="<?php echo $this->get_field_name('align'); ?>" /> <label for="<?php echo $this->get_field_id('align'); ?>"><?php _e('Inhalt mittig ausrichten', '_rrze'); ?></label>
+			<input class="checkbox" type="checkbox" <?php echo $align; ?> id="<?php echo $this->get_field_id('align'); ?>" name="<?php echo $this->get_field_name('align'); ?>" /> <label for="<?php echo $this->get_field_id('align'); ?>"><?php _e('Inhalt mittig ausrichten', RRZE_Theme::textdomain); ?></label>
                 <br/>
-			<input class="checkbox" type="checkbox" <?php echo $bottom; ?> id="<?php echo $this->get_field_id('bottom'); ?>" name="<?php echo $this->get_field_name('bottom'); ?>" /> <label for="<?php echo $this->get_field_id('bottom'); ?>"><?php _e('Fußlinie nicht anzeigen', '_rrze'); ?></label>
+			<input class="checkbox" type="checkbox" <?php echo $bottom; ?> id="<?php echo $this->get_field_id('bottom'); ?>" name="<?php echo $this->get_field_name('bottom'); ?>" /> <label for="<?php echo $this->get_field_id('bottom'); ?>"><?php _e('Fußlinie nicht anzeigen', RRZE_Theme::textdomain); ?></label>
 		
                 </p>
 

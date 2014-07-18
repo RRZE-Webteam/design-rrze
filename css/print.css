@@ -13,39 +13,39 @@
         margin: -4px 0 0;
 
     }
-    
+
     .header-block h1 span {
         background-color: rgba(255, 255, 255, 0.75);
         line-height: 1.5em;
     }
-    
+
     .header-block h3 span {
         background-color: rgba(255, 255, 255, 0.55);
         line-height: 1.3em;
     }
-    
+
     article {
         margin-bottom: 1.5em;
     }
-    
+
     article a,
     #comments a {
         color: inherit;
         font-style: italic;
     }
-    
+
     .header-block h1 span, 
     .header-block h3 span {
         padding: 4px 4px 4px 10px;
     }
-    
+
     .permalink,
     .edit-link,
     #comments .reply,
     #comments .comment-edit-link {
         display: none;
     }
-    
+
     #main-column > .ym-col1 { width: 0 !important; } /* left column */
     #main-column > .ym-col2 { width: 0 !important; } /* right column */
     #main-column > .ym-col3 { float: none !important; width: 100% !important; margin: 0 !important; } /* center column */  
