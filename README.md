@@ -1,7 +1,9 @@
-Design RRZE
-===========
+Design Blue Edgy 
+================
 
 Wordpress Theme
+
+(vormals Design RRZE, Version 2.0)
 
 * Zwei- und dreispaltige Ansicht im Desktop-Browser. 
 * CSS3 Media Queries, vorbereitet für die Ansicht auf Tablets und Smartphones. 
@@ -32,7 +34,6 @@ Nutzungsbedingungen
 Die Nutzung des Designs ist an folgende Bedingungen geknüpft:
 
 - YAML: Die CSS-Struktur sowie Teile des HTML-Sourcecodes basieren auf das HTML-Framework YAML. Für die Verwendung von YAML innerhalb der Friedrich-Alexander-Universität (FAU) wurde eine generelle Lizenz erworben. Diese generelle Lizenz erlaubt es, dass das Framework auch ohne Namensnennung und Rückverlinkung verwendet wird. Bei Verwendung außerhalb der FAU müssen die Lizenzbedingungen von YAML beachtet werden (siehe http://www.yaml.de/license.html).
-- Verwendung von ACF (Advanced Custom Fields): zu beachtende Lizenzbedingungen siehe inc/advanced-custom-fields/readme.txt 
 
 
 Entwickler und Projektbeteiligte
