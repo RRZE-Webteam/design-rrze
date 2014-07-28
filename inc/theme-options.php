@@ -223,7 +223,7 @@ function _rrze_color_schema_options() {
         'nat_fak' => array(
             'value' => 'nat_fak',
             'label' => __( 'Nat. Fak.', RRZE_Theme::textdomain ),
-            'colors' => array( 'menu' => '#005240', 'title' => '#007b60', 'link' => '#005240', 'hover' => '#007b60', 'widget-title' => '#007b60', 'widget-linien' => '#005240', 'widget-hover' => '#007b60', 'footer-widget-title' => '#f4fee1', 'footer-widget-linien' => '#005240', 'footer-hover' => '#007b60', 'background' => '#fdfdf6' ),
+            'colors' => array( 'menu' => '#005240', 'title' => '#007b60', 'link' => '#007b60', 'hover' => '#007b60', 'widget-title' => '#007b60', 'widget-linien' => '#005240', 'widget-hover' => '#007b60', 'footer-widget-title' => '#f4fee1', 'footer-widget-linien' => '#005240', 'footer-hover' => '#007b60', 'background' => '#fdfdf6' ),
         ),
         
     );
