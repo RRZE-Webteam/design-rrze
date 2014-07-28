@@ -50,35 +50,35 @@
 
     h1 {
         /* font-size: 44px; */
-        font-size: 275%;
+        font-size: 210%;
         line-height: 0.875;
         margin: 0 0 0.4375em 0;
     }
 
     h2 {
         /* font-size: 36px; */
-        font-size: 225%;
+        font-size: 175%;
         line-height: 0.875;
         margin: 0 0 0.65625em 0;
     }
 
     h3 {
         /* font-size: 32px; */
-        font-size: 200%;
+        font-size: 150%;
         line-height: 0.875;
         margin: 0 0 0.875em 0;
     }
 
     h4 {
         /* font-size: 26px; */
-        font-size: 162%;
+        font-size: 130%;
         line-height: 1;
         margin: 0 0 1em 0;
     }
 
     h5 {
         /* font-size: 20px; */
-        font-size: 125%;
+        font-size: 115%;
         line-height: 1.16667;
         margin: 0 0 1.16667em 0;
     }

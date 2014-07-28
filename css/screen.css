@@ -106,10 +106,12 @@
         margin-top: 12px;
         margin-bottom: 0;
         line-height: 1.1;
+        font-size: 275%;
     }
 
     .header-block h3 {       
         margin-top: 8px;
+        font-size: 200%;
     } 
 
     .header-block h1 span {
