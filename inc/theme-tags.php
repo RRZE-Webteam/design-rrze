@@ -14,7 +14,7 @@ class Theme_Tags {
     public static function breadcrumb_nav() {
         global $post;
 
-        $list = sprintf( '<ul><li><span>%s</span></li>', __( 'Sie befinden sich hier:', RRZE_Theme::textdomain ) );;
+        $list = sprintf( '<ul><li><span>%s</span></li>', __( 'Sie befinden sich hier:', RRZE_Theme::textdomain ) );
 
         if ( ! is_front_page() ) {
             $list .= sprintf( '<li><a href="%s">%s</a><span>»</span></li>', get_bloginfo('url'), __('Startseite', RRZE_Theme::textdomain ) );
