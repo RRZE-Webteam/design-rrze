@@ -136,6 +136,17 @@ function _rrze_footer_layout_options() {
     return apply_filters( '_rrze_footer_layout_options', $options );
 }
 
+function _rrze_typography_options() {
+    $options = array(
+        'DroidSans' => array('value' => 'DroidSans', 'label' => 'Droid Sans', 'class' => 'droidsans'),
+        'LinLibertine' =>  array('value' => 'LinLibertine', 'label' => 'LinLibertine', 'class' => 'linlibertine'),
+        'Arial, Helvetica, sans-serif' => array('value' => 'Arial, Helvetica, sans-serif', 'label' => 'Arial, Helvetica, sans-serif', 'class' => 'defaultfont'),
+        //'Awesome' => array('value' => 'Awesome', 'label' => 'Awesome', 'class' => 'awesome')
+    );
+    
+    return apply_filters('_rrze_typography_options', $options);
+}
+
 function _rrze_default_color_style_data() {
     $color_schemas = _rrze_color_schema_options();
     return $color_schemas['blau']['colors'];
@@ -253,7 +264,7 @@ function _rrze_section_layout_callback() {
 }
 
 function _rrze_section_typography_callback() {
-    printf( '<p>%s</p>', __( 'Geben Sie eine beliebige Schriftart ein, um die Ihrer Website zu ändern. Ansonsten geben Sie einen Leerwert ein, um die Standardschriftart wieder einzustellen.', RRZE_Theme::textdomain ) );
+    printf( '<p>%s</p>', __( 'Wählen Sie, welche Schriftart Sie aktivieren möchten.', RRZE_Theme::textdomain ) );
 }
 
 function _rrze_section_color_style_callback() {
@@ -327,37 +338,93 @@ function _rrze_field_footer_layout_callback() {
 }
 
 function _rrze_field_body_typography_callback() {
-	$options = RRZE_Theme::$theme_options;
-	?>
-    <input type="text" class="regular-text" name="_rrze_theme_options[body.typography]" value="<?php echo esc_attr($options['body.typography']); ?>" />
+	$options = RRZE_Theme::$theme_options;    
+        ?>
+	<select name="_rrze_theme_options[body.typography]" id="body-typography">
+		<?php
+			$selected = $options['body.typography'];
+			$html = '';
+            
+            foreach(_rrze_typography_options() as $option ) {
+                        $html .= '<option value="'.$option['value'].'"'.($selected == $option['value'] ? ' selected="selected"' : '').' class="'.$option['class'].'">'.esc_attr($option['label']).'</option>';
+                    
+            }
+            echo $html;
+		?>
+	</select>
+	
 	<?php
 }
 
 function _rrze_field_heading_typography_callback() {
 	$options = RRZE_Theme::$theme_options;
 	?>
-    <input type="text" class="regular-text" name="_rrze_theme_options[heading.typography]" value="<?php echo esc_attr($options['heading.typography']); ?>" />
+    	<select name="_rrze_theme_options[heading.typography]" id="heading-typography">
+		<?php
+			$selected = $options['heading.typography'];
+			$html = '';
+            
+            foreach(_rrze_typography_options() as $option ) {
+                        $html .= '<option value="'.$option['value'].'"'.($selected == $option['value'] ? ' selected="selected"' : '').' class="'.$option['class'].'">'.esc_attr($option['label']).'</option>';
+                    
+            }
+            echo $html;
+		?>
+	</select>
 	<?php
 }
 
 function _rrze_field_menu_typography_callback() {
 	$options = RRZE_Theme::$theme_options;
 	?>
-    <input type="text" class="regular-text" name="_rrze_theme_options[menu.typography]" value="<?php echo esc_attr($options['menu.typography']); ?>" />
+   	<select name="_rrze_theme_options[menu.typography]" id="menu-typography">
+		<?php
+			$selected = $options['menu.typography'];
+			$html = '';
+            
+            foreach(_rrze_typography_options() as $option ) {
+                        $html .= '<option value="'.$option['value'].'"'.($selected == $option['value'] ? ' selected="selected"' : '').' class="'.$option['class'].'">'.esc_attr($option['label']).'</option>';
+                    
+            }
+            echo $html;
+		?>
+	</select>
 	<?php
 }
 
 function _rrze_field_widget_title_typography_callback() {
 	$options = RRZE_Theme::$theme_options;
-	?>
-    <input type="text" class="regular-text" name="_rrze_theme_options[widget.title.typography]" value="<?php echo esc_attr($options['widget.title.typography']); ?>" />
+	?>    
+    	<select name="_rrze_theme_options[widget.title.typography]" id="widget-title-typography">
+		<?php
+			$selected = $options['widget.title.typography'];
+			$html = '';
+            
+            foreach(_rrze_typography_options() as $option ) {
+                        $html .= '<option value="'.$option['value'].'"'.($selected == $option['value'] ? ' selected="selected"' : '').' class="'.$option['class'].'">'.esc_attr($option['label']).'</option>';
+                    
+            }
+            echo $html;
+		?>
+	</select>
 	<?php
 }
 
 function _rrze_field_widget_content_typography_callback() {
 	$options = RRZE_Theme::$theme_options;
-	?>
-    <input type="text" class="regular-text" name="_rrze_theme_options[widget.content.typography]" value="<?php echo esc_attr($options['widget.content.typography']); ?>" />
+	?>           
+    	<select name="_rrze_theme_options[widget.content.typography]" id="widget-content-typography">
+		<?php
+			$selected = $options['widget.content.typography'];
+			$html = '';
+            
+            foreach(_rrze_typography_options() as $option ) {
+                        $html .= '<option value="'.$option['value'].'"'.($selected == $option['value'] ? ' selected="selected"' : '').' class="'.$option['class'].'">'.esc_attr($option['label']).'</option>';
+                    
+            }
+            echo $html;
+		?>
+	</select>
 	<?php
 }
 
@@ -496,41 +563,25 @@ function _rrze_theme_options_validate( $input ) {
 
 	if ( isset( $input['footer.layout'] ) && array_key_exists( $input['footer.layout'], _rrze_footer_layout_options() ) )
 		$options['footer.layout'] = $input['footer.layout'];
+        
+        
+        if ( isset( $input['body.typography'] ) && array_key_exists( $input['body.typography'], _rrze_typography_options() ) )
+            $options['body.typography'] = $input['body.typography'];
+
     
-	if ( !empty( $input['body.typography'] ) ) {
-        if( _rrze_validate_font_family( $input['body.typography'] ) )
-            $options['body.typography'] = _rrze_replace_whitespaces( $input['body.typography'] );
-    } else {
-        $options['body.typography'] = $default_options['body.typography'];
-    }
-    
-	if ( !empty( $input['heading.typography'] ) ) {
-        if( _rrze_validate_font_family( $input['heading.typography'] ) )
-            $options['heading.typography'] = _rrze_replace_whitespaces( $input['heading.typography']);
-    } else {
-        $options['heading.typography'] = $default_options['heading.typography'];
-    }
+        if ( isset( $input['heading.typography'] ) && array_key_exists( $input['heading.typography'], _rrze_typography_options() ) )
+            $options['heading.typography'] = $input['heading.typography'];
+        
+        if ( isset( $input['menu.typography'] ) && array_key_exists( $input['menu.typography'], _rrze_typography_options() ) )
+            $options['menu.typography'] = $input['menu.typography'];
+        
+        if ( isset( $input['widget.title.typography'] ) && array_key_exists( $input['widget.title.typography'], _rrze_typography_options() ) )
+            $options['widget.title.typography'] = $input['widget.title.typography'];
 
-	if ( !empty( $input['menu.typography'] ) ) {
-        if( _rrze_validate_font_family( $input['menu.typography'] ) )
-            $options['menu.typography'] = _rrze_replace_whitespaces( $input['menu.typography']);
-    } else {
-        $options['menu.typography'] = $default_options['menu.typography'];
-    }
+        if ( isset( $input['widget.content.typography'] ) && array_key_exists( $input['widget.content.typography'], _rrze_typography_options() ) )
+            $options['widget.content.typography'] = $input['widget.content.typography'];
+        
 
-	if ( !empty( $input['widget.title.typography'] ) ) {
-        if( _rrze_validate_font_family( $input['widget.title.typography'] ) )
-            $options['widget.title.typography'] = _rrze_replace_whitespaces( $input['widget.title.typography']);
-    } else {
-        $options['widget.title.typography'] = $default_options['widget.title.typography'];
-    }
-
-	if ( !empty( $input['widget.content.typography'] ) ) {
-        if( _rrze_validate_font_family( $input['widget.content.typography'] ) )
-            $options['widget.content.typography'] = _rrze_replace_whitespaces( $input['widget.content.typography']);
-    } else {
-        $options['widget.content.typography'] = $default_options['widget.content.typography'];
-    }
     
 	if ( isset( $input['color.schema'] ) && array_key_exists( $input['color.schema'], $color_schema_options ) ) {
         if( $input['color.schema'] == $custom_schema ) {

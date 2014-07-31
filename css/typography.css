@@ -1,3 +1,8 @@
+@font-face { font-family: Awesome; local: Awesome; src: url(../fonts/fontawesome-webfont.ttf) format("truetype"), url(../fonts/fontawesome-webfont.woff) format("woff") ; }
+@font-face { font-family: DroidSans; local: DroidSans; src: url(../fonts/DroidSans.eot) format("embedded-opentype"), url(../fonts/DroidSans.ttf) format("truetype"); }
+@font-face { font-family: LinLibertine; local: LinLibertine; src: url(../fonts/LinLibertine_R.woff) format("woff"); }
+
+
 @media all {
     /*
     * @section global typography settings
@@ -42,7 +47,7 @@
     h4,
     h5,
     h6 {
-        font-family: "Droid Sans", Arial, Helvetica, sans-serif;
+        font-family: DroidSans, Arial, Helvetica, sans-serif;
         font-weight: 400;
         color: #161e21;
         margin: 0;

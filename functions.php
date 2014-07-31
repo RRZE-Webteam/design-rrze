@@ -75,6 +75,8 @@ class RRZE_Theme {
         
         add_action('admin_menu', array($this, 'remove_post_custom_fields'));
         
+        add_action('admin_head', array($this, 'add_admin_backend_css'));
+        
         add_filter( 'get_archives_link', array($this, 'get_archives_link'));
         
         add_filter('nav_menu_css_class', array($this, 'nav_menu_css_class'));
@@ -112,11 +114,11 @@ class RRZE_Theme {
             'column.layout' => '1-3',
             'footer.layout' => '33-33-33',
             'search.form.position' => 'bereichsmenu',
-            'body.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
-            'heading.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
-            'menu.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
-            'widget.title.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
-            'widget.content.typography' => '"Droid Sans", Arial, Helvetica, sans-serif',
+            'body.typography' => 'DroidSans',
+            'heading.typography' => 'DroidSans',
+            'menu.typography' => 'DroidSans',
+            'widget.title.typography' => 'DroidSans',
+            'widget.content.typography' => 'DroidSans',
             'blog.overview' => 'rrze_content',
             'words.overview' => '55',
             'comments.pages' => false	
@@ -231,7 +233,7 @@ class RRZE_Theme {
                 border: none;
             }
             #headimg h1, #headimg h3 {
-                font-family: "Droid Sans",Arial,Helvetica,sans-serif;
+                font-family: DroidSans,Arial,Helvetica,sans-serif;
                 font-weight: 400;
                 padding: 0;
                 margin: 0;
@@ -656,6 +658,12 @@ class RRZE_Theme {
 	remove_meta_box( 'postcustom' , 'post' , 'normal' ); 
         	remove_meta_box( 'postcustom' , 'page' , 'normal' ); 
     }    
+    
+    /*Load additional stylesheet for WP Backend */
+    public function add_admin_backend_css() {
+        $url = get_stylesheet_directory_uri() . '/css/admin_backend.css';
+        echo '<link rel="stylesheet" type="text/css" href="' . $url . '" />';
+    }
     
 }
 
