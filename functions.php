@@ -603,8 +603,10 @@ class RRZE_Theme {
         if ( $parent_id = wp_is_post_revision( $post_id ) )  {
             $post_id = $parent_id;
         }
-
+        
+        // bugfix für Menü - schlechte Lösung, evtl. Probleme mit anderen Plugins
         $post = get_post($post_id);
+        if ($post->post_type == "nav_menu_item") return;
 
         if(empty($post->post_title)) {
             $error = __('Sie haben noch keinen Titel eingegeben.', self::textdomain);
