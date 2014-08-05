@@ -8,9 +8,9 @@ echo <<<EOL
     a { color: [link]; }
     a:hover, a:focus { background-color: [hover]; }
     h1, h2, h3, h4, h5, h6 { color: [title]; }
-    #site-title a { color: [title]; }
+    .header-block h1 a, .header-block h1 a:focus, .header-block h1 a:hover { color: [title]; }
     .entry-content a, .entry-summary a, .commentlist a { color: [link]; }
-    .entry-content a:hover, .entry-content a:focus, h1#site-title a:hover, h1#site-title a:focus { background-color: [link]; color: #fff }
+    .entry-content a:hover, .entry-content a:focus { background-color: [link]; color: #fff }
     nav#breadcrumb div.ym-hlist ul li a:focus,
     nav#breadcrumb div.ym-hlist ul li a:hover,
     nav#breadcrumb div.ym-hlist ul li a:active { background-color: [hover]; }
