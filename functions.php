@@ -218,7 +218,7 @@ class RRZE_Theme {
                     clip: rect(1px, 1px, 1px, 1px);
                 }
         <?php else : ?>
-                #site-title, #site-description {
+                #site-title, #site-description, #site-title a {
                     color: <?php printf('#%s', $text_color); ?> !important;
                 }
         <?php endif; ?>
