@@ -41,6 +41,14 @@
     main aside .ym-gbox-right {
         border-left: 1px #ddd solid;
     }
+    
+    aside .ym-cbox {
+        padding: 0 5px;
+    }
+    
+    .ym-cbox {
+        padding: 0 15px;
+    }
 
     footer {
         background: #eee;
@@ -96,7 +104,7 @@
     }
 
     div#main > div.ym-wrapper > div.ym-wbox {
-        padding-top: 1em;
+        padding-top: 1.5em;
     }
 
     .header-block h1 {
@@ -129,7 +137,7 @@
     }
 
     .header-block h1 span, .header-block h3 span {
-        padding: 4px 4px 4px 20px;
+        padding: 4px 4px 4px 25px;
     }
 
     section.box { 
@@ -327,6 +335,10 @@
 
     /* Widgets */
     .widget-wrapper {
+        margin-top: 0;
+    }
+    
+    footer .widget-wrapper {
         margin-top: 1.5em;
     }
 
