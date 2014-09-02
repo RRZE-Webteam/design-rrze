@@ -233,25 +233,25 @@ function _rrze_color_schema_options() {
         
         'nat_fak' => array(
             'value' => 'nat_fak',
-            'label' => __( 'Nat. Fak.', RRZE_Theme::textdomain ),
+            'label' => __( 'FAU - Nat. Fak.', RRZE_Theme::textdomain ),
             'colors' => array( 'menu' => '#009b77', 'title' => '#009b77', 'link' => '#009b77', 'hover' => '#aacfbd', 'widget-title' => '#009b77', 'widget-linien' => '#aacfbd', 'widget-hover' => '#aacfbd', 'footer-widget-title' => '#e5efea', 'footer-widget-linien' => '#e5efea', 'footer-hover' => '#aacfbd', 'background' => '#cecece' ),
         ),
         
         'phil_fak' => array(
             'value' => 'phil_fak',
-            'label' => __( 'Phil. Fak.', RRZE_Theme::textdomain ),
+            'label' => __( 'FAU - Phil. Fak.', RRZE_Theme::textdomain ),
             'colors' => array( 'menu' => '#c99313', 'title' => '#c99313', 'link' => '#c99313', 'hover' => '#d9c689', 'widget-title' => '#c99313', 'widget-linien' => '#d9c689', 'widget-hover' => '#d9c689', 'footer-widget-title' => '#f3eedf', 'footer-widget-linien' => '#f3eedf', 'footer-hover' => '#d9c689', 'background' => '#d8d8d8' ),
         ),
         
         'rewi_fak' => array(
             'value' => 'rewi_fak',
-            'label' => __( 'ReWi. Fak.', RRZE_Theme::textdomain ),
+            'label' => __( 'FAU - ReWi. Fak.', RRZE_Theme::textdomain ),
             'colors' => array( 'menu' => '#8d1429', 'title' => '#8d1429', 'link' => '#8d1429', 'hover' => '#c9a993', 'widget-title' => '#8d1429', 'widget-linien' => '#c9a993', 'widget-hover' => '#c9a993', 'footer-widget-title' => '#ede7de', 'footer-widget-linien' => '#ede7de', 'footer-hover' => '#c9a993', 'background' => '#c9c9c9' ),
         ),
         
         'med_fak' => array(
             'value' => 'med_fak',
-            'label' => __( 'Med. Fak.', RRZE_Theme::textdomain ),
+            'label' => __( 'FAU - Med. Fak.', RRZE_Theme::textdomain ),
             'colors' => array( 'menu' => '#00b1eb', 'title' => '#00b1eb', 'link' => '#00b1eb', 'hover' => '#b4d6f5', 'widget-title' => '#00b1eb', 'widget-linien' => '#b4d6f5', 'widget-hover' => '#b4d6f5', 'footer-widget-title' => '#eaf3fc', 'footer-widget-linien' => '#eaf3fc', 'footer-hover' => '#b4d6f5', 'background' => '#eaeaea' ),
         ),
         
