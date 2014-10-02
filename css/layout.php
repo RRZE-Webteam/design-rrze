@@ -20,6 +20,11 @@ echo <<<EOL
     #main-column > .ym-col2 { width: 25%; } /* sidebar */
     #main-column > .ym-col3 { float: left; width: 75%; margin: 0;} /* content */
 EOL;
+elseif( $data['column.layout'] == '1' ) :
+echo <<<EOL
+    #main-column > .ym-col1 { width: 0; } /* sidebar */
+    #main-column > .ym-col3 { float: right; width: 100%; margin: 0;} /* content */
+EOL;
 endif;
 echo PHP_EOL;
 

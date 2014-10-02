@@ -40,7 +40,14 @@
                 <?php get_template_part( 'content', 'single' ); ?>
             </div>
         </div>
-   
+
+    <?php elseif( _rrze_theme_options( 'column.layout' ) == '1' ) : ?>
+        <div class="ym-col3">
+            <div class="ym-cbox">
+                <?php get_template_part( 'content', 'single' ); ?>
+            </div>
+        </div>
+        
     <?php endif;?>
     </div>
 

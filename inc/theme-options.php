@@ -158,6 +158,10 @@ function _rrze_searchform_options() {
 
 function _rrze_columnlayout_options() {
     $options = array(
+        '1' => array(
+            'value' => '1',
+            'label' => __( '1 Spalte - keine Sidebar', '_rrze')
+        ),
         '1-3' => array(
             'value' => '1-3',
             'label' => __( '2 Spalten - linke Sidebar', '_rrze' )
