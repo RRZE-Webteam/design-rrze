@@ -44,9 +44,11 @@
                     <h2 class="ym-skip"><a name="bereichsmenumarke" id="bereichsmenumarke"><?php _e( 'Bereichsmenü', '_rrze' ); ?></a></h2>
                     <?php 
                         $searchform = '';
-                        if( _rrze_theme_options( 'search.form.position' ) == 'bereichsmenu' ) :
+                        if( _rrze_theme_options( 'search.form.position' ) == 'bereichsmenu' ) {
                             $searchform = sprintf('<div class="searchform">%s</div>', Theme_Tags::search_form());
-                        endif; 
+                        } else {
+                            $searchform = '<div class="ym-clearfix"></div>';
+                        }                        
                     ?>                    
                     <?php wp_nav_menu( 
                             array( 
