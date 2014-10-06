@@ -174,7 +174,9 @@ class Theme_Tags {
         $options = RRZE_Theme::$theme_options;
         if( $options['search.form.position'] == 'bereichsmenu' ) {
             $searchform = sprintf('<div class="searchform">%s</div>', self::search_form());
-        }         
+        } else {
+            $searchform = '<div class="ym-clearfix"></div>';
+        }        
         wp_nav_menu( 
             array( 
                 'theme_location' => 'bereichsmenu',
