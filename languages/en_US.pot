@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Design RRZE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-31 11:31+0100\n"
+"POT-Creation-Date: 2014-10-08 14:30+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: RRZE-Webteam\n"
@@ -224,7 +224,7 @@ msgstr ""
 "Your Wordpress version is %s. Please upgrade at least to Wordpress version "
 "%s."
 
-#: ../functions.php:145 ../inc/theme-options.php:674
+#: ../functions.php:145 ../inc/theme-options.php:698
 msgid "Layout"
 msgstr "Layout"
 
@@ -320,11 +320,11 @@ msgid ""
 "Auf dieser Seite stehen Ihnen keine weiteren Einstellungen zur Verfügung."
 msgstr "There are no more settings on this page."
 
-#: ../functions.php:610
+#: ../functions.php:612
 msgid "Sie haben noch keinen Titel eingegeben."
 msgstr "Please enter a title."
 
-#: ../functions.php:617
+#: ../functions.php:619
 msgid "Dokument ohne Titel"
 msgstr "Document without title"
 
@@ -348,7 +348,7 @@ msgstr "Jump to the additional information area"
 msgid "Breadcrumb"
 msgstr "Breadcrumb"
 
-#: ../inc/theme-options.php:16 ../inc/theme-options.php:523
+#: ../inc/theme-options.php:16 ../inc/theme-options.php:547
 msgid "Einstellungen"
 msgstr "Settings"
 
@@ -481,61 +481,77 @@ msgid "Rot"
 msgstr "Red"
 
 #: ../inc/theme-options.php:236
-msgid "Nat. Fak."
-msgstr "Faculty of Sciences"
+msgid "FAU - Nat. Fak."
+msgstr "FAU - Faculty of Sciences"
 
-#: ../inc/theme-options.php:249
+#: ../inc/theme-options.php:242
+msgid "FAU - Phil. Fak."
+msgstr "FAU - Faculty of Humanities, Social Sciences & Theology"
+
+#: ../inc/theme-options.php:248
+msgid "FAU - ReWi. Fak."
+msgstr "FAU - Faculty of Business, Economics & Law"
+
+#: ../inc/theme-options.php:254
+msgid "FAU - Med. Fak."
+msgstr "FAU - Faculty of Medicine"
+
+#: ../inc/theme-options.php:260
+msgid "FAU"
+msgstr "FAU"
+
+#: ../inc/theme-options.php:273
 msgid "als vollständigen Artikel"
 msgstr "completely"
 
-#: ../inc/theme-options.php:254
+#: ../inc/theme-options.php:278
 msgid "als kurze Vorschau"
 msgstr "as short preview"
 
-#: ../inc/theme-options.php:263
+#: ../inc/theme-options.php:287
 msgid "Wählen Sie, welche Optionen Sie aktivieren möchten."
 msgstr "Select the options that you want to enable."
 
-#: ../inc/theme-options.php:267
+#: ../inc/theme-options.php:291
 msgid "Wählen Sie, welche Schriftart Sie aktivieren möchten."
 msgstr "Choose which font you wish to enable."
 
-#: ../inc/theme-options.php:271
+#: ../inc/theme-options.php:295
 msgid "Wählen Sie, welches Farbschema Sie aktivieren möchten."
 msgstr "Choose which color scheme you wish to enable."
 
-#: ../inc/theme-options.php:275
+#: ../inc/theme-options.php:299
 msgid ""
 "Wählen Sie, ob auf der Übersichtsseite die vollständigen Beiträge oder nur "
 "Auszüge angezeigt werden sollen."
 msgstr "Choose if complete posts or excerpts are shown."
 
-#: ../inc/theme-options.php:276
+#: ../inc/theme-options.php:300
 msgid ""
 "Wenn Sie eine Vorschau anzeigen lassen und der Beitrag keinen Auszug "
 "besitzt, wird der Artikel gekürzt dargestellt. Die Anzahl der angezeigten "
 "Wörter können Sie unten festlegen."
 msgstr "You can set the number of words to be shown in post preview below."
 
-#: ../inc/theme-options.php:325
+#: ../inc/theme-options.php:349
 msgid "Spalte"
 msgid_plural "Spalten"
 msgstr[0] "Column"
 msgstr[1] "Columns"
 
-#: ../inc/theme-options.php:460
+#: ../inc/theme-options.php:484
 msgid "Benutzerdefiniertes"
 msgstr "Custom"
 
-#: ../inc/theme-options.php:511
+#: ../inc/theme-options.php:535
 msgid "Lassen Sie die Anzeige leer, um den Standardwert wieder herzustellen."
 msgstr "Enter an empty value to set the default font again."
 
-#: ../inc/theme-options.php:691
+#: ../inc/theme-options.php:715
 msgid "Spalten"
 msgstr "Columns"
 
-#: ../inc/theme-options.php:713
+#: ../inc/theme-options.php:737
 msgid "Footer (Widgets)"
 msgstr "Footer (Widgets)"
 
@@ -543,7 +559,7 @@ msgstr "Footer (Widgets)"
 msgid "Sie befinden sich hier:"
 msgstr "You are here:"
 
-#: ../inc/theme-tags.php:20 ../inc/theme-tags.php:58 ../inc/theme-tags.php:195
+#: ../inc/theme-tags.php:20 ../inc/theme-tags.php:58 ../inc/theme-tags.php:197
 msgid "Startseite"
 msgstr "Home"
 
@@ -625,27 +641,27 @@ msgstr "Cancel"
 msgid "Kommentar verfassen"
 msgstr "Leave a comment"
 
-#: ../inc/theme-tags.php:241
+#: ../inc/theme-tags.php:243
 msgid "Blogs@FAU"
 msgstr "Blogs@FAU"
 
-#: ../inc/theme-tags.php:242
+#: ../inc/theme-tags.php:244
 msgid "Forum"
 msgstr "Forum"
 
-#: ../inc/theme-tags.php:243
+#: ../inc/theme-tags.php:245
 msgid "Hilfe"
 msgstr "Help"
 
-#: ../inc/theme-tags.php:244
+#: ../inc/theme-tags.php:246
 msgid "Kontakt"
 msgstr "Contact"
 
-#: ../inc/theme-tags.php:245
+#: ../inc/theme-tags.php:247
 msgid "Impressum"
 msgstr "Imprint"
 
-#: ../inc/theme-tags.php:246
+#: ../inc/theme-tags.php:248
 msgid "Nutzungsbedingungen"
 msgstr "Terms of Use"
 

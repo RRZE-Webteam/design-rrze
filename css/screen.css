@@ -42,14 +42,14 @@
         border-left: 1px #ddd solid;
     }
     
-    aside .ym-cbox {
+ /*   aside .ym-cbox {
         padding: 0 5px;
     }
     
     .ym-cbox {
         padding: 0 15px;
     }
-
+*/
     footer {
         background: #eee;
         color: #444;
@@ -161,11 +161,11 @@
     nav#bereichsmenu {
         background: none repeat scroll 0 0 transparent;
     }
-
+/*
     div#zusatzinfo {
         padding: 0 0.5em;
     }
-
+*/
     nav#nav-pages,
     nav#nav-single,
     nav#nav-comments {

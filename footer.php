@@ -13,7 +13,7 @@
         <footer>
             <div class="ym-wrapper">
                 <?php if ( is_active_sidebar( 'sidebar-footer-left' ) || is_active_sidebar( 'sidebar-footer-center' ) || is_active_sidebar( 'sidebar-footer-right' ) ) : ?>
-                <div class="ym-cbox">
+                <div class="ym-wbox">
                     <div id="zusatzinfo" class="ym-noprint">	
                         <h2 class="ym-skip"><a name="zusatzinfomarke" id="zusatzinfomarke"><?php _e( 'Zusatzinformationen', RRZE_Theme::textdomain ); ?></a></h2>
 

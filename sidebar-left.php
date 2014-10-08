@@ -1,4 +1,4 @@
-<div class="ym-cbox">
+<div class="ym-cbox-left">
     <h2 class="ym-skip">Kurzinfo</h2>
     <?php if( ! dynamic_sidebar( 'sidebar-left' ) ) : ?>
     <div class="widget-wrapper ym-vlist widget_meta">

@@ -20,7 +20,7 @@
             <?php get_sidebar( 'left' ); ?>
         </aside>
         
-        <div class="ym-col3">
+        <div class="ym-col3-right">
             <?php get_template_part( 'content', 'search' ); ?>
         </div>
         
@@ -29,6 +29,11 @@
             <?php get_sidebar( 'right' ); ?>
         </aside>
         
+        <div class="ym-col3-left">
+            <?php get_template_part( 'content', 'search' ); ?>
+        </div>
+
+    <?php elseif( _rrze_theme_options( 'column.layout' ) == '3' ) : ?>
         <div class="ym-col3">
             <?php get_template_part( 'content', 'search' ); ?>
         </div>

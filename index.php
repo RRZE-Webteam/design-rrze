@@ -25,7 +25,7 @@
         </aside>
         
         <div class="ym-col3">
-            <div class="ym-cbox">
+            <div class="ym-cbox-right">
                 <?php get_template_part( 'content', 'index' ); ?>
             </div>
         </div>
@@ -36,11 +36,16 @@
         </aside>
         
         <div class="ym-col3">
-            <div class="ym-cbox">
+            <div class="ym-cbox-left">
                 <?php get_template_part( 'content', 'index' ); ?>
             </div>
         </div>
    
+    <?php elseif( _rrze_theme_options( 'column.layout' ) == '3' ) : ?>
+        <div class="ym-col3">
+                <?php get_template_part( 'content', 'index' ); ?>
+        </div>   
+        
     <?php endif; ?>
     </div>
 

@@ -1,4 +1,4 @@
-<div class="ym-cbox">
+<div class="ym-cbox-right">
     <?php if( ! dynamic_sidebar( 'sidebar-right' ) ) : ?>
     <div class="widget-wrapper ym-vlist widget_meta">
         <h6 class="widget-title"><?php _e( 'Meta', RRZE_Theme::textdomain ); ?></h6>
