@@ -21,9 +21,9 @@ echo <<<EOL
     .navmenu ul.dropdown a:visited,	
     .navmenu ul.dropdown a:hover, 		
     .navmenu ul.dropdown a:active { color: #fff; }
-    .navmenu ul.dropdown li:hover { background-color: [hover]; color: #fff; }
+    .navmenu ul.dropdown li:hover { background-color: [menu-hover]; color: #fff; }
     .navmenu ul.dropdown ul li { border-bottom:1px solid [background]; }
-    .navmenu ul.dropdown ul li:hover { background-color: [hover];  color: #fff; }
+    .navmenu ul.dropdown ul li:hover { background-color: [menu-hover];  color: #fff; }
     .navmenu ul.dropdown ul li a:hover { color: #fff; }
     .navmenu ul.dropdown li.divider { background-color: [background]; }
     nav#tecmenu,
