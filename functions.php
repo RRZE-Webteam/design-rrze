@@ -10,7 +10,7 @@ class RRZE_Theme {
     const version_option_name = '_rrze_theme_version';
     const option_name = '_rrze_theme_options';
     const textdomain = '_rrze';
-    const php_version = '5.3'; // Minimal erforderliche PHP-Version
+    const php_version = '5.9'; // Minimal erforderliche PHP-Version
     const wp_version = '3.9'; // Minimal erforderliche WordPress-Version
 
     protected static $instance = NULL;
@@ -33,8 +33,12 @@ class RRZE_Theme {
 
     private function after_setup_theme() {
         
-        $this->version_compare();
-
+        $error = $this->version_compare();
+        if ($error) {
+            add_action( 'admin_notices', $this->admin_notices($error));
+            return;
+        }
+                
         $this->update_version();
         
         require( get_template_directory() . '/inc/template-parser.php' );
@@ -98,10 +102,15 @@ class RRZE_Theme {
         }
 
         if (!empty($error)) {
-            wp_die($error);
+            return $error;
         }
     }
 
+    private function admin_notices($error) {
+        echo '<div class="error">' . $error . '</div>';
+        
+    }
+    
     private function update_version() {
         if (get_option(self::version_option_name, null) != self::version)
             update_option(self::version_option_name, self::version);
