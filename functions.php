@@ -33,15 +33,15 @@ class RRZE_Theme {
 
     private function after_setup_theme() {
         
+        $this->version_compare();
+
+        $this->update_version();
+        
         require( get_template_directory() . '/inc/template-parser.php' );
         require( get_template_directory() . '/inc/theme-tags.php' );
         require( get_template_directory() . '/inc/theme-options.php' );
         require( get_template_directory() . '/inc/shortcodes.php' );
         require( get_template_directory() . '/inc/widgets.php');
-        
-        $this->version_compare();
-
-        $this->update_version();
 
         // The .mo files must use language-only filenames, like languages/de_DE.mo in your theme directory.
         // Unlike plugin language files, a text domain name like _rrze-de_DE.mo will NOT work.
