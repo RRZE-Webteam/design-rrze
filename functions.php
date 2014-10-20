@@ -10,11 +10,13 @@ class RRZE_Theme {
     const version_option_name = '_rrze_theme_version';
     const option_name = '_rrze_theme_options';
     const textdomain = '_rrze';
-    const php_version = '5.9'; // Minimal erforderliche PHP-Version
+    const php_version = '5.3'; // Minimal erforderliche PHP-Version
     const wp_version = '3.9'; // Minimal erforderliche WordPress-Version
 
     protected static $instance = NULL;
-
+    
+    protected $check_error = NULL;
+    
     public static $default_theme_options = array();
     public static $theme_options = array();
     public static $options_pages = array();
@@ -32,12 +34,8 @@ class RRZE_Theme {
     }
 
     private function after_setup_theme() {
-        
-        $error = $this->version_compare();
-        if ($error) {
-            add_action( 'admin_notices', $this->admin_notices($error));
-            return;
-        }
+        add_action( 'after_switch_theme', array($this, 'check_theme_setup'));
+
                 
         $this->update_version();
         
@@ -89,6 +87,16 @@ class RRZE_Theme {
         
         add_filter( 'excerpt_length', array($this, 'excerpt_length'), 999 );        
     }
+
+    public function check_theme_setup() { 
+        $old_theme = get_option('theme_switched');
+        $this->check_error = $this->version_compare();
+        if ($this->check_error) {
+            add_action( 'admin_notices', array($this, 'admin_notices'));
+            switch_theme($old_theme);
+            unset( $_GET['activated'] );
+        }
+    }
     
     private function version_compare() {
         $error = '';
@@ -105,10 +113,12 @@ class RRZE_Theme {
             return $error;
         }
     }
-
-    private function admin_notices($error) {
-        echo '<div class="error">' . $error . '</div>';
-        
+            
+    public function admin_notices() {
+        if ($this->check_error) {
+            echo '<div class="error">' . $this->check_error . '</div>';
+        }
+        echo '<div class="error">' . __('Das Theme konnte nicht aktiviert werden.', self::textdomain ) . '</div>';
     }
     
     private function update_version() {
