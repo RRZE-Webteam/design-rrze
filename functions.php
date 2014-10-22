@@ -1,8 +1,49 @@
 <?php
 
-define('_RRZE_THEME_OPTIONS_NAME', '_rrze_theme_options' );
+add_action( 'after_switch_theme', array('RRZE_Check_Theme', 'check_theme_setup'));
 
-add_action('after_setup_theme', array('RRZE_Theme', 'instance'));
+class RRZE_Check_Theme {
+    const textdomain = '_rrze';
+    const php_version = '5.3'; // Minimal erforderliche PHP-Version
+    const wp_version = '3.9'; // Minimal erforderliche WordPress-Version
+    protected static $check_error = NULL;
+
+    public static function check_theme_setup() { 
+        $old_theme = get_option('theme_switched');
+        self::$check_error = self::version_compare();
+        if (self::$check_error) {
+            add_action( 'admin_notices', array(__CLASS__, 'admin_notices'));
+            switch_theme($old_theme);
+            unset( $_GET['activated'] );
+            return;            
+        }
+        add_action('after_setup_theme', array('RRZE_Theme', 'instance'));
+    }
+
+    private static function version_compare() {
+        $error = '';
+
+        if (version_compare(PHP_VERSION, self::php_version, '<')) {
+            $error = sprintf(__('Ihre PHP-Version %s ist veraltet. Bitte aktualisieren Sie mindestens auf die PHP-Version %s.', self::textdomain), PHP_VERSION, self::php_version);
+        }
+
+        if (version_compare($GLOBALS['wp_version'], self::wp_version, '<')) {
+            $error = sprintf(__('Ihre Wordpress-Version %s ist veraltet. Bitte aktualisieren Sie mindestens auf die Wordpress-Version %s.', self::textdomain), $GLOBALS['wp_version'], self::wp_version);
+        }
+
+        if (!empty($error)) {
+            return $error;
+        }
+    }
+
+    public static function admin_notices() {
+        if (self::$check_error) {
+            echo '<div class="error">' . self::$check_error . '</div>';
+        }
+        echo '<div class="error">' . __('Das Theme konnte nicht aktiviert werden.', self::textdomain ) . '</div>';
+    }
+
+}
 
 class RRZE_Theme {
 
@@ -10,12 +51,8 @@ class RRZE_Theme {
     const version_option_name = '_rrze_theme_version';
     const option_name = '_rrze_theme_options';
     const textdomain = '_rrze';
-    const php_version = '5.3'; // Minimal erforderliche PHP-Version
-    const wp_version = '3.9'; // Minimal erforderliche WordPress-Version
 
     protected static $instance = NULL;
-    
-    protected $check_error = NULL;
     
     public static $default_theme_options = array();
     public static $theme_options = array();
@@ -34,8 +71,6 @@ class RRZE_Theme {
     }
 
     private function after_setup_theme() {
-        add_action( 'after_switch_theme', array($this, 'check_theme_setup'));
-
                 
         $this->update_version();
         
@@ -86,39 +121,6 @@ class RRZE_Theme {
         add_filter('wp_list_categories', array($this, 'wp_list_categories'), 10, 2);
         
         add_filter( 'excerpt_length', array($this, 'excerpt_length'), 999 );        
-    }
-
-    public function check_theme_setup() { 
-        $old_theme = get_option('theme_switched');
-        $this->check_error = $this->version_compare();
-        if ($this->check_error) {
-            add_action( 'admin_notices', array($this, 'admin_notices'));
-            switch_theme($old_theme);
-            unset( $_GET['activated'] );
-        }
-    }
-    
-    private function version_compare() {
-        $error = '';
-
-        if (version_compare(PHP_VERSION, self::php_version, '<')) {
-            $error = sprintf(__('Ihre PHP-Version %s ist veraltet. Bitte aktualisieren Sie mindestens auf die PHP-Version %s.', self::textdomain), PHP_VERSION, self::php_version);
-        }
-
-        if (version_compare($GLOBALS['wp_version'], self::wp_version, '<')) {
-            $error = sprintf(__('Ihre Wordpress-Version %s ist veraltet. Bitte aktualisieren Sie mindestens auf die Wordpress-Version %s.', self::textdomain), $GLOBALS['wp_version'], self::wp_version);
-        }
-
-        if (!empty($error)) {
-            return $error;
-        }
-    }
-            
-    public function admin_notices() {
-        if ($this->check_error) {
-            echo '<div class="error">' . $this->check_error . '</div>';
-        }
-        echo '<div class="error">' . __('Das Theme konnte nicht aktiviert werden.', self::textdomain ) . '</div>';
     }
     
     private function update_version() {
