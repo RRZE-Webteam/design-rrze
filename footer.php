@@ -19,19 +19,31 @@
 
                         <div class="ym-column">
                             <div class="ym-column linearize-level-1">
-
+                                <?php if( count( explode( '-', _rrze_theme_options( 'footer.layout' ) ) ) == 1 ) : ?>
+                                <aside class="ym-col1">
+                                    <?php get_sidebar( 'footer-center' ); ?>
+                                </aside>
+                                <?php endif;?>                                
+                            
+                                <?php if( count( explode( '-', _rrze_theme_options( 'footer.layout' ) ) ) == 2 ) : ?>
                                 <aside class="ym-col1">
                                     <?php get_sidebar( 'footer-left' ); ?>
                                 </aside>
-
-                                <?php if( count( explode( '-', _rrze_theme_options( 'footer.layout' ) ) ) >= 2 ) : ?>
                                 <aside class="ym-col2">
-                                    <?php get_sidebar( 'footer-center' ); ?>
+                                    <?php get_sidebar( 'footer-right' ); ?>
                                 </aside>
                                 
                                 <?php endif;?>
                                 
-                                <?php if( count( explode( '-', _rrze_theme_options( 'footer.layout' ) ) ) >= 3 ) : ?> 
+                                <?php if( count( explode( '-', _rrze_theme_options( 'footer.layout' ) ) ) == 3 ) : ?> 
+                                <aside class="ym-col1">
+                                    <?php get_sidebar( 'footer-left' ); ?>
+                                </aside>
+                                <aside class="ym-col2">
+                                    <div class="ym-cbox">
+                                        <?php get_sidebar( 'footer-center' ); ?>
+                                    </div>
+                                </aside>
                                 <aside class="ym-col3">
                                     <?php get_sidebar( 'footer-right' ); ?>
                                 </aside>
