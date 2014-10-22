@@ -3,10 +3,11 @@
 add_action( 'after_switch_theme', array('RRZE_Check_Theme', 'check_theme_setup'));
 
 class RRZE_Check_Theme {
+    const theme_name = 'blue_edgy';
     const textdomain = '_rrze';
     const php_version = '5.3'; // Minimal erforderliche PHP-Version
     const wp_version = '3.9'; // Minimal erforderliche WordPress-Version
-    protected static $check_error = NULL;
+    public static $check_error = NULL;
 
     public static function check_theme_setup() { 
         $old_theme = get_option('theme_switched');
@@ -15,9 +16,10 @@ class RRZE_Check_Theme {
             add_action( 'admin_notices', array(__CLASS__, 'admin_notices'));
             switch_theme($old_theme);
             unset( $_GET['activated'] );
-            return;            
+            update_option('check_error_' . self::theme_name, 1);            
+        } else {
+            delete_option('check_error_' . self::theme_name);
         }
-        add_action('after_setup_theme', array('RRZE_Theme', 'instance'));
     }
 
     private static function version_compare() {
@@ -45,6 +47,8 @@ class RRZE_Check_Theme {
 
 }
 
+add_action('after_setup_theme', array('RRZE_Theme', 'instance'));
+
 class RRZE_Theme {
 
     const version = '2.0'; // Theme-Version
@@ -70,10 +74,12 @@ class RRZE_Theme {
         return self::$instance;
     }
 
-    private function after_setup_theme() {
-                
+    public function after_setup_theme() {
+        if (get_option('check_error_' . RRZE_Check_Theme::theme_name)) {  
+            return;
+        }            
         $this->update_version();
-        
+
         require( get_template_directory() . '/inc/template-parser.php' );
         require( get_template_directory() . '/inc/theme-tags.php' );
         require( get_template_directory() . '/inc/theme-options.php' );
@@ -122,6 +128,8 @@ class RRZE_Theme {
         
         add_filter( 'excerpt_length', array($this, 'excerpt_length'), 999 );        
     }
+            
+
     
     private function update_version() {
         if (get_option(self::version_option_name, null) != self::version)
