@@ -21,10 +21,9 @@ echo <<<EOL
     .navmenu ul.dropdown a:visited,	
     .navmenu ul.dropdown a:hover, 		
     .navmenu ul.dropdown a:active { color: #fff; }
-    .navmenu ul.dropdown li:hover { background-color: [menu-hover]; color: #fff; }
+    .navmenu ul.dropdown li a:hover { background-color: [menu-hover]; color: [menu-link]; }
     .navmenu ul.dropdown ul li { border-bottom:1px solid [background]; }
-    .navmenu ul.dropdown ul li:hover { background-color: [menu-hover];  color: #fff; }
-    .navmenu ul.dropdown ul li a:hover { color: #fff; }
+    .navmenu ul.dropdown ul li a:hover { background-color: [menu-hover]; color: [menu-link]; }
     .navmenu ul.dropdown li.divider { background-color: [background]; }
     nav#tecmenu,
     nav#tecmenu ul.dropdown { background: none repeat scroll 0 0 [menu]; }
@@ -114,15 +113,17 @@ echo <<<EOL
     footer .widget_text a, 
     footer .widget_text a:visited { color: [footer-widget-title] !important; }
     footer .widget_text a:hover, 
-    footer .widget_text a:focus { background-color: [footer-widget-hover]; color: #fff !important; }
+    footer .widget_text a:focus { background-color: [footer-widget-hover]; color: [footer-widget-text] !important; }
     footer .tagcloud, 
     footer .textwidget { border-bottom-color: [footer-widget-linien]; }
     footer .tagcloud a:hover, 
     footer .tagcloud a:focus { background-color: [footer-hover]; }
     footer li.recentcomments { border-bottom-color: [footer-hover]; }
+    footer .ym-vlist li a, 
+    footer .ym-vlist li a:visited { color: [footer-widget-text]; }
     footer .ym-vlist li a:focus,
     footer .ym-vlist li a:hover,
-    footer .ym-vlist li a:active { background-color: [footer-hover]; }
+    footer .ym-vlist li a:active { background-color: [footer-hover]; color: [footer-widget-text]; }
     footer .ym-vlist li.current-menu-item > a,
     footer .ym-vlist li.current_page_item > a,
     footer .ym-vlist li.current-cat > a { background-color: [footer-hover]; }

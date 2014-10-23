@@ -158,10 +158,25 @@ function _rrze_default_color_style_data() {
 
 function _rrze_default_color_style() {
     $colors = _rrze_default_color_style_data();
-   // if (!isset($colors['menu-hover'])) $colors['menu-hover'] = $colors['hover'];  
-//_rrze_debug($colors['hover']);
-//_rrze_debug('Menu' . $colors['menu-hover']);
+        // Farberweiterung von Design RRZE - Default-Werte für noch nicht vergebene Farben
+    $additional_colors = array(
+        'test' => '#090909',
+        'menu-hover' => $colors['hover'], 
+        'menu-hover-text' => '#ffffff',
+        'footer-widget-text' => '#d0d0d0',
+        'footer-hover-text' => '#ffffff'
+        );
+    foreach ($additional_colors as $key => $value) {
+        if(!array_key_exists($key, $colors)) {
+            $colors[$key] = $value;
+        }
+    }
+    _rrze_debug($colors);
     $color_style = array( 
+        'test' => array(
+            'label' => __( 'Test', RRZE_Theme::textdomain ),
+            'color' => $colors['test'] 
+        ),
         'menu' => array( 
             'label' => __( 'Menüfarbe', RRZE_Theme::textdomain ),
             'color' => $colors['menu'] 
@@ -169,6 +184,10 @@ function _rrze_default_color_style() {
         'menu-hover' => array( 
             'label' => __( 'Menü-Hover-Farbe', RRZE_Theme::textdomain ),
             'color' => $colors['menu-hover'] 
+         ),
+        'menu-hover-text' => array( 
+            'label' => __( 'Menü-Hover-Textfarbe', RRZE_Theme::textdomain ),
+            'color' => $colors['menu-hover-text'] 
          ),
         'title' => array( 
             'label' => __( 'Titelfarbe', RRZE_Theme::textdomain ),
@@ -198,6 +217,10 @@ function _rrze_default_color_style() {
             'label' => __( 'Widget-Titel im Footer', RRZE_Theme::textdomain ),
             'color' => $colors['footer-widget-title'] 
          ),
+         'footer-widget-text' => array( 
+            'label' => __( 'Widget-Textfarbe im Footer', RRZE_Theme::textdomain ),
+            'color' => $colors['footer-widget-text'] 
+         ),
         'footer-widget-linien' => array( 
             'label' => __( 'Widget-Linien im Footer', RRZE_Theme::textdomain ),
             'color' => $colors['footer-widget-linien'] 
@@ -205,6 +228,10 @@ function _rrze_default_color_style() {
         'footer-hover' => array( 
             'label' => __( 'Hover-Farbe im Footer', RRZE_Theme::textdomain ),
             'color' => $colors['footer-hover'] 
+         ),     
+         'footer-hover-text' => array( 
+            'label' => __( 'Hover-Textfarbe im Footer', RRZE_Theme::textdomain ),
+            'color' => $colors['footer-hover-text'] 
          ),        
         'background' => array( 
             'label' => __( 'Hintergrundfarbe', RRZE_Theme::textdomain ),
@@ -212,7 +239,8 @@ function _rrze_default_color_style() {
          )        
     );
 
-//_rrze_debug($colors['menu-hover']);
+
+
     return apply_filters( '_rrze_default_color_style', $color_style );
 }
 
@@ -221,55 +249,55 @@ function _rrze_color_schema_options() {
         'grau' => array(
             'value' => 'grau',
             'label' => __( 'Grau', RRZE_Theme::textdomain ),
-            'colors' => array( 'menu' => '#222222', 'menu-hover' => '#515151', 'title' => '#444444', 'link' => '#020202', 'hover' => '#515151', 'widget-title' => '#444444', 'widget-linien' => '#DDDDDD', 'widget-hover' => '#888888', 'footer-widget-title' => '#9E9E9E', 'footer-widget-linien' => '#686868', 'footer-hover' => '#303030', 'background' => '#7A7A7A' ),
+            'colors' => array( 'menu' => '#222222', 'menu-hover' => '#515151', 'menu-hover-text' => '#ffffff', 'title' => '#444444', 'link' => '#020202', 'hover' => '#515151', 'widget-title' => '#444444', 'widget-linien' => '#DDDDDD', 'widget-hover' => '#888888', 'footer-widget-title' => '#9E9E9E', 'footer-widget-text' => '#d0d0d0', 'footer-widget-linien' => '#686868', 'footer-hover' => '#303030', 'footer-hover-text' => '#ffffff', 'background' => '#7A7A7A' ),
         ),
         
         'blau' => array(
             'value' => 'blau',
             'label' => __( 'Blau', RRZE_Theme::textdomain ),
-            'colors' => array( 'menu' => '#00425F', 'menu-hover' => '#005D85', 'title' => '#00425F', 'link' => '#00425F', 'hover' => '#005D85', 'widget-title' => '#00425F', 'widget-linien' => '#B3C6CE', 'widget-hover' => '#6B8EAD', 'footer-widget-title' => '#D0D0D0', 'footer-widget-linien' => '#006F9F', 'footer-hover' => '#005D85', 'background' => '#D4D7D9' ),
+            'colors' => array( 'menu' => '#00425F', 'menu-hover' => '#005D85', 'menu-hover-text' => '#ffffff', 'title' => '#00425F', 'link' => '#00425F', 'hover' => '#005D85', 'widget-title' => '#00425F', 'widget-linien' => '#B3C6CE', 'widget-hover' => '#6B8EAD', 'footer-widget-title' => '#D0D0D0', 'footer-widget-text' => '#d0d0d0', 'footer-widget-linien' => '#006F9F', 'footer-hover' => '#005D85', 'footer-hover-text' => '#ffffff', 'background' => '#D4D7D9' ),
         ),
             
         'gruen' => array(
             'value' => 'gruen',
             'label' => __( 'Grün', RRZE_Theme::textdomain ),
-            'colors' => array( 'menu' => '#006600', 'menu-hover' => '#0E510E', 'title' => '#006600', 'link' => '#006600', 'hover' => '#0E510E', 'widget-title' => '#366636', 'widget-linien' => '#8BB797', 'widget-hover' => '#6F9977', 'footer-widget-title' => '#829985', 'footer-widget-linien' => '#829985', 'footer-hover' => '#55754D', 'background' => '#E9E7D7' ),
+            'colors' => array( 'test' => '#000000', 'menu' => '#006600', 'menu-hover' => '#0E510E', 'menu-hover-text' => '#ffffff', 'title' => '#006600', 'link' => '#006600', 'hover' => '#0E510E', 'widget-title' => '#366636', 'widget-linien' => '#8BB797', 'widget-hover' => '#6F9977', 'footer-widget-title' => '#829985', 'footer-widget-text' => '#d0d0d0', 'footer-widget-linien' => '#829985', 'footer-hover' => '#55754D', 'footer-hover-text' => '#ffffff', 'background' => '#E9E7D7' ),
         ),
         
         'rot' => array(
             'value' => 'rot',
             'label' => __( 'Rot', RRZE_Theme::textdomain ),
-            'colors' => array( 'menu' => '#AF290D', 'menu-hover' => '#B35B22', 'title' => '#B35B22', 'link' => '#B35B22', 'hover' => '#B35B22', 'widget-title' => '#B35B22', 'widget-linien' => '#B29C8E', 'widget-hover' => '#B2876B', 'footer-widget-title' => '#B29C8E', 'footer-widget-linien' => '#B29C8E', 'footer-hover' => '#B27349', 'background' => '#BCA279' ),
+            'colors' => array( 'menu' => '#AF290D', 'menu-hover' => '#B35B22', 'menu-hover-text' => '#ffffff', 'title' => '#B35B22', 'link' => '#B35B22', 'hover' => '#B35B22', 'widget-title' => '#B35B22', 'widget-linien' => '#B29C8E', 'widget-hover' => '#B2876B', 'footer-widget-title' => '#B29C8E', 'footer-widget-text' => '#d0d0d0', 'footer-widget-linien' => '#B29C8E', 'footer-hover' => '#B27349', 'footer-hover-text' => '#ffffff', 'background' => '#BCA279' ),
         ),  
         
         'nat_fak' => array(
             'value' => 'nat_fak',
             'label' => __( 'FAU - Nat. Fak.', RRZE_Theme::textdomain ),
-            'colors' => array( 'menu' => '#009b77', 'menu-hover' => '#aacfbd', 'title' => '#009b77', 'link' => '#009b77', 'hover' => '#aacfbd', 'widget-title' => '#009b77', 'widget-linien' => '#aacfbd', 'widget-hover' => '#aacfbd', 'footer-widget-title' => '#e5efea', 'footer-widget-linien' => '#e5efea', 'footer-hover' => '#aacfbd', 'background' => '#cecece' ),
+            'colors' => array( 'menu' => '#009b77', 'menu-hover' => '#aacfbd', 'menu-hover-text' => '#ffffff', 'title' => '#009b77', 'link' => '#009b77', 'hover' => '#aacfbd', 'widget-title' => '#009b77', 'widget-linien' => '#aacfbd', 'widget-hover' => '#aacfbd', 'footer-widget-title' => '#e5efea', 'footer-widget-text' => '#d0d0d0', 'footer-widget-linien' => '#e5efea', 'footer-hover' => '#aacfbd', 'footer-hover-text' => '#ffffff', 'background' => '#cecece' ),
         ),
         
         'phil_fak' => array(
             'value' => 'phil_fak',
             'label' => __( 'FAU - Phil. Fak.', RRZE_Theme::textdomain ),
-            'colors' => array( 'menu' => '#c99313', 'menu-hover' => '#d9c689', 'title' => '#c99313', 'link' => '#c99313', 'hover' => '#d9c689', 'widget-title' => '#c99313', 'widget-linien' => '#d9c689', 'widget-hover' => '#d9c689', 'footer-widget-title' => '#f3eedf', 'footer-widget-linien' => '#f3eedf', 'footer-hover' => '#d9c689', 'background' => '#d8d8d8' ),
+            'colors' => array( 'menu' => '#c99313', 'menu-hover' => '#d9c689', 'menu-hover-text' => '#ffffff', 'title' => '#c99313', 'link' => '#c99313', 'hover' => '#d9c689', 'widget-title' => '#c99313', 'widget-linien' => '#d9c689', 'widget-hover' => '#d9c689', 'footer-widget-title' => '#f3eedf', 'footer-widget-text' => '#d0d0d0', 'footer-widget-linien' => '#f3eedf', 'footer-hover' => '#d9c689', 'footer-hover-text' => '#ffffff', 'background' => '#d8d8d8' ),
         ),
         
         'rewi_fak' => array(
             'value' => 'rewi_fak',
             'label' => __( 'FAU - ReWi. Fak.', RRZE_Theme::textdomain ),
-            'colors' => array( 'menu' => '#8d1429', 'menu-hover' => '#c9a993', 'title' => '#8d1429', 'link' => '#8d1429', 'hover' => '#c9a993', 'widget-title' => '#8d1429', 'widget-linien' => '#c9a993', 'widget-hover' => '#c9a993', 'footer-widget-title' => '#ede7de', 'footer-widget-linien' => '#ede7de', 'footer-hover' => '#c9a993', 'background' => '#c9c9c9' ),
+            'colors' => array( 'menu' => '#8d1429', 'menu-hover' => '#c9a993', 'menu-hover-text' => '#ffffff', 'title' => '#8d1429', 'link' => '#8d1429', 'hover' => '#c9a993', 'widget-title' => '#8d1429', 'widget-linien' => '#c9a993', 'widget-hover' => '#c9a993', 'footer-widget-title' => '#ede7de', 'footer-widget-text' => '#d0d0d0', 'footer-widget-linien' => '#ede7de', 'footer-hover' => '#c9a993', 'footer-hover-text' => '#ffffff', 'background' => '#c9c9c9' ),
         ),
         
         'med_fak' => array(
             'value' => 'med_fak',
             'label' => __( 'FAU - Med. Fak.', RRZE_Theme::textdomain ),
-            'colors' => array( 'menu' => '#00b1eb', 'menu-hover' => '#b4d6f5', 'title' => '#00b1eb', 'link' => '#00b1eb', 'hover' => '#b4d6f5', 'widget-title' => '#00b1eb', 'widget-linien' => '#b4d6f5', 'widget-hover' => '#b4d6f5', 'footer-widget-title' => '#eaf3fc', 'footer-widget-linien' => '#eaf3fc', 'footer-hover' => '#b4d6f5', 'background' => '#eaeaea' ),
+            'colors' => array( 'menu' => '#00b1eb', 'menu-hover' => '#b4d6f5', 'menu-hover-text' => '#ffffff', 'title' => '#00b1eb', 'link' => '#00b1eb', 'hover' => '#b4d6f5', 'widget-title' => '#00b1eb', 'widget-linien' => '#b4d6f5', 'widget-hover' => '#b4d6f5', 'footer-widget-title' => '#eaf3fc', 'footer-widget-text' => '#d0d0d0', 'footer-widget-linien' => '#eaf3fc', 'footer-hover' => '#b4d6f5', 'footer-hover-text' => '#ffffff', 'background' => '#eaeaea' ),
         ),
         
         'fau' => array(
             'value' => 'fau',
             'label' => __( 'FAU', RRZE_Theme::textdomain ),
-            'colors' => array( 'menu' => '#003865', 'menu-hover' => '#90a7c6', 'title' => '#003865', 'link' => '#003865', 'hover' => '#90a7c6', 'widget-title' => '#003865', 'widget-linien' => '#90a7c6', 'widget-hover' => '#90a7c6', 'footer-widget-title' => '#dde5f0', 'footer-widget-linien' => '#dde5f0', 'footer-hover' => '#90a7c6', 'background' => '#c6c6c6' ),
+            'colors' => array( 'menu' => '#003865', 'menu-hover' => '#90a7c6', 'menu-hover-text' => '#ffffff', 'title' => '#003865', 'link' => '#003865', 'hover' => '#90a7c6', 'widget-title' => '#003865', 'widget-linien' => '#90a7c6', 'widget-hover' => '#90a7c6', 'footer-widget-title' => '#dde5f0', 'footer-widget-text' => '#d0d0d0', 'footer-widget-linien' => '#dde5f0', 'footer-hover' => '#90a7c6', 'footer-hover-text' => '#ffffff', 'background' => '#c6c6c6' ),
         ),
         
     );
@@ -466,6 +494,7 @@ function _rrze_field_widget_content_typography_callback() {
 function _rrze_field_color_style_callback() {
     $options = RRZE_Theme::$theme_options;
     $option = $options['color.style'];
+    _rrze_debug($option);
     ?>
     <ul class="rrze-section-content">
 	<?php foreach ( _rrze_default_color_style() as $key => $style ): ?>
@@ -684,10 +713,12 @@ add_action( 'customize_register', function( $wp_customize ) {
     
     // color.style
     $color_style = $options['color.style'];
+    
+
+    
     $default_color_style = _rrze_default_color_style();
     $i = 20;
     foreach( $default_color_style as $key => $style ) {
-        if(!isset($color_style[$key]) && $key='menu-hover') $color_style[$key] = $color_style['hover'];       
         $wp_customize->add_setting( '_rrze_theme_options[color.style][' . $key . ']', array(
             'type' => 'option',
             'default' => $color_style[$key]
