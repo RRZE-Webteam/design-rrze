@@ -156,27 +156,30 @@ function _rrze_default_color_style_data() {
     return $color_schemas['blau']['colors'];
 }
 
-function _rrze_default_color_style() {
-    $colors = _rrze_default_color_style_data();
-        // Farberweiterung von Design RRZE - Default-Werte für noch nicht vergebene Farben
+function _rrze_color_style_options() {
+    $options = RRZE_Theme::$theme_options;
+    $colors = $options['color.style'];
+    // Farberweiterung von Design RRZE - Default-Werte für noch nicht vergebene Farben
     $additional_colors = array(
-        'test' => '#090909',
         'menu-hover' => $colors['hover'], 
         'menu-hover-text' => '#ffffff',
         'footer-widget-text' => '#d0d0d0',
         'footer-hover-text' => '#ffffff'
         );
-    foreach ($additional_colors as $key => $value) {
+    /*foreach ($additional_colors as $key => $value) {
         if(!array_key_exists($key, $colors)) {
             $colors[$key] = $value;
         }
-    }
-    _rrze_debug($colors);
+    }*/
+
+    $colors = wp_parse_args($additional_colors, $colors);
+        //_rrze_debug($colors);
+    return apply_filters('_rrze_color_style_options', $colors);
+}
+
+function _rrze_default_color_style() {
+    $colors = _rrze_default_color_style_data();
     $color_style = array( 
-        'test' => array(
-            'label' => __( 'Test', RRZE_Theme::textdomain ),
-            'color' => $colors['test'] 
-        ),
         'menu' => array( 
             'label' => __( 'Menüfarbe', RRZE_Theme::textdomain ),
             'color' => $colors['menu'] 
@@ -239,8 +242,6 @@ function _rrze_default_color_style() {
          )        
     );
 
-
-
     return apply_filters( '_rrze_default_color_style', $color_style );
 }
 
@@ -261,7 +262,7 @@ function _rrze_color_schema_options() {
         'gruen' => array(
             'value' => 'gruen',
             'label' => __( 'Grün', RRZE_Theme::textdomain ),
-            'colors' => array( 'test' => '#000000', 'menu' => '#006600', 'menu-hover' => '#0E510E', 'menu-hover-text' => '#ffffff', 'title' => '#006600', 'link' => '#006600', 'hover' => '#0E510E', 'widget-title' => '#366636', 'widget-linien' => '#8BB797', 'widget-hover' => '#6F9977', 'footer-widget-title' => '#829985', 'footer-widget-text' => '#d0d0d0', 'footer-widget-linien' => '#829985', 'footer-hover' => '#55754D', 'footer-hover-text' => '#ffffff', 'background' => '#E9E7D7' ),
+            'colors' => array( 'menu' => '#006600', 'menu-hover' => '#0E510E', 'menu-hover-text' => '#ffffff', 'title' => '#006600', 'link' => '#006600', 'hover' => '#0E510E', 'widget-title' => '#366636', 'widget-linien' => '#8BB797', 'widget-hover' => '#6F9977', 'footer-widget-title' => '#829985', 'footer-widget-text' => '#d0d0d0', 'footer-widget-linien' => '#829985', 'footer-hover' => '#55754D', 'footer-hover-text' => '#ffffff', 'background' => '#E9E7D7' ),
         ),
         
         'rot' => array(
@@ -493,8 +494,8 @@ function _rrze_field_widget_content_typography_callback() {
 
 function _rrze_field_color_style_callback() {
     $options = RRZE_Theme::$theme_options;
-    $option = $options['color.style'];
-    _rrze_debug($option);
+    $option = _rrze_color_style_options();
+    //$option = $options['color.style'];
     ?>
     <ul class="rrze-section-content">
 	<?php foreach ( _rrze_default_color_style() as $key => $style ): ?>
@@ -512,7 +513,8 @@ function _rrze_field_color_style_callback() {
 function _rrze_field_color_schema_callback() {
     $options = RRZE_Theme::$theme_options;
     $color_schema = $options['color.schema'];
-    $custom_colors = array_map( 'strtoupper', $options['color.style'] );
+    $custom_colors = array_map( 'strtoupper', _rrze_color_style_options() );
+    //$custom_colors = array_map( 'strtoupper', $options['color.style'] );
     $color_schema_options = _rrze_color_schema_options();
     foreach( $color_schema_options as $option ) {
         $colors = array_map( 'strtoupper', $option['colors'] );
@@ -608,9 +610,10 @@ function _rrze_theme_options_menu_page() {
 function _rrze_theme_options_validate( $input ) {
     $default_options = RRZE_Theme::$default_theme_options;
     $options = RRZE_Theme::$theme_options;
-    
+
     $custom_schema = '_custom';
-    $custom_colors = array_map( 'strtoupper', $options['color.style'] );
+    $custom_colors = array_map( 'strtoupper', _rrze_color_style_options() );
+    //$custom_colors = array_map( 'strtoupper', $options['color.style'] );
     $color_schema_options = _rrze_color_schema_options();
     
     foreach( $color_schema_options as $option ) {
@@ -656,7 +659,7 @@ function _rrze_theme_options_validate( $input ) {
         }
     }
     
-	if ( isset( $input['color.style'] ) )
+	if ( isset( $input['color.style'] )  )
 		$options['color.style'] = $input['color.style'];
         	
         if ( isset( $input['blog.overview'] ) && array_key_exists( $input['blog.overview'], _rrze_blogoverview_options() ) )
@@ -712,11 +715,11 @@ add_action( 'customize_register', function( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
     
     // color.style
-    $color_style = $options['color.style'];
-    
-
-    
+    $color_style = _rrze_color_style_options();
+    //$color_style = $options['color.style'];
+   
     $default_color_style = _rrze_default_color_style();
+
     $i = 20;
     foreach( $default_color_style as $key => $style ) {
         $wp_customize->add_setting( '_rrze_theme_options[color.style][' . $key . ']', array(
