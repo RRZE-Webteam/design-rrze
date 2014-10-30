@@ -38,6 +38,8 @@ add_action( 'admin_init', function() {
 
     add_settings_field( 'column.layout', __( 'Seitenlayout', RRZE_Theme::textdomain ), '_rrze_field_columnlayout_callback', 'layout.options', 'layout.section' );
     
+    add_settings_field( 'header.layout', __( 'Header-Layout', RRZE_Theme::textdomain ), '_rrze_field_header_layout_callback', 'layout.options', 'layout.section' );    
+    
     add_settings_field( 'footer.layout', __( 'Footer-Layout', RRZE_Theme::textdomain ), '_rrze_field_footer_layout_callback', 'layout.options', 'layout.section' );
     
     add_settings_field( 'search.form', __( 'Position des Suchformulars', RRZE_Theme::textdomain ), '_rrze_field_searchform_callback', 'layout.options', 'layout.section' );
@@ -138,6 +140,22 @@ function _rrze_footer_layout_options() {
     );
 
     return apply_filters( '_rrze_footer_layout_options', $options );
+}
+
+function _rrze_header_layout_options() {
+    $options = array(
+        'top-left' => array( 'value' => 'top-left', 'label' => __( 'Titel oben - links', RRZE_Theme::textdomain ) ),
+        'top-center' => array( 'value' => 'top-center', 'label' => __( 'Titel oben - zentriert', RRZE_Theme::textdomain ) ), 
+        'top-right' => array( 'value' => 'top-right', 'label' => __( 'Titel oben - rechts', RRZE_Theme::textdomain ) ),
+        'middle-left' => array( 'value' => 'middle-left', 'label' => __( 'Titel mittig - links', RRZE_Theme::textdomain ) ), 
+        'middle-center' => array( 'value' => 'middle-center', 'label' => __( 'Titel mittig - zentriert', RRZE_Theme::textdomain ) ), 
+        'middle-right' => array( 'value' => 'middle-right', 'label' => __( 'Titel mittig - rechts', RRZE_Theme::textdomain ) ), 
+        'bottom-left' => array( 'value' => 'bottom-left', 'label' => __( 'Titel unten - links', RRZE_Theme::textdomain ) ), 
+        'bottom-center' => array( 'value' => 'bottom-center', 'label' => __( 'Titel unten - zentriert', RRZE_Theme::textdomain ) ), 
+        'bottom-right' => array( 'value' => 'bottom-right', 'label' => __( 'Titel unten - rechts', RRZE_Theme::textdomain ) ), 
+    );
+    
+    return apply_filters( '_rrze_header_layout_options', $options );
 }
 
 function _rrze_typography_options() {
@@ -410,6 +428,25 @@ function _rrze_field_footer_layout_callback() {
 
 }
 
+function _rrze_field_header_layout_callback() {
+	$options = RRZE_Theme::$theme_options;
+	?>
+	<select name="_rrze_theme_options[header.layout]" id="header-layout">
+		<?php
+			$selected = $options['header.layout'];
+			$html = '';
+            
+            foreach( _rrze_header_layout_options() as $option ) {               
+                $html .= '<option value="'.esc_attr($option['value']).'"'.($selected == $option['value'] ? ' selected="selected"' : '').'>'.esc_attr($option['label']).'</option>';
+                    
+            }            
+            echo $html;
+		?>
+	</select>
+	<?php
+
+}
+
 function _rrze_field_body_typography_callback() {
 	$options = RRZE_Theme::$theme_options;    
         ?>
@@ -419,7 +456,7 @@ function _rrze_field_body_typography_callback() {
 			$html = '';
             
             foreach(_rrze_typography_options() as $option ) {
-                        $html .= '<option value="'.$option['value'].'"'.($selected == $option['value'] ? ' selected="selected"' : '').' class="'.$option['class'].'">'.esc_attr($option['label']).'</option>';
+                        $html .= '<option value="'.esc_attr($option['value']).'"'.($selected == $option['value'] ? ' selected="selected"' : '').' class="'.$option['class'].'">'.esc_attr($option['label']).'</option>';
                     
             }
             echo $html;
@@ -438,7 +475,7 @@ function _rrze_field_heading_typography_callback() {
 			$html = '';
             
             foreach(_rrze_typography_options() as $option ) {
-                        $html .= '<option value="'.$option['value'].'"'.($selected == $option['value'] ? ' selected="selected"' : '').' class="'.$option['class'].'">'.esc_attr($option['label']).'</option>';
+                        $html .= '<option value="'.esc_attr($option['value']).'"'.($selected == $option['value'] ? ' selected="selected"' : '').' class="'.$option['class'].'">'.esc_attr($option['label']).'</option>';
                     
             }
             echo $html;
@@ -456,7 +493,7 @@ function _rrze_field_menu_typography_callback() {
 			$html = '';
             
             foreach(_rrze_typography_options() as $option ) {
-                        $html .= '<option value="'.$option['value'].'"'.($selected == $option['value'] ? ' selected="selected"' : '').' class="'.$option['class'].'">'.esc_attr($option['label']).'</option>';
+                        $html .= '<option value="'.esc_attr($option['value']).'"'.($selected == $option['value'] ? ' selected="selected"' : '').' class="'.$option['class'].'">'.esc_attr($option['label']).'</option>';
                     
             }
             echo $html;
@@ -474,7 +511,7 @@ function _rrze_field_widget_title_typography_callback() {
 			$html = '';
             
             foreach(_rrze_typography_options() as $option ) {
-                        $html .= '<option value="'.$option['value'].'"'.($selected == $option['value'] ? ' selected="selected"' : '').' class="'.$option['class'].'">'.esc_attr($option['label']).'</option>';
+                        $html .= '<option value="'.esc_attr($option['value']).'"'.($selected == $option['value'] ? ' selected="selected"' : '').' class="'.$option['class'].'">'.esc_attr($option['label']).'</option>';
                     
             }
             echo $html;
@@ -492,7 +529,7 @@ function _rrze_field_widget_content_typography_callback() {
 			$html = '';
             
             foreach(_rrze_typography_options() as $option ) {
-                        $html .= '<option value="'.$option['value'].'"'.($selected == $option['value'] ? ' selected="selected"' : '').' class="'.$option['class'].'">'.esc_attr($option['label']).'</option>';
+                        $html .= '<option value="'.esc_attr($option['value']).'"'.($selected == $option['value'] ? ' selected="selected"' : '').' class="'.$option['class'].'">'.esc_attr($option['label']).'</option>';
                     
             }
             echo $html;
@@ -637,6 +674,8 @@ function _rrze_theme_options_validate( $input ) {
 	if ( isset( $input['footer.layout'] ) && array_key_exists( $input['footer.layout'], _rrze_footer_layout_options() ) )
 		$options['footer.layout'] = $input['footer.layout'];
         
+	if ( isset( $input['header.layout'] ) && array_key_exists( $input['header.layout'], _rrze_header_layout_options() ) )
+		$options['header.layout'] = $input['header.layout'];
         
         if ( isset( $input['body.typography'] ) && array_key_exists( $input['body.typography'], _rrze_typography_options() ) )
             $options['body.typography'] = $input['body.typography'];

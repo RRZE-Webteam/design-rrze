@@ -143,6 +143,7 @@ class RRZE_Theme {
             'column.layout' => '1-3',
             'footer.layout' => '33-33-33',
             'search.form.position' => 'bereichsmenu',
+            'header.layout' => 'middle-left',
             'body.typography' => 'DroidSans',
             'heading.typography' => 'DroidSans',
             'menu.typography' => 'DroidSans',
