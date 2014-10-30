@@ -61,7 +61,7 @@ echo <<<EOL
     aside .textwidget { border-bottom-color: [widget-linien]; }
     aside .tagcloud a:hover, 
     aside .tagcloud a:focus { background-color: [widget-hover]; color: [widget-hover-text]; }
-    .ym-searchbutton { background-color: [widget-title]; }
+    .searchbutton { background-color: [widget-title]; }
     .ym-vlist ul { border-bottom-color: [widget-linien]; }
 	.ym-vlist a { border-bottom-color: [widget-linien]; }
 	.ym-vlist li a:focus,
