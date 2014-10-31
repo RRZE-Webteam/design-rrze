@@ -80,11 +80,11 @@ class RRZE_Theme {
         }            
         $this->update_version();
 
-        require( get_template_directory() . '/inc/template-parser.php' );
-        require( get_template_directory() . '/inc/theme-tags.php' );
-        require( get_template_directory() . '/inc/theme-options.php' );
-        require( get_template_directory() . '/inc/shortcodes.php' );
-        require( get_template_directory() . '/inc/widgets.php');
+        require_once( get_template_directory() . '/inc/template-parser.php' );
+        require_once( get_template_directory() . '/inc/theme-tags.php' );
+        require_once( get_template_directory() . '/inc/theme-options.php' );
+        require_once( get_template_directory() . '/inc/shortcodes.php' );
+        require_once( get_template_directory() . '/inc/widgets.php');
 
         // The .mo files must use language-only filenames, like languages/de_DE.mo in your theme directory.
         // Unlike plugin language files, a text domain name like _rrze-de_DE.mo will NOT work.
@@ -397,7 +397,8 @@ class RRZE_Theme {
         $header_image = get_header_image();
 
         if ( $header_image )
-            printf( '<style type="text/css" media="all">%1$sbody div#kopf div#title {background: url("%2$s") no-repeat scroll center top transparent;}%1$s</style>%1$s', PHP_EOL, $header_image );
+            //printf( '<style type="text/css" media="all">%1$sbody div#kopf div#title {background: url("%2$s") no-repeat scroll center top transparent;}%1$s</style>%1$s', PHP_EOL, $header_image );
+            printf( '<style type="text/css">%1$s@media all {%1$sbody div#kopf div#title {background: url("%2$s") no-repeat scroll center top transparent;}%1$s}%1$s@media screen and (max-width: 760px) {%1$sbody div#kopf div#title {background-size: 760px;}%1$s}%1$s</style>%1$s', PHP_EOL, $header_image );
 
         Template_Parser::print_template( $options, 'css/layout', '<style type="text/css">' . PHP_EOL, '</style>' . PHP_EOL );
 
