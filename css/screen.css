@@ -106,15 +106,64 @@
     div#main > div.ym-wrapper > div.ym-wbox {
         padding-top: 1.5em;
     }
+    div#title div.ym-wrapper {
+        position: relative;
+        padding: 0;
+        margin: 0 auto;
+        max-width: 80em;
+        height: 160px;
+           
+    }
 
+    div#title div.ym-wbox {
+        padding: 0.5em 1.5em;
+    }
+    
+    div#title div.bottom-right {
+        position:absolute;
+        right:0;
+        bottom:0;
+    }
+
+    div#title div.bottom-left {
+        position: absolute;
+        left:0;
+        bottom:0;
+    }
+    
+    div#title div.middle-left {
+        position: absolute;
+        left:0;
+        top:2em;
+    }
+
+    div#title div.bottom {
+        position: absolute;
+        bottom:0;
+    }
+    
+    div#title div.bottom-center h1, 
+    div#title div.bottom-center h3,
+    div#title div.middle-center h1, 
+    div#title div.middle-center h3,
+    div#title div.top-center h1, 
+    div#title div.top-center h3 {
+        text-align: center;
+    }
+    
+    h3#site-description {
+        margin-bottom: 0;
+    }
+    
     .header-block h1 {
         overflow: hidden;
         white-space: nowrap;
         padding-left: 0;        
-        margin-top: 12px;
+        margin-top: 0;
         margin-bottom: 0;
         line-height: 1.1;
         font-size: 275%;
+        vertical-align: bottom;
     }
 
     .header-block h3 {       
@@ -139,6 +188,7 @@
     .header-block h1 span, .header-block h3 span {
         padding: 4px 0;
     }
+
 
     section.box { 
         padding: 1.4286em; 
@@ -949,6 +999,14 @@
         font-size: 38px;
     }
 
+    div#title div.ym-wbox {
+        padding: 0 1.5em;
+    }
+    
+    div#title div.ym-wrapper {
+        height: 105px;
+    }
+    
     .header-block h1 {
         font-size: 38px;
         line-height: 1.8;
