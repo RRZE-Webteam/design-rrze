@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Design RRZE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-08 14:30+0100\n"
+"POT-Creation-Date: 2014-11-03 17:28+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: RRZE-Webteam\n"
@@ -198,7 +198,7 @@ msgstr "Status"
 msgid "Vollständigen Artikel lesen <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Continue reading <span class=\"meta-nav\">&rarr;</span>"
 
-#: ../footer.php:7 ../functions.php:291
+#: ../footer.php:7 ../functions.php:321
 msgid "Technisches Menü"
 msgstr "Technical menu"
 
@@ -206,7 +206,7 @@ msgstr "Technical menu"
 msgid "Zusatzinformationen"
 msgstr "Additional information"
 
-#: ../functions.php:93
+#: ../functions.php:29
 #, php-format
 msgid ""
 "Ihre PHP-Version %s ist veraltet. Bitte aktualisieren Sie mindestens auf die "
@@ -215,7 +215,7 @@ msgstr ""
 "Your server is running PHP version %s. Please upgrade at least to PHP "
 "version %s."
 
-#: ../functions.php:97
+#: ../functions.php:33
 #, php-format
 msgid ""
 "Ihre Wordpress-Version %s ist veraltet. Bitte aktualisieren Sie mindestens "
@@ -224,51 +224,59 @@ msgstr ""
 "Your Wordpress version is %s. Please upgrade at least to Wordpress version "
 "%s."
 
-#: ../functions.php:145 ../inc/theme-options.php:698
+#: ../functions.php:45
+msgid "Das Theme konnte nicht aktiviert werden."
+msgstr "Theme couldn't be activated."
+
+#: ../functions.php:175 ../inc/theme-options.php:786
+#: ../inc/theme-options_alt.php:744
 msgid "Layout"
 msgstr "Layout"
 
-#: ../functions.php:150 ../inc/theme-options.php:48
+#: ../functions.php:180 ../inc/theme-options.php:50
+#: ../inc/theme-options_alt.php:48
 msgid "Schriftart"
 msgstr "Font"
 
-#: ../functions.php:155
+#: ../functions.php:185
 msgid "Farben"
 msgstr "Colors"
 
-#: ../functions.php:160
+#: ../functions.php:190
 msgid "Blogdarstellung"
 msgstr "Blog Settings"
 
-#: ../functions.php:175
+#: ../functions.php:205
 msgid "Titel ausblenden"
 msgstr "Hide title"
 
-#: ../functions.php:282 ../inc/theme-options.php:212
+#: ../functions.php:312 ../inc/theme-options.php:277
+#: ../inc/theme-options_alt.php:252
 msgid "Grau"
 msgstr "Gray"
 
-#: ../functions.php:288 ../header.php:50 ../inc/theme-options.php:89
+#: ../functions.php:318 ../header.php:64 ../inc/theme-options.php:91
+#: ../inc/theme-options_alt.php:89
 msgid "Bereichsmenü"
 msgstr "Area menu"
 
-#: ../functions.php:308
+#: ../functions.php:338
 msgid "Sidebar links"
 msgstr "Sidebar left"
 
-#: ../functions.php:310 ../functions.php:320
+#: ../functions.php:340 ../functions.php:350
 msgid "Dieser Bereich ist für die Menüs und die Widgets vorgesehen."
 msgstr "This area is intended for the menus and widgets."
 
-#: ../functions.php:318
+#: ../functions.php:348
 msgid "Sidebar rechts"
 msgstr "Sidebar right"
 
-#: ../functions.php:328
+#: ../functions.php:358
 msgid "Footer-Sidebar links"
 msgstr "Footer Sidebar left"
 
-#: ../functions.php:330
+#: ../functions.php:360
 msgid ""
 "Dieser Bereich ist für die Zusatzinformationen (im Footer links) vorgesehen. "
 "Hier könnten hilfreiche Links oder sonstige Informationen stehen, welche auf "
@@ -280,11 +288,11 @@ msgstr ""
 "should be displayed on each page. This information will not be sent to the "
 "printer!"
 
-#: ../functions.php:338
+#: ../functions.php:368
 msgid "Footer-Sidebar mitte"
 msgstr "Footer Sidebar center"
 
-#: ../functions.php:340
+#: ../functions.php:370
 msgid ""
 "Dieser Bereich ist für die Zusatzinformationen (im Footer mitte) vorgesehen. "
 "Hier könnten hilfreiche Links oder sonstige Informationen stehen, welche auf "
@@ -295,11 +303,11 @@ msgstr ""
 "Here could be useful links and other information is available, which should "
 "be displayed on each page. This information will not be sent to the printer!"
 
-#: ../functions.php:348
+#: ../functions.php:378
 msgid "Footer-Sidebar rechts"
 msgstr "Footer Sidebar right"
 
-#: ../functions.php:350
+#: ../functions.php:380
 msgid ""
 "Dieser Bereich ist für die Zusatzinformationen (im Footer rechts) "
 "vorgesehen. Hier könnten hilfreiche Links oder sonstige Informationen "
@@ -311,20 +319,20 @@ msgstr ""
 "should be displayed on each page. This information will not be sent to the "
 "printer!"
 
-#: ../functions.php:454
+#: ../functions.php:485
 msgid "Weitere Einstellungen"
 msgstr "More Settings"
 
-#: ../functions.php:552
+#: ../functions.php:583
 msgid ""
 "Auf dieser Seite stehen Ihnen keine weiteren Einstellungen zur Verfügung."
 msgstr "There are no more settings on this page."
 
-#: ../functions.php:612
+#: ../functions.php:643
 msgid "Sie haben noch keinen Titel eingegeben."
 msgstr "Please enter a title."
 
-#: ../functions.php:619
+#: ../functions.php:650
 msgid "Dokument ohne Titel"
 msgstr "Document without title"
 
@@ -344,214 +352,279 @@ msgstr "Jump to the general information area"
 msgid "Zu den Zusatzinformationen springen"
 msgstr "Jump to the additional information area"
 
-#: ../header.php:57
+#: ../header.php:71
 msgid "Breadcrumb"
 msgstr "Breadcrumb"
 
-#: ../inc/theme-options.php:16 ../inc/theme-options.php:547
+#: ../inc/theme-options.php:16 ../inc/theme-options.php:631
+#: ../inc/theme-options_alt.php:16 ../inc/theme-options_alt.php:589
 msgid "Einstellungen"
 msgstr "Settings"
 
-#: ../inc/theme-options.php:37
+#: ../inc/theme-options.php:37 ../inc/theme-options_alt.php:37
 msgid "Layouteinstellungen"
 msgstr "Layout Settings"
 
-#: ../inc/theme-options.php:39
+#: ../inc/theme-options.php:39 ../inc/theme-options_alt.php:39
 msgid "Seitenlayout"
 msgstr "Page Layout"
 
 #: ../inc/theme-options.php:41
+msgid "Header-Layout"
+msgstr "Header Layout"
+
+#: ../inc/theme-options.php:43 ../inc/theme-options_alt.php:41
 msgid "Footer-Layout"
 msgstr "Footer Layout"
 
-#: ../inc/theme-options.php:43
+#: ../inc/theme-options.php:45 ../inc/theme-options_alt.php:43
 msgid "Position des Suchformulars"
 msgstr "Position of the search form"
 
-#: ../inc/theme-options.php:50
+#: ../inc/theme-options.php:52 ../inc/theme-options_alt.php:50
 msgid "Allgemein"
 msgstr "General"
 
-#: ../inc/theme-options.php:52
+#: ../inc/theme-options.php:54 ../inc/theme-options_alt.php:52
 msgid "Überschrift"
 msgstr "Heading"
 
-#: ../inc/theme-options.php:54
+#: ../inc/theme-options.php:56 ../inc/theme-options_alt.php:54
 msgid "Menü"
 msgstr "Menu"
 
-#: ../inc/theme-options.php:56
+#: ../inc/theme-options.php:58 ../inc/theme-options_alt.php:56
 msgid "Widget-Titel"
 msgstr "Widget Title"
 
-#: ../inc/theme-options.php:58
+#: ../inc/theme-options.php:60 ../inc/theme-options_alt.php:58
 msgid "Widget-Inhalt"
 msgstr "Content"
 
-#: ../inc/theme-options.php:63
+#: ../inc/theme-options.php:65 ../inc/theme-options_alt.php:63
 msgid "Farbeinstellungen"
 msgstr "Color Settings"
 
-#: ../inc/theme-options.php:67
+#: ../inc/theme-options.php:69 ../inc/theme-options_alt.php:67
 msgid "Farbschemas"
 msgstr "Color Schemes"
 
-#: ../inc/theme-options.php:72
+#: ../inc/theme-options.php:74 ../inc/theme-options_alt.php:72
 msgid "Darstellung der Beitragsübersicht"
 msgstr "Show listed posts"
 
-#: ../inc/theme-options.php:74
+#: ../inc/theme-options.php:76 ../inc/theme-options_alt.php:74
 msgid "Beiträge auf der Übersichtsseite anzeigen"
 msgstr "Show posts listed in a category"
 
-#: ../inc/theme-options.php:76
+#: ../inc/theme-options.php:78 ../inc/theme-options_alt.php:76
 msgid "Anzahl der angezeigten Wörter in der Vorschau"
 msgstr "Number of shown words in excerpt"
 
-#: ../inc/theme-options.php:84
+#: ../inc/theme-options.php:86 ../inc/theme-options_alt.php:84
 msgid "keiner"
 msgstr "none"
 
-#: ../inc/theme-options.php:100
+#: ../inc/theme-options.php:102 ../inc/theme-options_alt.php:100
+msgid "1 Spalte - keine Sidebar"
+msgstr "1 column - No Sidebar"
+
+#: ../inc/theme-options.php:106 ../inc/theme-options_alt.php:104
 msgid "2 Spalten - linke Sidebar"
 msgstr "2 columns - Left Sidebar"
 
-#: ../inc/theme-options.php:105
+#: ../inc/theme-options.php:111 ../inc/theme-options_alt.php:109
 msgid "2 Spalten - rechte Sidebar"
 msgstr "2 columns - Right sidebar"
 
-#: ../inc/theme-options.php:110
+#: ../inc/theme-options.php:116 ../inc/theme-options_alt.php:114
 msgid "3 Spalten - linke und rechte Sidebar"
 msgstr "3 Columns - Left and Right Sidebar"
 
-#: ../inc/theme-options.php:160
+#: ../inc/theme-options.php:147
+msgid "Titel oben - links"
+msgstr "Title at the top - align left"
+
+#: ../inc/theme-options.php:148
+msgid "Titel oben - zentriert"
+msgstr "Title at the top - align center"
+
+#: ../inc/theme-options.php:149
+msgid "Titel oben - rechts"
+msgstr "Title at the top - align right "
+
+#: ../inc/theme-options.php:150
+msgid "Titel mittig - links"
+msgstr "Titel in the middle - align left"
+
+#: ../inc/theme-options.php:151
+msgid "Titel mittig - rechts"
+msgstr "Title in the middle - align right"
+
+#: ../inc/theme-options.php:152
+msgid "Titel unten - links"
+msgstr "Title at the bottom - align left"
+
+#: ../inc/theme-options.php:153
+msgid "Titel unten - rechts"
+msgstr "Titel at the bottom - align right"
+
+#: ../inc/theme-options.php:197 ../inc/theme-options_alt.php:184
 msgid "Menüfarbe"
 msgstr "Menu Color"
 
-#: ../inc/theme-options.php:164
+#: ../inc/theme-options.php:201
+msgid "Menü-Textfarbe"
+msgstr "Menu Text Color"
+
+#: ../inc/theme-options.php:205 ../inc/theme-options_alt.php:188
+msgid "Menü-Hover-Farbe"
+msgstr "Menu Hover Color"
+
+#: ../inc/theme-options.php:209 ../inc/theme-options_alt.php:192
+msgid "Menü-Hover-Textfarbe"
+msgstr "Menu Hover Text Color"
+
+#: ../inc/theme-options.php:213 ../inc/theme-options_alt.php:196
 msgid "Titelfarbe"
 msgstr "Title Color"
 
-#: ../inc/theme-options.php:168
+#: ../inc/theme-options.php:217 ../inc/theme-options_alt.php:200
 msgid "Linkfarbe"
 msgstr "Link Color"
 
-#: ../inc/theme-options.php:172
+#: ../inc/theme-options.php:221 ../inc/theme-options_alt.php:204
 msgid "Hover-Farbe"
 msgstr "Hover Color"
 
-#: ../inc/theme-options.php:176
+#: ../inc/theme-options.php:225
+msgid "Hover-Textfarbe"
+msgstr "Hover Text Color"
+
+#: ../inc/theme-options.php:229 ../inc/theme-options_alt.php:208
 msgid "Widget-Titel in Spalten"
 msgstr "Widget Title in columns"
 
-#: ../inc/theme-options.php:180
+#: ../inc/theme-options.php:233 ../inc/theme-options_alt.php:212
 msgid "Widget-Linien in Spalten"
 msgstr "Widget Lines in columns"
 
-#: ../inc/theme-options.php:184
+#: ../inc/theme-options.php:237 ../inc/theme-options_alt.php:216
 msgid "Widget-Hover-Farbe in Spalten"
 msgstr "Widget Hover Color in columns"
 
-#: ../inc/theme-options.php:188
+#: ../inc/theme-options.php:241
+msgid "Widget-Hover-Textfarbe in Spalten"
+msgstr "Widget Hover Text Color in columns"
+
+#: ../inc/theme-options.php:245 ../inc/theme-options_alt.php:220
 msgid "Widget-Titel im Footer"
 msgstr "Widget Title in footer"
 
-#: ../inc/theme-options.php:192
+#: ../inc/theme-options.php:249 ../inc/theme-options_alt.php:224
+msgid "Widget-Textfarbe im Footer"
+msgstr "Widget Text Color in footer"
+
+#: ../inc/theme-options.php:253 ../inc/theme-options_alt.php:228
 msgid "Widget-Linien im Footer"
 msgstr "Widget Lines in footer"
 
-#: ../inc/theme-options.php:196
+#: ../inc/theme-options.php:257 ../inc/theme-options_alt.php:232
 msgid "Hover-Farbe im Footer"
 msgstr "Hover Color in footer"
 
-#: ../inc/theme-options.php:200
+#: ../inc/theme-options.php:261 ../inc/theme-options_alt.php:236
+msgid "Hover-Textfarbe im Footer"
+msgstr "Hover Text Color in footer"
+
+#: ../inc/theme-options.php:265 ../inc/theme-options_alt.php:240
 msgid "Hintergrundfarbe"
 msgstr "Background Color"
 
-#: ../inc/theme-options.php:218
+#: ../inc/theme-options.php:283 ../inc/theme-options_alt.php:258
 msgid "Blau"
 msgstr "Blue"
 
-#: ../inc/theme-options.php:224
+#: ../inc/theme-options.php:289 ../inc/theme-options_alt.php:264
 msgid "Grün"
 msgstr "Green"
 
-#: ../inc/theme-options.php:230
+#: ../inc/theme-options.php:295 ../inc/theme-options_alt.php:270
 msgid "Rot"
 msgstr "Red"
 
-#: ../inc/theme-options.php:236
+#: ../inc/theme-options.php:301 ../inc/theme-options_alt.php:276
 msgid "FAU - Nat. Fak."
 msgstr "FAU - Faculty of Sciences"
 
-#: ../inc/theme-options.php:242
+#: ../inc/theme-options.php:307 ../inc/theme-options_alt.php:282
 msgid "FAU - Phil. Fak."
 msgstr "FAU - Faculty of Humanities, Social Sciences & Theology"
 
-#: ../inc/theme-options.php:248
+#: ../inc/theme-options.php:313 ../inc/theme-options_alt.php:288
 msgid "FAU - ReWi. Fak."
 msgstr "FAU - Faculty of Business, Economics & Law"
 
-#: ../inc/theme-options.php:254
+#: ../inc/theme-options.php:319 ../inc/theme-options_alt.php:294
 msgid "FAU - Med. Fak."
 msgstr "FAU - Faculty of Medicine"
 
-#: ../inc/theme-options.php:260
+#: ../inc/theme-options.php:325 ../inc/theme-options_alt.php:300
 msgid "FAU"
 msgstr "FAU"
 
-#: ../inc/theme-options.php:273
+#: ../inc/theme-options.php:338 ../inc/theme-options_alt.php:313
 msgid "als vollständigen Artikel"
 msgstr "completely"
 
-#: ../inc/theme-options.php:278
+#: ../inc/theme-options.php:343 ../inc/theme-options_alt.php:318
 msgid "als kurze Vorschau"
 msgstr "as short preview"
 
-#: ../inc/theme-options.php:287
+#: ../inc/theme-options.php:352 ../inc/theme-options_alt.php:327
 msgid "Wählen Sie, welche Optionen Sie aktivieren möchten."
 msgstr "Select the options that you want to enable."
 
-#: ../inc/theme-options.php:291
+#: ../inc/theme-options.php:356 ../inc/theme-options_alt.php:331
 msgid "Wählen Sie, welche Schriftart Sie aktivieren möchten."
 msgstr "Choose which font you wish to enable."
 
-#: ../inc/theme-options.php:295
+#: ../inc/theme-options.php:360 ../inc/theme-options_alt.php:335
 msgid "Wählen Sie, welches Farbschema Sie aktivieren möchten."
 msgstr "Choose which color scheme you wish to enable."
 
-#: ../inc/theme-options.php:299
+#: ../inc/theme-options.php:364 ../inc/theme-options_alt.php:339
 msgid ""
 "Wählen Sie, ob auf der Übersichtsseite die vollständigen Beiträge oder nur "
 "Auszüge angezeigt werden sollen."
 msgstr "Choose if complete posts or excerpts are shown."
 
-#: ../inc/theme-options.php:300
+#: ../inc/theme-options.php:365 ../inc/theme-options_alt.php:340
 msgid ""
 "Wenn Sie eine Vorschau anzeigen lassen und der Beitrag keinen Auszug "
 "besitzt, wird der Artikel gekürzt dargestellt. Die Anzahl der angezeigten "
 "Wörter können Sie unten festlegen."
 msgstr "You can set the number of words to be shown in post preview below."
 
-#: ../inc/theme-options.php:349
+#: ../inc/theme-options.php:414 ../inc/theme-options_alt.php:389
 msgid "Spalte"
 msgid_plural "Spalten"
 msgstr[0] "Column"
 msgstr[1] "Columns"
 
-#: ../inc/theme-options.php:484
+#: ../inc/theme-options.php:568 ../inc/theme-options_alt.php:526
 msgid "Benutzerdefiniertes"
 msgstr "Custom"
 
-#: ../inc/theme-options.php:535
+#: ../inc/theme-options.php:619 ../inc/theme-options_alt.php:577
 msgid "Lassen Sie die Anzeige leer, um den Standardwert wieder herzustellen."
 msgstr "Enter an empty value to set the default font again."
 
-#: ../inc/theme-options.php:715
+#: ../inc/theme-options.php:803 ../inc/theme-options_alt.php:761
 msgid "Spalten"
 msgstr "Columns"
 
-#: ../inc/theme-options.php:737
+#: ../inc/theme-options.php:825 ../inc/theme-options_alt.php:783
 msgid "Footer (Widgets)"
 msgstr "Footer (Widgets)"
 
