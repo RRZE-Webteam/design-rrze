@@ -136,16 +136,23 @@
         left:0;
         top:2em;
     }
-
-    div#title div.bottom {
-        position: absolute;
-        bottom:0;
-    }
     
-    div#title div.bottom-center h1, 
-    div#title div.bottom-center h3,
-    div#title div.middle-center h1, 
-    div#title div.middle-center h3,
+    div#title div.middle-right {
+        position:absolute;
+        right:0;
+        top:2em;
+    }
+
+
+    div#title div.top-right h1, 
+    div#title div.top-right h3,
+    div#title div.middle-right h1, 
+    div#title div.middle-right h3,
+    div#title div.bottom-right h1, 
+    div#title div.bottom-right h3 {
+        text-align: right;
+    }    
+    
     div#title div.top-center h1, 
     div#title div.top-center h3 {
         text-align: center;
@@ -1005,6 +1012,14 @@
     
     div#title div.ym-wrapper {
         height: 105px;
+    }
+ 
+    div#title div.middle-left {
+        top:1.3em;
+    }
+    
+    div#title div.middle-right {
+        top:1.3em;
     }
     
     .header-block h1 {

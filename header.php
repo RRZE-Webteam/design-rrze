@@ -30,7 +30,21 @@
             <div id="title">
                 <?php if( display_header_text() ): ?>
                 <div class="ym-wrapper">
-                    <div class="ym-wbox header-block">
+                    <?php 
+                    $header_class = '';
+                    if (_rrze_theme_options('header.layout')) {
+                        switch (_rrze_theme_options('header.layout')) {
+                            case 'top-left': break;
+                            case 'middle-left': $header_class = ' middle-left'; break;
+                            case 'bottom-left': $header_class = ' bottom-left'; break;
+                            case 'top-center': $header_class = ' top-center'; break;
+                            case 'top-right': $header_class = ' float-right top-right'; break;
+                            case 'middle-right': $header_class = ' middle-right'; break;
+                            case 'bottom-right': $header_class = ' bottom-right'; break;
+                        }
+                    }
+                    printf('<div class="ym-wbox header-block%s">', $header_class);                                               
+                    ?>
                         <h1 id="site-title"><span>
                             <?php 
                             $blogname = esc_attr( get_bloginfo( 'name', 'display' ) );
