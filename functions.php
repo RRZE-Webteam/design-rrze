@@ -716,3 +716,189 @@ function is_blogs_fau_de() {
         return false;
     }
 }
+
+/* aus IWAN importiert
+
+if (!function_exists('get_iwan_first_image_url')) :
+
+	/**
+	 * Get First Picture URL from content
+	 */
+	/*function get_iwan_first_image_url() {
+		global $post;
+		$first_img = '';
+		ob_start();
+		ob_end_clean();
+		$matches = array();
+		$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+		if ($output != 0) {
+			$first_img = $matches[1][0];
+		} elseif (($output == 0) && (get_header_image())) {
+			$first_img = get_header_image();
+		}
+		return $first_img;
+	}
+
+endif;
+
+
+if (!function_exists('get_iwan_thumbnailcode')) :
+	/*
+	 * Thumbnail-Reihenfolge in Options wählbar
+	 */
+
+	/*function get_iwan_thumbnailcode($show_teaser_image = 0) {
+		global $post;
+		global $options;
+		$thumbnailcode = '';
+		$show_teaser_image = $options['teaser-image'];
+	    $firstpic = get_iwan_firstpicture();
+		$firstvideo = get_iwan_firstvideo();
+		$fallbackimg = '<img src="'.$options['src-teaser-thumbnail_default'].'" alt="">';
+		$output = '';
+
+		/*
+		 * 1 = Thumbnail (or: first picture, first video, fallback picture, nothing),
+		 * 2 = First picture (or: thumbnail, first video, fallback picture, nothing),
+		 * 3 = First video (or: thumbnail, first picture, fallback picture, nothing),
+		 * 4 = First video (or: first picture, thumbnail, fallback picture, nothing),
+		 * 5 = Nothing
+		 */
+		/*if ($show_teaser_image == 0) {
+			$show_teaser_image = 1;
+		}
+
+		if (has_post_thumbnail()) {
+			$thumbnailcode = get_the_post_thumbnail($post->ID, 'teaser-thumb');
+	    }
+
+		if ($show_teaser_image == 1) {
+		    if ((isset($thumbnailcode)) && (strlen(trim($thumbnailcode))>10)) {
+				$output = $thumbnailcode;
+		    } elseif ((isset($firstpic)) && (strlen(trim($firstpic))>10)) {
+				$output = $firstpic;
+		    }  elseif ((isset($firstvideo)) && (strlen(trim($firstvideo))>10)) {
+				$output = $firstvideo;
+			} elseif (isset($fallbackimg) && strlen(trim($fallbackimg))>10 && file_exists($fallbackimg)) {
+				$output = $fallbackimg;
+			}	else {
+				$output = '';
+		    }
+
+		} elseif ($show_teaser_image == 2) {
+
+		    if ((isset($firstpic)) && (strlen(trim($firstpic))>10)) {
+				$output = $firstpic;
+		    } elseif ((isset($thumbnailcode)) && (strlen(trim($thumbnailcode))>10)) {
+				$output = $thumbnailcode;
+		    }  elseif ((isset($firstvideo)) && (strlen(trim($firstvideo))>10)) {
+				$output = $firstvideo;
+		    } elseif (isset($fallbackimg) && strlen(trim($fallbackimg))>10 && file_exists($fallbackimg)) {
+				$output = $fallbackimg;
+			}	else {
+				$output = '';
+		    }
+
+		} elseif ($show_teaser_image == 3) {
+		    if ((isset($firstvideo)) && (strlen(trim($firstvideo))>10)) {
+				$output = $firstvideo;
+		    } elseif ((isset($thumbnailcode)) && (strlen(trim($thumbnailcode))>10)) {
+				$output = $thumbnailcode;
+		    } elseif ((isset($firstpic)) && (strlen(trim($firstpic))>10)) {
+				$output = $firstpic;
+		    } elseif (isset($fallbackimg) && strlen(trim($fallbackimg))>10 && file_exists($fallbackimg)) {
+				$output = $fallbackimg;
+			}	else {
+				$output = '';
+		    }
+
+
+		} elseif ($show_teaser_image == 4) {
+		    if ((isset($firstvideo)) && (strlen(trim($firstvideo))>10)) {
+				$output = $firstvideo;
+		    } elseif ((isset($firstpic)) && (strlen(trim($firstpic))>10)) {
+				$output = $firstpic;
+		    } elseif ((isset($thumbnailcode)) && (strlen(trim($thumbnailcode))>10)) {
+				$output = $thumbnailcode;
+		    } elseif (isset($fallbackimg) && strlen(trim($fallbackimg))>10 && file_exists($fallbackimg)) {
+				$output = $fallbackimg;
+			}	else {
+				$output = '';
+		    }
+
+		} else {
+		    $output = '';
+		}
+
+		echo $output;
+	}
+
+endif;
+
+if (!function_exists('get_iwan_firstpicture')) :
+	/*
+	 * Erstes Bild aus einem Artikel auslesen, wenn dies vorhanden ist
+	 */
+
+	/*function get_iwan_firstpicture() {
+		global $post;
+		$first_img = '';
+		ob_start();
+		ob_end_clean();
+		$matches = array();
+		$output = preg_match_all('/<img .+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+		if ((is_array($matches)) && (isset($matches[1][0]))) {
+			$first_img = $matches[1][0];
+			if (!empty($first_img)) {
+				$site_link = home_url();
+				$first_img = preg_replace("%$site_link%i", '', $first_img);
+				$imagehtml = '<img src="' . $first_img . '" alt="" >';
+				return $imagehtml;
+			}
+		}
+	}
+endif;
+
+
+if (!function_exists('get_iwan_firstvideo')) :
+	/*
+	 * Erstes Bild aus einem Artikel auslesen, wenn dies vorhanden ist
+	 */
+
+	/*function get_iwan_firstvideo($width = 300, $height = 169, $nocookie = 1, $searchplain = 1) {
+		global $post;
+		ob_start();
+		ob_end_clean();
+		$matches = array();
+		preg_match('/src="([^\'"]*www\.youtube[^\'"]+)/i', $post->post_content, $matches);
+		if ((is_array($matches)) && (isset($matches[1]))) {
+			$entry = $matches[1];
+			if (!empty($entry)) {
+				if ($nocookie == 1) {
+					$entry = preg_replace('/youtube.com\/watch\?v=/', 'youtube-nocookie.com/embed/', $entry);
+				}
+				$htmlout = '<iframe width="' . $width . '" height="' . $height . '" src="' . $entry . '" allowfullscreen></iframe>';
+				return $htmlout;
+			}
+		}
+		// Schau noch nach YouTube-URLs die Plain im text sind. Hilfreich fuer
+		// Installationen auf Multisite ohne iFrame-Unterstützung
+		if ($searchplain == 1) {
+			preg_match('/\b(https?:\/\/www\.youtube[\/a-z0-9\.\-\?=]+)/i', $post->post_content, $matches);
+			if ((is_array($matches)) && (isset($matches[1]))) {
+				$entry = $matches[1];
+				if (!empty($entry)) {
+					if ($nocookie == 1) {
+						$entry = preg_replace('/youtube.com\/watch\?v=/', 'youtube-nocookie.com/embed/', $entry);
+					}
+					$htmlout = '<iframe width="' . $width . '" height="' . $height . '" src="' . $entry . '" allowfullscreen></iframe>';
+					return $htmlout;
+				}
+			}
+		}
+		return;
+	}
+
+endif;*/
+
+
