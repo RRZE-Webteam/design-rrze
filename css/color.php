@@ -23,7 +23,7 @@ echo <<<EOL
     .navmenu ul.dropdown a:active { color: [menu-text]; }
     .navmenu ul.dropdown li a:hover { background-color: [menu-hover]; color: [menu-hover-text]; }
     .navmenu ul.dropdown ul li { border-bottom:1px solid [background]; }
-    .navmenu ul.dropdown ul li a:hover { background-color: [menu-hover]; color: [menu-link]; }
+    .navmenu ul.dropdown ul li a:hover { background-color: [menu-hover]; color: [menu-hover-text]; }
     .navmenu ul.dropdown li.divider { background-color: [background]; }
     nav#tecmenu,
     nav#tecmenu ul.dropdown { background: none repeat scroll 0 0 [menu]; }
@@ -34,7 +34,7 @@ echo <<<EOL
     nav#tecmenu ul.dropdown a:active { color: [footer-widget-title]; }
     nav#tecmenu ul.dropdown li:hover { background-color: [footer-hover]; color: [footer-hover-text]; }
     nav#tecmenu ul.dropdown ul li { border-bottom:1px solid [background]; }
-    nav#tecmenu ul.dropdown li a:hover { color: [footer-hover-text]; }
+    nav#tecmenu ul.dropdown li a:hover { background-color: [footer-hover]; color: [footer-hover-text]; }
     aside .widget-title { border-bottom-color: [widget-title]; color: [widget-title]; }
     aside .widget-title a { color: [widget-title] !important; }
     aside .widget-title a:hover, aside .widget-title a:focus, aside .widget-title a:active { background-color: [widget-hover]; color: [widget-hover-text] !important; }
@@ -128,12 +128,16 @@ echo <<<EOL
     footer .ym-vlist li.current-menu-item > a,
     footer .ym-vlist li.current_page_item > a,
     footer .ym-vlist li.current-cat > a { background-color: [footer-hover]; color: [footer-hover-text]; }
+    footer .ym-vlist li ul li a,
+    footer .ym-vlist li ul li a:visited { color: [footer-widget-text]; }
     footer .ym-vlist li ul li a:focus,
     footer .ym-vlist li ul li a:hover,
     footer .ym-vlist li ul li a:active { background-color: [footer-hover]; color: [footer-hover-text]; }
     footer .ym-vlist li ul li.current-menu-item > a,
     footer .ym-vlist li ul li.current_page_item > a,
     footer .ym-vlist li ul li.current-cat > a { background-color: [footer-hover]; color: [footer-hover-text]; }
+    footer .ym-vlist li ul li ul li a,
+    footer .ym-vlist li ul li ul li a:visited { color: [footer-widget-text]; }
     footer .ym-vlist li ul li ul li a:focus,
     footer .ym-vlist li ul li ul li a:hover,
     footer .ym-vlist li ul li ul li a:active { background-color: [footer-hover]; color: [footer-hover-text]; }
@@ -157,15 +161,15 @@ echo <<<EOL
 EOL;
 echo PHP_EOL;
 echo <<<EOL
-    .menu-icon span { background-color: [hover]; }
+    .menu-icon span { background-color: [menu-hover]; }
     ul.dropdown{ border-top:1px solid [background]; }
     ul.dropdown  li { border-bottom: 1px solid [background];}
-    ul.dropdown  ul a:hover  { background-color: [hover];}
-    ul.dropdown li.sub > a.current{ background: [hover];  }
-    ul.dropdown li.sub > ul a.current{ background: [hover];  }
+    ul.dropdown  ul a:hover  { background-color: [menu-hover]; color: [menu-hover-text];}
+    ul.dropdown li.sub > a.current{ background: [menu-hover]; color: [menu-hover-text]; }
+    ul.dropdown li.sub > ul a.current{ background: [menu-hover]; color: [menu-hover-text]; }
     ul.dropdown li.sub > a:after { color: [background]; }	
     ul.dropdown li.sub > a.current:after { color: [background]; }
-    .searchform { background-color: [hover];
+    .searchform { background-color: [hover]; 
 EOL;
 echo PHP_EOL;
 echo <<<EOL

@@ -148,10 +148,8 @@ function _rrze_header_layout_options() {
         'top-center' => array( 'value' => 'top-center', 'label' => __( 'Titel oben - zentriert', RRZE_Theme::textdomain ) ), 
         'top-right' => array( 'value' => 'top-right', 'label' => __( 'Titel oben - rechts', RRZE_Theme::textdomain ) ),
         'middle-left' => array( 'value' => 'middle-left', 'label' => __( 'Titel mittig - links', RRZE_Theme::textdomain ) ), 
-        'middle-center' => array( 'value' => 'middle-center', 'label' => __( 'Titel mittig - zentriert', RRZE_Theme::textdomain ) ), 
         'middle-right' => array( 'value' => 'middle-right', 'label' => __( 'Titel mittig - rechts', RRZE_Theme::textdomain ) ), 
         'bottom-left' => array( 'value' => 'bottom-left', 'label' => __( 'Titel unten - links', RRZE_Theme::textdomain ) ), 
-        'bottom-center' => array( 'value' => 'bottom-center', 'label' => __( 'Titel unten - zentriert', RRZE_Theme::textdomain ) ), 
         'bottom-right' => array( 'value' => 'bottom-right', 'label' => __( 'Titel unten - rechts', RRZE_Theme::textdomain ) ), 
     );
     
@@ -558,7 +556,7 @@ function _rrze_field_color_style_callback() {
 function _rrze_field_color_schema_callback() {
     $options = RRZE_Theme::$theme_options;
     $color_schema = $options['color.schema'];
-    $custom_colors = array_map( 'strtoupper', _rrze_color_style_options() );
+    $custom_colors = array_map( 'strtoupper', _rrze_theme_options('color.style') );
     $color_schema_options = _rrze_color_schema_options();
     foreach( $color_schema_options as $option ) {
         $colors = array_map( 'strtoupper', $option['colors'] );
