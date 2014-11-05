@@ -9,7 +9,8 @@ class RRZE_Check_Theme {
     const wp_version = '3.9'; // Minimal erforderliche WordPress-Version
     public static $check_error = NULL;
 
-    public static function check_theme_setup() { 
+    public static function check_theme_setup() {
+    	load_theme_textdomain(self::textdomain, get_template_directory() . '/languages');
         $old_theme = get_option('theme_switched');
         self::$check_error = self::version_compare();
         if (self::$check_error) {
