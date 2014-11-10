@@ -76,6 +76,8 @@ add_action( 'admin_init', function() {
     add_settings_field( 'blog.overview', __( 'Beiträge auf der Übersichtsseite anzeigen', RRZE_Theme::textdomain ), '_rrze_field_blogoverview_callback', 'overview.options', 'overview.section' );
     
     add_settings_field( 'words.overview', __( 'Anzahl der angezeigten Wörter in der Vorschau', RRZE_Theme::textdomain ), '_rrze_field_wordsoverview_callback', 'overview.options', 'overview.section' );
+
+    add_settings_field( 'teaser.image', __( 'Bild im Textauszug', RRZE_Theme::textdomain ), '_rrze_field_teaserimage_callback', 'overview.options', 'overview.section' );
     
 } );
 
@@ -346,6 +348,17 @@ function _rrze_blogoverview_options() {
     );
 
     return apply_filters( '_rrze_blogoverview_options', $options );
+}
+
+function _rrze_teaserimage_options() {
+    $options = array(
+	1 => array ('value' => '1', 'label' => __("Featured image > first image > first video > default image", RRZE_Theme::textdomain)),
+	2 => array ('value' => '2', 'label' => __("First image > featured image > first video > default image", RRZE_Theme::textdomain)),
+	3 => array ('value' => '3', 'label' => __("First video > featured image > first image > default image", RRZE_Theme::textdomain)),
+	4 => array ('value' => '4', 'label' => __("First video > first image > featured image > default image", RRZE_Theme::textdomain)),
+	5 => array ('value' => '5', 'label' => __("No teaser image", RRZE_Theme::textdomain))
+    );
+    return apply_filters('_rrze_teaserimage_options', $options);
 }
 
 function _rrze_section_layout_callback() {
@@ -621,6 +634,25 @@ function _rrze_field_wordsoverview_callback() {
 	<?php
 }
 
+function _rrze_field_teaserimage_callback() {
+	$options = RRZE_Theme::$theme_options;
+	?>
+	<select name="_rrze_theme_options[teaser.image]" id="teaser-image">
+		<?php
+			$selected = $options['teaser.image'];
+			$html = '';
+            
+            foreach( _rrze_teaserimage_options() as $option ) {               
+                $html .= '<option value="'.esc_attr($option['value']).'"'.($selected == $option['value'] ? ' selected="selected"' : '').'>'.esc_attr($option['label']).'</option>';
+                    
+            }            
+            echo $html;
+		?>
+	</select>
+       <?php printf ('<span class="description">%s</span>', __('Links des Textauszugs wird das Beitragsbild, ein Bild des Artikels, ein verlinktes Video oder ein Standardbild angezeigt (wenn vorhanden).', RRZE_Theme::textdomain)); ?>
+	<?php
+}
+
 function _rrze_theme_options_menu_page() {
     $pages = RRZE_Theme::$options_pages;
     $tab = isset( $_GET['tab'] ) && array_key_exists( $_GET['tab'], $pages ) ? $_GET['tab'] : 'layout.options';
@@ -717,6 +749,9 @@ function _rrze_theme_options_validate( $input ) {
         } else {
             $options['words.overview'] = $default_options['words.overview'];
         }
+        
+	if ( isset( $input['teaser.image'] ) && array_key_exists( $input['teaser.image'], _rrze_teaserimage_options() ) )
+		$options['teaser.image'] = $input['teaser.image'];
         
     return apply_filters( '_rrze_theme_options_validate', $options, $input );
 }

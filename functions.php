@@ -152,7 +152,15 @@ class RRZE_Theme {
             'widget.content.typography' => 'DroidSans',
             'blog.overview' => 'rrze_content',
             'words.overview' => '55',
-            'comments.pages' => false	
+            'comments.pages' => false,
+            'teaser.image' => 0,
+            	/*
+                * 1 = Thumbnail (or: first picture, first video, fallback picture),
+                * 2 = First picture (or: thumbnail, first video, fallback picture),
+                * 3 = First video (or: thumbnail, first picture, fallback picture),
+                * 4 = First video (or: first picture, thumbnail, fallback picture),
+                * 5 = Nothing */   
+            'src-teaser-thumbnail_default' => ''
         );
 
         return apply_filters( '_rrze_default_theme_options', $options );
@@ -720,12 +728,10 @@ function is_blogs_fau_de() {
 
 /* aus IWAN importiert
 
-if (!function_exists('get_iwan_first_image_url')) :
-
 	/**
 	 * Get First Picture URL from content
 	 */
-	/*function get_iwan_first_image_url() {
+	function _rrze_get_first_image_url() {
 		global $post;
 		$first_img = '';
 		ob_start();
@@ -740,22 +746,17 @@ if (!function_exists('get_iwan_first_image_url')) :
 		return $first_img;
 	}
 
-endif;
-
-
-if (!function_exists('get_iwan_thumbnailcode')) :
 	/*
 	 * Thumbnail-Reihenfolge in Options wählbar
 	 */
 
-	/*function get_iwan_thumbnailcode($show_teaser_image = 0) {
+	function _rrze_get_thumbnailcode($show_teaser_image = 0) {
 		global $post;
-		global $options;
 		$thumbnailcode = '';
-		$show_teaser_image = $options['teaser-image'];
-	    $firstpic = get_iwan_firstpicture();
-		$firstvideo = get_iwan_firstvideo();
-		$fallbackimg = '<img src="'.$options['src-teaser-thumbnail_default'].'" alt="">';
+		$show_teaser_image = _rrze_theme_options('teaser.image');
+	    $firstpic = _rrze_get_firstpicture();
+		$firstvideo = _rrze_get_firstvideo();
+		$fallbackimg = '<img src="'._rrze_theme_options('src-teaser-thumbnail_default').'" alt="">';
 		$output = '';
 
 		/*
@@ -765,7 +766,7 @@ if (!function_exists('get_iwan_thumbnailcode')) :
 		 * 4 = First video (or: first picture, thumbnail, fallback picture, nothing),
 		 * 5 = Nothing
 		 */
-		/*if ($show_teaser_image == 0) {
+		if ($show_teaser_image == 0) {
 			$show_teaser_image = 1;
 		}
 
@@ -834,20 +835,18 @@ if (!function_exists('get_iwan_thumbnailcode')) :
 		echo $output;
 	}
 
-endif;
-
-if (!function_exists('get_iwan_firstpicture')) :
 	/*
 	 * Erstes Bild aus einem Artikel auslesen, wenn dies vorhanden ist
 	 */
 
-	/*function get_iwan_firstpicture() {
+	function _rrze_get_firstpicture() {
 		global $post;
 		$first_img = '';
 		ob_start();
 		ob_end_clean();
 		$matches = array();
 		$output = preg_match_all('/<img .+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+                _rrze_debug_log($output);
 		if ((is_array($matches)) && (isset($matches[1][0]))) {
 			$first_img = $matches[1][0];
 			if (!empty($first_img)) {
@@ -858,15 +857,13 @@ if (!function_exists('get_iwan_firstpicture')) :
 			}
 		}
 	}
-endif;
 
 
-if (!function_exists('get_iwan_firstvideo')) :
 	/*
-	 * Erstes Bild aus einem Artikel auslesen, wenn dies vorhanden ist
+	 * Erstes Video aus einem Artikel auslesen, wenn dies vorhanden ist
 	 */
 
-	/*function get_iwan_firstvideo($width = 300, $height = 169, $nocookie = 1, $searchplain = 1) {
+	function _rrze_get_firstvideo($width = 300, $height = 169, $nocookie = 1, $searchplain = 1) {
 		global $post;
 		ob_start();
 		ob_end_clean();
@@ -900,6 +897,5 @@ if (!function_exists('get_iwan_firstvideo')) :
 		return;
 	}
 
-endif;*/
 
 

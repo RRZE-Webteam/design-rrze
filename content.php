@@ -23,11 +23,13 @@
             if ($options['blog.overview'] == 'rrze_content') :
                 the_content(__('Weiterlesen <span class="meta-nav">&rarr;</span>', RRZE_Theme::textdomain));
             else :
-                if (has_post_thumbnail()) :
+                if (has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) :
                     ?>
-                    <a href="<?php the_permalink(); ?>" title="<?php printf(esc_attr__('Permalink zu %s', RRZE_Theme::textdomain), the_title_attribute('echo=0')); ?>">
-                    <?php the_post_thumbnail('thumbnail', array('class' => 'alignleft rrze-margin')); ?>
-                    </a>
+                    <div class="entry-thumbnail">
+                        <a href="<?php the_permalink(); ?>" title="<?php printf(esc_attr__('Permalink zu %s', RRZE_Theme::textdomain), the_title_attribute('echo=0')); ?>">
+                        </a>
+                        <?php _rrze_get_thumbnailcode(); ?> <!-- class alignleft rrze-margin -->
+                    </div>
                 <?php endif;
                 the_excerpt();
                 ?>            
