@@ -79,6 +79,8 @@ add_action( 'admin_init', function() {
 
     add_settings_field( 'teaser.image', __( 'Bild im Textauszug', RRZE_Theme::textdomain ), '_rrze_field_teaserimage_callback', 'overview.options', 'overview.section' );
     
+  //  add_settings_field( 'default.teaserimage', __('Platzhalter für Vorschau', RRZE_Theme::textdomain ), '_rrze_field_default_teaserimage_callback', 'overview.options', 'overview.section' );
+    
 } );
 
 function _rrze_searchform_options() {
@@ -352,13 +354,26 @@ function _rrze_blogoverview_options() {
 
 function _rrze_teaserimage_options() {
     $options = array(
-	1 => array ('value' => '1', 'label' => __("Featured image > first image > first video > default image", RRZE_Theme::textdomain)),
-	2 => array ('value' => '2', 'label' => __("First image > featured image > first video > default image", RRZE_Theme::textdomain)),
-	3 => array ('value' => '3', 'label' => __("First video > featured image > first image > default image", RRZE_Theme::textdomain)),
-	4 => array ('value' => '4', 'label' => __("First video > first image > featured image > default image", RRZE_Theme::textdomain)),
-	5 => array ('value' => '5', 'label' => __("No teaser image", RRZE_Theme::textdomain))
+	1 => array ('value' => '1', 'label' => __('Featured image > first image > first video > default image', RRZE_Theme::textdomain)),
+	2 => array ('value' => '2', 'label' => __('First image > featured image > first video > default image', RRZE_Theme::textdomain)),
+	3 => array ('value' => '3', 'label' => __('First video > featured image > first image > default image', RRZE_Theme::textdomain)),
+	4 => array ('value' => '4', 'label' => __('First video > first image > featured image > default image', RRZE_Theme::textdomain)),
+	5 => array ('value' => '5', 'label' => __('No teaser image', RRZE_Theme::textdomain))
     );
     return apply_filters('_rrze_teaserimage_options', $options);
+}
+
+function _rrze_default_teaserimage() {
+    $options = array( 
+                  'type'    => 'image',
+                  'title'   => __( 'Fallback Thumbnail', RRZE_Theme::textdomain ),
+                  'default' => get_template_directory_uri() .'/images/default-teaserimage.jpg',
+                  'label'   => __( 'Defines an image as default thumbnail for entries on index pages.', RRZE_Theme::textdomain ),
+		  'maxwidth' =>  64,
+		  'maxheight'=>  64,
+         
+    );
+    return apply_filters('_rrze_default_teaserimage', $options);	       
 }
 
 function _rrze_section_layout_callback() {
@@ -651,6 +666,79 @@ function _rrze_field_teaserimage_callback() {
 	</select>
        <?php printf ('<span class="description">%s</span>', __('Links des Textauszugs wird das Beitragsbild, ein Bild des Artikels, ein verlinktes Video oder ein Standardbild angezeigt (wenn vorhanden).', RRZE_Theme::textdomain)); ?>
 	<?php
+}
+
+function _rrze_field_default_teaserimage_callback() {
+        $options = RRZE_Theme::$theme_options;		
+        $name = 'teaser.image.default';
+        $label = __( 'Defines an image as default thumbnail for entries on index pages.', RRZE_Theme::textdomain );
+
+				    echo '<div class="uploader">';
+				    echo '<div class="previewimage showimg_'.$name.'">';
+				    $addstyle = '';
+				    if (isset($value['maxwidth'])) {
+					$addstyle .= 'max-width: '.$value['maxwidth'].'px;';
+				    }
+				    if (isset($value['maxheight'])) {
+					$addstyle .= 'max-height: '.$value['maxheight'].'px;';
+				    }
+				   		   
+				     if ((isset($options[$name])) && esc_url( $options[$name])) { 
+					  echo '<img src="'.esc_url( $options[$name]).'" class="image_show_'.$name.'"';
+					  if (isset($addstyle) && strlen($addstyle)>1) {
+					      echo ' style="'.$addstyle.'"';
+				           }				   	
+					  echo '/>';
+				    } else {
+					   _e('No Image selected', RRZE_Theme::textdomain);
+				     }				   
+				    ?>		
+				    </div>
+				    <input type="hidden" name="_rrze_theme_options[<?php echo $name; ?>_id]" id="image_<?php echo $name; ?>_id" 
+					     value="<?php if ( isset( $options[$name."_id"] ) ) echo sanitize_key( $options[$name."_id"] ) ; ?>" />
+				    
+				    <input type="text" name="_rrze_theme_options[<?php echo $name; ?>]" id="image_<?php echo $name; ?>" value="<?php if ( isset( $options[$name] ) ) echo esc_attr( $options[$name] ) ; ?>" />
+				    <input class="button" name="image_button_<?php echo $name; ?>" id="image_button_<?php echo $name; ?>" value="<?php _e('Add Image', RRZE_Theme::textdomain); ?>" />
+				    <small><a href="#" class="image_remove_<?php echo $name; ?>"><?php _e( 'Remove image', RRZE_Theme::textdomain );?></a></small>
+				    <?php if (isset($value['default']) && (filter_var($value['default'], FILTER_VALIDATE_URL))) { ?>
+					<small><a href="#" class="image_reset_<?php echo $name; ?>"><?php _e( 'Reset to default', RRZE_Theme::textdomain );?></a></small>
+				    <?php } ?>
+    				    
+				    <br><label for="_rrze_theme_options[<?php echo $name; ?>]"><?php echo $label; ?></label>
+				    </div><script>
+				    jQuery(document).ready(function() {
+					jQuery('#image_button_<?php echo $name; ?>').click(function()  {
+					    wp.media.editor.send.attachment = function(props, attachment) {
+						jQuery('#image_<?php echo $name; ?>').val(attachment.url);
+						jQuery('#image_<?php echo $name; ?>_id').val(attachment.id);
+						htmlshow = "<img src=\""+attachment.url + "\">";  					   
+						jQuery('.showimg_<?php echo $name; ?>').html(htmlshow);
+
+					    }
+					    wp.media.editor.open(this);
+					    return false;
+					});
+				    });
+				    jQuery(document).ready(function() {
+					jQuery('.image_remove_<?php echo $name; ?>').click(function()   {
+						jQuery('#image_<?php echo $name; ?>').val('');
+						jQuery('#image_<?php echo $name; ?>_id').val('');
+						jQuery('.showimg_<?php echo $name; ?>').html('<?php _e('No Image selected', RRZE_Theme::textdomain); ?>');
+						return false;
+					});
+				    });
+				    <?php if (isset($value['default']) && (filter_var($value['default'], FILTER_VALIDATE_URL))) { ?>
+				    jQuery(document).ready(function() {
+					jQuery('.image_reset_<?php echo $name; ?>').click(function()   {
+						jQuery('#image_<?php echo $name; ?>').val("<?php echo $value['default']; ?>");
+						jQuery('#image_<?php echo $name; ?>_id').val(0);
+						htmlshow = "<img src=\"<?php echo $value['default']; ?>\">";  					   
+						jQuery('.showimg_<?php echo $name; ?>').html(htmlshow);
+						return false;
+					});
+				    });
+				    <?php } ?>
+				    </script>  <?php 	
 }
 
 function _rrze_theme_options_menu_page() {

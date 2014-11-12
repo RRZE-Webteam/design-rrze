@@ -9,8 +9,7 @@ class RRZE_Check_Theme {
     const wp_version = '3.9'; // Minimal erforderliche WordPress-Version
     public static $check_error = NULL;
 
-    public static function check_theme_setup() {
-    	load_theme_textdomain(self::textdomain, get_template_directory() . '/languages');
+    public static function check_theme_setup() { 
         $old_theme = get_option('theme_switched');
         self::$check_error = self::version_compare();
         if (self::$check_error) {
@@ -159,10 +158,12 @@ class RRZE_Theme {
                 * 2 = First picture (or: thumbnail, first video, fallback picture),
                 * 3 = First video (or: thumbnail, first picture, fallback picture),
                 * 4 = First video (or: first picture, thumbnail, fallback picture),
-                * 5 = Nothing */   
-            'src-teaser-thumbnail_default' => ''
-        );
-
+                * 5 = Nothing */  
+            'teaser.image.default' => get_template_directory_uri() .'/images/default-teaserimage.png',
+            'teaser.image.default.maxwidth' =>  64,
+            'teaser.image.default.maxheight'=>  64,
+        );       
+        
         return apply_filters( '_rrze_default_theme_options', $options );
     }
 
@@ -726,8 +727,6 @@ function is_blogs_fau_de() {
     }
 }
 
-/* aus IWAN importiert
-
 	/**
 	 * Get First Picture URL from content
 	 */
@@ -754,9 +753,15 @@ function is_blogs_fau_de() {
 		global $post;
 		$thumbnailcode = '';
 		$show_teaser_image = _rrze_theme_options('teaser.image');
-	    $firstpic = _rrze_get_firstpicture();
+                $firstpic = _rrze_get_firstpicture();
 		$firstvideo = _rrze_get_firstvideo();
-		$fallbackimg = '<img src="'._rrze_theme_options('src-teaser-thumbnail_default').'" alt="">';
+		$fallbackimg = '<img src="'._rrze_theme_options('teaser.image.default').'" alt="">';
+                $fallbacksrc = _rrze_theme_options('teaser.image.default');
+                _rrze_debug_log('$show_teaser_image ' . $show_teaser_image);
+                _rrze_debug_log('$firstpic '.$firstpic);
+                _rrze_debug_log('$firstvideo '.$firstvideo);
+                _rrze_debug_log('$fallbackimg '.$fallbackimg);
+                
 		$output = '';
 
 		/*
@@ -772,7 +777,7 @@ function is_blogs_fau_de() {
 
 		if (has_post_thumbnail()) {
 			$thumbnailcode = get_the_post_thumbnail($post->ID, 'teaser-thumb');
-	    }
+                }
 
 		if ($show_teaser_image == 1) {
 		    if ((isset($thumbnailcode)) && (strlen(trim($thumbnailcode))>10)) {
@@ -781,11 +786,11 @@ function is_blogs_fau_de() {
 				$output = $firstpic;
 		    }  elseif ((isset($firstvideo)) && (strlen(trim($firstvideo))>10)) {
 				$output = $firstvideo;
-			} elseif (isset($fallbackimg) && strlen(trim($fallbackimg))>10 && file_exists($fallbackimg)) {
+                    } elseif (isset($fallbackimg) && strlen(trim($fallbackimg))>10 && file_exists($fallbackimg)) {
 				$output = $fallbackimg;
-			}	else {
+                    } else {
 				$output = '';
-		    }
+                    }
 
 		} elseif ($show_teaser_image == 2) {
 
@@ -797,7 +802,7 @@ function is_blogs_fau_de() {
 				$output = $firstvideo;
 		    } elseif (isset($fallbackimg) && strlen(trim($fallbackimg))>10 && file_exists($fallbackimg)) {
 				$output = $fallbackimg;
-			}	else {
+                    } else {
 				$output = '';
 		    }
 
@@ -810,7 +815,7 @@ function is_blogs_fau_de() {
 				$output = $firstpic;
 		    } elseif (isset($fallbackimg) && strlen(trim($fallbackimg))>10 && file_exists($fallbackimg)) {
 				$output = $fallbackimg;
-			}	else {
+                    } else {
 				$output = '';
 		    }
 
@@ -822,16 +827,20 @@ function is_blogs_fau_de() {
 				$output = $firstpic;
 		    } elseif ((isset($thumbnailcode)) && (strlen(trim($thumbnailcode))>10)) {
 				$output = $thumbnailcode;
-		    } elseif (isset($fallbackimg) && strlen(trim($fallbackimg))>10 && file_exists($fallbackimg)) {
+		    } elseif (isset($fallbackimg) && strlen(trim($fallbackimg))>10 ) {
 				$output = $fallbackimg;
-			}	else {
+                    } else {
 				$output = '';
 		    }
 
 		} else {
 		    $output = '';
 		}
-
+                _rrze_debug_log(isset($fallbackimg));
+                _rrze_debug_log(strlen(trim($fallbackimg))>10);
+                _rrze_debug_log($fallbacksrc);
+                _rrze_debug_log(is_readable($fallbacksrc));
+                _rrze_debug_log('$output '.$output);
 		echo $output;
 	}
 
@@ -842,20 +851,11 @@ function is_blogs_fau_de() {
 	function _rrze_get_firstpicture() {
 		global $post;
 		$first_img = '';
-		ob_start();
-		ob_end_clean();
 		$matches = array();
-		$output = preg_match_all('/<img .+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-                _rrze_debug_log($output);
-		if ((is_array($matches)) && (isset($matches[1][0]))) {
-			$first_img = $matches[1][0];
-			if (!empty($first_img)) {
-				$site_link = home_url();
-				$first_img = preg_replace("%$site_link%i", '', $first_img);
-				$imagehtml = '<img src="' . $first_img . '" alt="" >';
-				return $imagehtml;
-			}
-		}
+		preg_match('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+		if ((is_array($matches)) && (isset($matches[1]))) :
+			return $matches[0];
+		endif;		
 	}
 
 
@@ -865,8 +865,6 @@ function is_blogs_fau_de() {
 
 	function _rrze_get_firstvideo($width = 300, $height = 169, $nocookie = 1, $searchplain = 1) {
 		global $post;
-		ob_start();
-		ob_end_clean();
 		$matches = array();
 		preg_match('/src="([^\'"]*www\.youtube[^\'"]+)/i', $post->post_content, $matches);
 		if ((is_array($matches)) && (isset($matches[1]))) {

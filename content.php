@@ -17,18 +17,17 @@
         </div>
     <?php else : ?>
         <div class="entry-content">
-
             <?php
             $options = _rrze_theme_options();
             if ($options['blog.overview'] == 'rrze_content') :
-                the_content(__('Weiterlesen <span class="meta-nav">&rarr;</span>', RRZE_Theme::textdomain));
+                the_content(__('Weiterlesen', RRZE_Theme::textdomain) . ' <span class="meta-nav">&rarr;</span>');
             else :
-                if (has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) :
-                    ?>
+                if (!post_password_required() && !is_attachment() ) :
+                    ?> 
                     <div class="entry-thumbnail">
                         <a href="<?php the_permalink(); ?>" title="<?php printf(esc_attr__('Permalink zu %s', RRZE_Theme::textdomain), the_title_attribute('echo=0')); ?>">
-                        </a>
-                        <?php _rrze_get_thumbnailcode(); ?> <!-- class alignleft rrze-margin -->
+                        </a> 
+                       <?php _rrze_get_thumbnailcode(); ?> <!-- class alignleft rrze-margin -->
                     </div>
                 <?php endif;
                 the_excerpt();
