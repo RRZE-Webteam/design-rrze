@@ -79,7 +79,7 @@ add_action( 'admin_init', function() {
 
     add_settings_field( 'teaser.image', __( 'Bild im Textauszug', RRZE_Theme::textdomain ), '_rrze_field_teaserimage_callback', 'overview.options', 'overview.section' );
     
-  //  add_settings_field( 'default.teaserimage', __('Platzhalter für Vorschau', RRZE_Theme::textdomain ), '_rrze_field_default_teaserimage_callback', 'overview.options', 'overview.section' );
+    add_settings_field( 'default.teaserimage', __('Platzhalter für Vorschau', RRZE_Theme::textdomain ), '_rrze_field_default_teaserimage_callback', 'overview.options', 'overview.section' );
     
 } );
 
@@ -365,13 +365,9 @@ function _rrze_teaserimage_options() {
 
 function _rrze_default_teaserimage() {
     $options = array( 
-                  'type'    => 'image',
                   'title'   => __( 'Fallback Thumbnail', RRZE_Theme::textdomain ),
                   'default' => get_template_directory_uri() .'/images/default-teaserimage.jpg',
                   'label'   => __( 'Defines an image as default thumbnail for entries on index pages.', RRZE_Theme::textdomain ),
-		  'maxwidth' =>  64,
-		  'maxheight'=>  64,
-         
     );
     return apply_filters('_rrze_default_teaserimage', $options);	       
 }
@@ -670,8 +666,7 @@ function _rrze_field_teaserimage_callback() {
 
 function _rrze_field_default_teaserimage_callback() {
         $options = RRZE_Theme::$theme_options;		
-        $name = 'teaser.image.default';
-        $label = __( 'Defines an image as default thumbnail for entries on index pages.', RRZE_Theme::textdomain );
+        $name = 'teaser-image-default';
 
 				    echo '<div class="uploader">';
 				    echo '<div class="previewimage showimg_'.$name.'">';
@@ -704,7 +699,7 @@ function _rrze_field_default_teaserimage_callback() {
 					<small><a href="#" class="image_reset_<?php echo $name; ?>"><?php _e( 'Reset to default', RRZE_Theme::textdomain );?></a></small>
 				    <?php } ?>
     				    
-				    <br><label for="_rrze_theme_options[<?php echo $name; ?>]"><?php echo $label; ?></label>
+				  
 				    </div><script>
 				    jQuery(document).ready(function() {
 					jQuery('#image_button_<?php echo $name; ?>').click(function()  {
@@ -738,7 +733,8 @@ function _rrze_field_default_teaserimage_callback() {
 					});
 				    });
 				    <?php } ?>
-				    </script>  <?php 	
+				    </script>  
+                                    <?php printf ('<span class="description">%s</span>', __('Defines an image as default thumbnail for entries on index pages.', RRZE_Theme::textdomain)); 
 }
 
 function _rrze_theme_options_menu_page() {
