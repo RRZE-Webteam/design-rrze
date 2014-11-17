@@ -29,6 +29,7 @@ add_action( 'admin_print_scripts-appearance_page_theme_options', function() {
     
 }, 50);
 
+
 add_action( 'admin_init', function() {
     
     /* Layout options */
@@ -669,21 +670,9 @@ function _rrze_field_default_teaserimage_callback() {
         $name = 'teaser-image-default';
 
 				    echo '<div class="uploader">';
-				    echo '<div class="previewimage showimg_'.$name.'">';
-				    $addstyle = '';
-				    if (isset($value['maxwidth'])) {
-					$addstyle .= 'max-width: '.$value['maxwidth'].'px;';
-				    }
-				    if (isset($value['maxheight'])) {
-					$addstyle .= 'max-height: '.$value['maxheight'].'px;';
-				    }
-				   		   
+				    echo '<div class="previewimage showimg">';	   
 				     if ((isset($options[$name])) && esc_url( $options[$name])) { 
-					  echo '<img src="'.esc_url( $options[$name]).'" class="image_show_'.$name.'"';
-					  if (isset($addstyle) && strlen($addstyle)>1) {
-					      echo ' style="'.$addstyle.'"';
-				           }				   	
-					  echo '/>';
+					  echo '<img src="'.esc_url( $options[$name]).'" class="image_show_'.$name.'"/>';				   	
 				    } else {
 					   _e('No Image selected', RRZE_Theme::textdomain);
 				     }				   
@@ -692,48 +681,16 @@ function _rrze_field_default_teaserimage_callback() {
 				    <input type="hidden" name="_rrze_theme_options[<?php echo $name; ?>_id]" id="image_<?php echo $name; ?>_id" 
 					     value="<?php if ( isset( $options[$name."_id"] ) ) echo sanitize_key( $options[$name."_id"] ) ; ?>" />
 				    
-				    <input type="text" name="_rrze_theme_options[<?php echo $name; ?>]" id="image_<?php echo $name; ?>" value="<?php if ( isset( $options[$name] ) ) echo esc_attr( $options[$name] ) ; ?>" />
-				    <input class="button" name="image_button_<?php echo $name; ?>" id="image_button_<?php echo $name; ?>" value="<?php _e('Add Image', RRZE_Theme::textdomain); ?>" />
-				    <small><a href="#" class="image_remove_<?php echo $name; ?>"><?php _e( 'Remove image', RRZE_Theme::textdomain );?></a></small>
+				    <input type="text" name="_rrze_theme_options[<?php echo $name; ?>]" id="upload_image" value="<?php if ( isset( $options[$name] ) ) echo esc_attr( $options[$name] ) ; ?>" />
+				    <input class="button" name="image_button_<?php echo $name; ?>" id="upload_image_button" value="<?php _e('Bild hochladen', RRZE_Theme::textdomain); ?>" />
+				    <small><a href="#" class="image_remove"><?php _e( 'Remove image', RRZE_Theme::textdomain );?></a></small>
 				    <?php if (isset($value['default']) && (filter_var($value['default'], FILTER_VALIDATE_URL))) { ?>
-					<small><a href="#" class="image_reset_<?php echo $name; ?>"><?php _e( 'Reset to default', RRZE_Theme::textdomain );?></a></small>
+					<small><a href="#" class="image_reset"><?php _e( 'Reset to default', RRZE_Theme::textdomain );?></a></small>
 				    <?php } ?>
     				    
 				  
-				    </div><script>
-				    jQuery(document).ready(function() {
-					jQuery('#image_button_<?php echo $name; ?>').click(function()  {
-					    wp.media.editor.send.attachment = function(props, attachment) {
-						jQuery('#image_<?php echo $name; ?>').val(attachment.url);
-						jQuery('#image_<?php echo $name; ?>_id').val(attachment.id);
-						htmlshow = "<img src=\""+attachment.url + "\">";  					   
-						jQuery('.showimg_<?php echo $name; ?>').html(htmlshow);
-
-					    }
-					    wp.media.editor.open(this);
-					    return false;
-					});
-				    });
-				    jQuery(document).ready(function() {
-					jQuery('.image_remove_<?php echo $name; ?>').click(function()   {
-						jQuery('#image_<?php echo $name; ?>').val('');
-						jQuery('#image_<?php echo $name; ?>_id').val('');
-						jQuery('.showimg_<?php echo $name; ?>').html('<?php _e('No Image selected', RRZE_Theme::textdomain); ?>');
-						return false;
-					});
-				    });
-				    <?php if (isset($value['default']) && (filter_var($value['default'], FILTER_VALIDATE_URL))) { ?>
-				    jQuery(document).ready(function() {
-					jQuery('.image_reset_<?php echo $name; ?>').click(function()   {
-						jQuery('#image_<?php echo $name; ?>').val("<?php echo $value['default']; ?>");
-						jQuery('#image_<?php echo $name; ?>_id').val(0);
-						htmlshow = "<img src=\"<?php echo $value['default']; ?>\">";  					   
-						jQuery('.showimg_<?php echo $name; ?>').html(htmlshow);
-						return false;
-					});
-				    });
-				    <?php } ?>
-				    </script>  
+				    </div>
+			
                                     <?php printf ('<span class="description">%s</span>', __('Defines an image as default thumbnail for entries on index pages.', RRZE_Theme::textdomain)); 
 }
 

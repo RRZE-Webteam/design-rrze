@@ -110,6 +110,8 @@ class RRZE_Theme {
         
         add_action( 'wp_enqueue_scripts', array($this, 'wp_enqueue_scripts'));
         
+        add_action( 'admin_enqueue_scripts', array($this, 'admin_enqueue_scripts'));
+        
         add_action('add_meta_boxes', array($this, 'add_meta_box'));
         add_action('save_post', array($this, 'save_postdata'));
         
@@ -435,11 +437,15 @@ class RRZE_Theme {
 
         wp_register_script( 'base', sprintf( '%s/js/base.js', get_template_directory_uri() ), array(), false);
         wp_enqueue_script( 'base' );   
-        
-        wp_register_script( 'admin', sprintf( '%s/js/admin.js', get_template_directory_uri() ), array(), false);
-        wp_enqueue_script( 'admin' );   
-        
-        wp_enqueue_media();
+  
+    }
+    
+    public function admin_enqueue_scripts() {
+        //if (isset($_GET['page']) && $_GET['page'] == 'my_plugin_page') {
+            wp_enqueue_media();
+            wp_register_script('admin', sprintf( '%s/js/admin.js', get_template_directory_uri() ), array(), false);
+            wp_enqueue_script('admin');
+    //}
     }
     
     public function get_archives_link($links) {
@@ -758,10 +764,6 @@ function is_blogs_fau_de() {
 		$firstvideo = _rrze_get_firstvideo();
 		$fallbackimg = '<img src="'._rrze_theme_options('teaser-image-default').'" alt="">';
                 $fallbacksrc = _rrze_theme_options('teaser-image-default');
-                _rrze_debug_log('$show_teaser_image ' . $show_teaser_image);
-                _rrze_debug_log('$firstpic '.$firstpic);
-                _rrze_debug_log('$firstvideo '.$firstvideo);
-                _rrze_debug_log('$fallbackimg '.$fallbackimg);
                 
 		$output = '';
 
@@ -837,11 +839,6 @@ function is_blogs_fau_de() {
 		} else {
 		    $output = '';
 		}
-                _rrze_debug_log(isset($fallbackimg));
-                _rrze_debug_log(strlen(trim($fallbackimg))>10);
-                _rrze_debug_log($fallbacksrc);
-                _rrze_debug_log(is_readable($fallbacksrc));
-                _rrze_debug_log('$output '.$output);
 		echo $output;
 	}
 
