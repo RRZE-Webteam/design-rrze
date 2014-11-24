@@ -80,7 +80,7 @@ add_action( 'admin_init', function() {
 
     add_settings_field( 'teaser.image', __( 'Bild im Textauszug', RRZE_Theme::textdomain ), '_rrze_field_teaserimage_callback', 'overview.options', 'overview.section' );
     
-    add_settings_field( 'default.teaserimage', __('Platzhalter für Vorschau', RRZE_Theme::textdomain ), '_rrze_field_default_teaserimage_callback', 'overview.options', 'overview.section' );
+    add_settings_field( 'teaser.image.default', __('Platzhalter für Vorschau', RRZE_Theme::textdomain ), '_rrze_field_teaserimage_default_callback', 'overview.options', 'overview.section' );
     
 } );
 
@@ -364,13 +364,21 @@ function _rrze_teaserimage_options() {
     return apply_filters('_rrze_teaserimage_options', $options);
 }
 
-function _rrze_default_teaserimage() {
-    $options = array( 
-                  'title'   => __( 'Fallback Thumbnail', RRZE_Theme::textdomain ),
-                  'default' => get_template_directory_uri() .'/images/default-teaserimage.jpg',
-                  'label'   => __( 'Defines an image as default thumbnail for entries on index pages.', RRZE_Theme::textdomain ),
+function _rrze_teaserimage_default_options() {
+    $options = array(
+        true => array(
+            'value' => 1,
+            'label' => __( 'Platzhalter anzeigen', RRZE_Theme::textdomain )
+        ),
+        
+        false => array(
+            'value' => 0,
+            'label' => __( 'kein Bild anzeigen', RRZE_Theme::textdomain )
+        )
+        
     );
-    return apply_filters('_rrze_default_teaserimage', $options);	       
+
+    return apply_filters( '_rrze_teaserimage_default_options', $options );	       
 }
 
 function _rrze_section_layout_callback() {
@@ -665,33 +673,27 @@ function _rrze_field_teaserimage_callback() {
 	<?php
 }
 
-function _rrze_field_default_teaserimage_callback() {
-        $options = RRZE_Theme::$theme_options;		
-        $name = 'teaser-image-default';
-
-				    echo '<div class="uploader">';
-				    echo '<div class="previewimage showimg">';	   
-				     if ((isset($options[$name])) && esc_url( $options[$name])) { 
-					  echo '<img src="'.esc_url( $options[$name]).'" class="image_show_'.$name.'"/>';				   	
-				    } else {
-					   _e('No Image selected', RRZE_Theme::textdomain);
-				     }				   
-				    ?>		
-				    </div>
-				    <input type="hidden" name="_rrze_theme_options[<?php echo $name; ?>_id]" id="image_<?php echo $name; ?>_id" 
-					     value="<?php if ( isset( $options[$name."_id"] ) ) echo sanitize_key( $options[$name."_id"] ) ; ?>" />
-				    
-				    <input type="text" name="_rrze_theme_options[<?php echo $name; ?>]" id="upload_image" value="<?php if ( isset( $options[$name] ) ) echo esc_attr( $options[$name] ) ; ?>" />
-				    <input class="button" name="image_button_<?php echo $name; ?>" id="upload_image_button" value="<?php _e('Bild hochladen', RRZE_Theme::textdomain); ?>" />
-				    <small><a href="#" class="image_remove"><?php _e( 'Remove image', RRZE_Theme::textdomain );?></a></small>
-				    <?php if (isset($value['default']) && (filter_var($value['default'], FILTER_VALIDATE_URL))) { ?>
-					<small><a href="#" class="image_reset"><?php _e( 'Reset to default', RRZE_Theme::textdomain );?></a></small>
-				    <?php } ?>
-    				    
-				  
-				    </div>
-			
-                                    <?php printf ('<span class="description">%s</span>', __('Defines an image as default thumbnail for entries on index pages.', RRZE_Theme::textdomain)); 
+function _rrze_field_teaserimage_default_callback() {
+ 	$options = RRZE_Theme::$theme_options;
+        $name = 'default-teaserimage';
+        if ((isset($options[$name])) && esc_url( $options[$name])) { 
+            echo '<div class="previewimage showimg">';
+		echo '<img src="'.esc_url( $options[$name]).'"/>';
+                printf ('<span class="description">%s</span>', __('Platzhalter-Bild für Vorschau', RRZE_Theme::textdomain));
+                echo '</div>';
+	} else {
+		_e('Es ist kein Platzhalter-Bild vorhanden.', RRZE_Theme::textdomain);
+	}				   
+	foreach (_rrze_teaserimage_default_options() as $button ):
+	?>
+	<div class="layout">
+		<label class="description">
+			<input type="radio" name="_rrze_theme_options[teaser.image.default]" value="<?php echo esc_attr( $button['value'] ); ?>" <?php checked( $options['teaser.image.default'], $button['value'] ); ?> />
+			<?php echo $button['label']; ?>
+		</label>
+	</div>
+	<?php
+	endforeach;   
 }
 
 function _rrze_theme_options_menu_page() {
@@ -793,6 +795,9 @@ function _rrze_theme_options_validate( $input ) {
         
 	if ( isset( $input['teaser.image'] ) && array_key_exists( $input['teaser.image'], _rrze_teaserimage_options() ) )
 		$options['teaser.image'] = $input['teaser.image'];
+        
+        if ( isset( $input['teaser.image.default'] ) && array_key_exists( $input['teaser.image.default'], _rrze_teaserimage_default_options() ) )
+		$options['teaser.image.default'] = $input['teaser.image.default'];
         
     return apply_filters( '_rrze_theme_options_validate', $options, $input );
 }

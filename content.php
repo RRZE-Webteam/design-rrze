@@ -25,9 +25,9 @@
                 if (!post_password_required() && !is_attachment() ) :
                     ?> 
                     <div class="entry-thumbnail">
-                        <a href="<?php the_permalink(); ?>" title="<?php printf(esc_attr__('Permalink zu %s', RRZE_Theme::textdomain), the_title_attribute('echo=0')); ?>">
+                        <a href="<?php the_permalink(); ?>" title="<?php printf(esc_attr__('Permalink zu %s', RRZE_Theme::textdomain), the_title_attribute('echo=0')); ?>">                        
+                       <?php _rrze_get_thumbnailcode(); ?> 
                         </a> 
-                       <?php _rrze_get_thumbnailcode(); ?> <!-- class alignleft rrze-margin -->
                     </div>
                 <?php endif;
                 the_excerpt();

@@ -161,7 +161,8 @@ class RRZE_Theme {
                 * 3 = First video (or: thumbnail, first picture, fallback picture),
                 * 4 = First video (or: first picture, thumbnail, fallback picture),
                 * 5 = Nothing */  
-            'teaser-image-default' => get_template_directory_uri() .'/images/default-teaserimage.png',
+            'teaser.image.default' => true,
+            'default-teaserimage' => get_template_directory_uri() .'/images/default-teaserimage.png',
         );       
         
         return apply_filters( '_rrze_default_theme_options', $options );
@@ -762,8 +763,14 @@ function is_blogs_fau_de() {
 		$show_teaser_image = _rrze_theme_options('teaser.image');
                 $firstpic = _rrze_get_firstpicture();
 		$firstvideo = _rrze_get_firstvideo();
-		$fallbackimg = '<img src="'._rrze_theme_options('teaser-image-default').'" alt="">';
-                $fallbacksrc = _rrze_theme_options('teaser-image-default');
+                if (_rrze_theme_options('teaser.image.default')==true) {
+                    $fallbackimg = '<img src="'._rrze_theme_options('default-teaserimage').'" alt="">';
+                    $fallbacksrc = _rrze_theme_options('default-teaserimage');              
+                } else {
+                    $fallbackimg = '';
+                }
+                        
+
                 
 		$output = '';
 
@@ -789,7 +796,7 @@ function is_blogs_fau_de() {
 				$output = $firstpic;
 		    }  elseif ((isset($firstvideo)) && (strlen(trim($firstvideo))>10)) {
 				$output = $firstvideo;
-                    } elseif (isset($fallbackimg) && strlen(trim($fallbackimg))>10 && file_exists($fallbackimg)) {
+                    } elseif (isset($fallbackimg) && strlen(trim($fallbackimg))>10) {
 				$output = $fallbackimg;
                     } else {
 				$output = '';
@@ -803,7 +810,7 @@ function is_blogs_fau_de() {
 				$output = $thumbnailcode;
 		    }  elseif ((isset($firstvideo)) && (strlen(trim($firstvideo))>10)) {
 				$output = $firstvideo;
-		    } elseif (isset($fallbackimg) && strlen(trim($fallbackimg))>10 && file_exists($fallbackimg)) {
+		    } elseif (isset($fallbackimg) && strlen(trim($fallbackimg))>10) {
 				$output = $fallbackimg;
                     } else {
 				$output = '';
@@ -816,7 +823,7 @@ function is_blogs_fau_de() {
 				$output = $thumbnailcode;
 		    } elseif ((isset($firstpic)) && (strlen(trim($firstpic))>10)) {
 				$output = $firstpic;
-		    } elseif (isset($fallbackimg) && strlen(trim($fallbackimg))>10 && file_exists($fallbackimg)) {
+		    } elseif (isset($fallbackimg) && strlen(trim($fallbackimg))>10) {
 				$output = $fallbackimg;
                     } else {
 				$output = '';
@@ -838,7 +845,7 @@ function is_blogs_fau_de() {
 
 		} else {
 		    $output = '';
-		}
+		}   
 		echo $output;
 	}
 
